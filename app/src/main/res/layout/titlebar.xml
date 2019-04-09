@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/titlebar"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/titlebar_height"
+    android:background="@color/colorPrimary">
+
+    <TextView
+        android:id="@+id/titlebar_text_exittip"
+        style="@style/titlebar_text"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:text="@string/personal_setting" />
+
+
+    <ImageView
+        android:id="@+id/titlebar_img_tool"
+        style="@style/titlebar_img"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="4dp"
+        android:clickable="true"
+        android:layout_height="@dimen/icon_height"
+        android:layout_width="@dimen/icon_width"
+        android:contentDescription="@null"
+        android:focusable="false"
+        android:src="@drawable/tool" />
+
+    <ImageView
+        android:id="@+id/titlebar_img_search"
+        style="@style/titlebar_img"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="4dp"
+        android:clickable="true"
+        android:layout_height="@dimen/icon_height"
+        android:layout_width="@dimen/icon_width"
+        android:contentDescription="@null"
+        android:focusable="false"
+        android:src="@drawable/search" />
+
+</RelativeLayout>

@@ -1,0 +1,88 @@
+<org.kymjs.kjframe.widget.KJSlidingMenu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_group"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:scrollbars="none" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/main_menu"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/gray"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/homepage_translate"
+                style="@style/mine_item_style">
+                <ImageView
+                    style="@style/titlebar_img"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="4dp"
+                    android:contentDescription="@null"
+                    android:layout_height="@dimen/icon_height"
+                    android:layout_width="@dimen/icon_width"
+                    android:focusable="false"
+                    android:src="@drawable/translate" />
+                <TextView
+                    style="@style/personal_item_text_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/toolbar_translate"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/homepage_newwords"
+                style="@style/mine_item_style">
+                <ImageView
+                    style="@style/titlebar_img"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="4dp"
+                    android:contentDescription="@null"
+                    android:layout_height="@dimen/icon_height"
+                    android:layout_width="@dimen/icon_width"
+                    android:focusable="false"
+                    android:src="@drawable/newwords" />
+                <TextView
+                    style="@style/personal_item_text_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/toolbar_mynewwords"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/homepage_dictionary"
+                style="@style/mine_item_style">
+                <ImageView
+                    style="@style/titlebar_img"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="4dp"
+                    android:contentDescription="@null"
+                    android:layout_height="@dimen/icon_height"
+                    android:layout_width="@dimen/icon_width"
+                    android:focusable="false"
+                    android:src="@drawable/dictionary" />
+                <TextView
+                    style="@style/personal_item_text_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/toolbar_dictionary"
+                    />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <include
+            android:id="@+id/main_content"
+            layout="@layout/left_menu" />
+
+    </LinearLayout>
+
+</org.kymjs.kjframe.widget.KJSlidingMenu>

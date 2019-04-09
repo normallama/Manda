@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">  <!--不加vertical就会覆盖 -->
+
+
+
+        <include
+            layout="@layout/mine"  />
+        <RelativeLayout
+            android:id="@+id/personal_rl_favor"
+            style="@style/mine_item_style">
+            <ImageView
+                style="@style/titlebar_img"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="4dp"
+                android:contentDescription="@null"
+                android:layout_height="@dimen/icon_height"
+                android:layout_width="@dimen/icon_width"
+                android:focusable="false"
+                android:src="@drawable/favorite" />
+            <TextView
+                style="@style/personal_item_text_style"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/personal_favor"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/personal_rl_course"
+            style="@style/mine_item_style">
+            <ImageView
+                style="@style/titlebar_img"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="4dp"
+                android:contentDescription="@null"
+                android:layout_height="@dimen/icon_height"
+                android:layout_width="@dimen/icon_width"
+                android:focusable="false"
+                android:src="@drawable/buy" />
+            <TextView
+                style="@style/personal_item_text_style"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/personal_course"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/personal_rl_question"
+            style="@style/mine_item_style">
+            <ImageView
+                style="@style/titlebar_img"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="4dp"
+                android:contentDescription="@null"
+                android:layout_height="@dimen/icon_height"
+                android:layout_width="@dimen/icon_width"
+                android:focusable="false"
+                android:src="@drawable/help" />
+            <TextView
+                style="@style/personal_item_text_style"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/personal_question"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/personal_rl_feedback"
+            style="@style/mine_item_style">
+            <ImageView
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="4dp"
+                android:contentDescription="@null"
+                android:layout_height="@dimen/icon_height"
+                android:layout_width="@dimen/icon_width"
+                android:focusable="false"
+                android:src="@drawable/feedback" />
+            <TextView
+                android:id="@+id/personal_tv_feedback"
+                style="@style/personal_item_text_style"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/personal_feedback"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/personal_rl_setting"
+            style="@style/mine_item_style">
+            <ImageView
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="4dp"
+                android:contentDescription="@null"
+                android:layout_height="@dimen/icon_height"
+                android:layout_width="@dimen/icon_width"
+                android:focusable="false"
+                android:src="@drawable/setting" />
+            <TextView
+                style="@style/personal_item_text_style"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/personal_setting"
+                />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

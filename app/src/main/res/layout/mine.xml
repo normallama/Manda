@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/back_titlebar"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:background="@color/colorPrimary">
+
+    <org.kymjs.kjframe.widget.RoundImageView
+        android:id="@+id/find_img_head"
+        android:layout_width="@dimen/space_65"
+        android:layout_height="@dimen/space_65"
+        android:layout_below="@+id/find_tv_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-23dp"
+        android:contentDescription="@string/app_name"
+        android:scaleType="fitXY"
+        android:src="@drawable/accounter" />
+
+    <TextView
+        android:id="@+id/find_tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="22sp" />
+
+
+</RelativeLayout>

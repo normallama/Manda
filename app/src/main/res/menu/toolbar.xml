@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/feedback"
+        android:title="@string/homepage_search"
+        app:showAsAction="always"   />  <!--always是永远显示在标题栏，不够就不显示，ifroom是不够就显示在菜单栏，never是只显示在菜单栏-->
+
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_gravity="start" android:clickable="true">
+    </FrameLayout>
+</menu>
+
