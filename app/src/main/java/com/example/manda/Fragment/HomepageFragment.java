@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.manda.R;
+import com.example.manda.Translation;
 import com.example.manda.feedback;
 
 import org.kymjs.kjframe.ui.BindView;
@@ -20,6 +21,14 @@ public class HomepageFragment extends KJFragment {
     private ImageView tools;
     @BindView(id=R.id.titlebar_img_search, click = true)
     private  ImageView search;
+    @BindView(id=R.id.homepage_translate, click = true)
+    private  ImageView translate;
+    @BindView(id=R.id.homepage_newwords, click = true)
+    private  ImageView newwords;
+    @BindView(id=R.id.homepage_dictionary, click = true)
+    private  ImageView dicitionary;
+    @BindView(id=R.id.homepage_practice, click = true)
+    private  ImageView practice;
 
     private int count=1;  //辅助判断侧滑框
 
@@ -55,6 +64,22 @@ public class HomepageFragment extends KJFragment {
                 }
                 break;
             case R.id.titlebar_img_search:
+                Intent intent1=new Intent(getActivity(),feedback.class);
+                startActivity(intent1);
+                break;
+            case R.id.homepage_translate:
+                Intent intent2=new Intent(getActivity(),Translation.class);
+                startActivity(intent2);
+                break;
+            case R.id.homepage_newwords:
+                Intent intent3=new Intent(getActivity(),feedback.class);
+                startActivity(intent3);
+                break;
+            case R.id.homepage_dictionary:
+                Intent intent4=new Intent(getActivity(),feedback.class);
+                startActivity(intent4);
+                break;
+            case R.id.homepage_practice:
                 Intent intent5=new Intent(getActivity(),feedback.class);
                 startActivity(intent5);
                 break;

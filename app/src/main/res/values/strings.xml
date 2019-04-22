@@ -12,6 +12,7 @@
     <string name="toolbar_translate">中英互译</string>
     <string name="toolbar_dictionary">字典</string>
     <string name="toolbar_mynewwords">生词本</string>
+    <string name="toolbar_practice">口语测评</string>
     <string name="account">账号</string>
     <string name="password">密码</string>
     <string name="hint_accounter">请输入您的用户名</string>
@@ -34,4 +35,6 @@
     <string name="login_success">登录成功</string>
     <string name="login_fail">密码错误</string>
     <string name="user_cancel">退出</string>
+    <string name="translation">请输入内容</string>
+    <string name="translate">翻译</string>
 </resources>

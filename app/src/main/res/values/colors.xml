@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#ff4444</color>    <!--原本的#008577-->
+    <color name="colorPrimary">#db3e35</color>    <!--原本的#008577-->
     <color name="colorPrimaryDark">#D81B60</color>
     <color name="colorAccent">#00574B</color>
     <color name="white">#ffff</color>
     <color name="black">#000</color>
     <color name="gray">#696969</color>
+    <color name="background">#FFFFFB</color>
     <color name="softgray">#A9A9A9</color>
 </resources>

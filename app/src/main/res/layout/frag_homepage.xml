@@ -14,7 +14,7 @@
             android:id="@+id/main_menu"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
-            android:background="@color/gray"
+            android:background="@color/softgray"
             android:orientation="vertical">
 
             <RelativeLayout
@@ -74,6 +74,26 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/toolbar_dictionary"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/homepage_practice"
+                style="@style/mine_item_style">
+                <ImageView
+                    style="@style/titlebar_img"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="4dp"
+                    android:contentDescription="@null"
+                    android:layout_height="@dimen/icon_height"
+                    android:layout_width="@dimen/icon_width"
+                    android:focusable="false"
+                    android:src="@drawable/verbal" />
+                <TextView
+                    style="@style/personal_item_text_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/toolbar_practice"
                     />
             </RelativeLayout>
 
