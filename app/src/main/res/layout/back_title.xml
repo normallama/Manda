@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/back_titlebar"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/titlebar_height"
+    android:layout_height="@dimen/title_height"
     android:background="@color/colorPrimary">
 
 
@@ -10,9 +10,9 @@
         android:id="@+id/titlebar_back"
         style="@style/titlebar_img"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="4dp"
+        android:layout_marginLeft="10px"
         android:clickable="true"
-        android:layout_height="@dimen/icon_height"
+        android:layout_height="@dimen/icon_width"
         android:layout_width="@dimen/icon_width"
         android:contentDescription="@null"
         android:focusable="false"

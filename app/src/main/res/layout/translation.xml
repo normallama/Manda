@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <include
@@ -15,6 +14,7 @@
         android:layout_height="match_parent"
         android:gravity="center|top"
         android:weightSum="1">
+
         <EditText
             android:id="@+id/to_translate"
             style="?android:attr/textViewStyle"
@@ -22,12 +22,12 @@
             android:layout_height="150dp"
             android:layout_marginTop="100dp"
             android:layout_weight="0.9"
-            android:hint="@string/translation"
-            android:maxLines="5"
+            android:background="@drawable/note_bg"
             android:gravity="top"
-            android:textSize="@dimen/space_16"
+            android:hint="@string/translation"
             android:inputType="text"
-            android:background="@drawable/note_bg" />
+            android:maxLines="5"
+            android:textSize="10px" />
     </LinearLayout>
 
     <LinearLayout
@@ -39,9 +39,9 @@
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:layout_marginTop="255dp"
-            android:textSize="@dimen/size_16"
+            android:textSize="10px"
             android:text="@string/translate"
-            android:layout_marginRight="@dimen/space_19"
+            android:layout_marginRight="10px"
             android:background="@drawable/button_bg"/>
     </LinearLayout>
 

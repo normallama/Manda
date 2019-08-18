@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.manda.R;
 import com.example.manda.Translation;
@@ -17,20 +19,17 @@ import org.kymjs.kjframe.ui.KJFragment;
 import org.kymjs.kjframe.widget.KJSlidingMenu;
 
 public class HomepageFragment extends KJFragment {
-    @BindView(id=R.id.titlebar_img_tool , click = true)
-    private ImageView tools;
-    @BindView(id=R.id.titlebar_img_search, click = true)
-    private  ImageView search;
-    @BindView(id=R.id.homepage_translate, click = true)
-    private  ImageView translate;
-    @BindView(id=R.id.homepage_newwords, click = true)
-    private  ImageView newwords;
-    @BindView(id=R.id.homepage_dictionary, click = true)
-    private  ImageView dicitionary;
-    @BindView(id=R.id.homepage_practice, click = true)
-    private  ImageView practice;
+    @BindView(id=R.id.homepage_choice_left,click = true)
+    private TextView exercise;
+    @BindView(id=R.id.homepage_choice_right,click = true)
+    private TextView mynewwords;
+    @BindView(id=R.id.search_word,click = true)
+    private EditText searchword;
+    @BindView(id=R.id.search,click = true)
+    private ImageView search;
 
-    private int count=1;  //辅助判断侧滑框
+    private MyNewWordFragment newword;
+
 
     @Override
     protected View inflaterView(LayoutInflater inflater, ViewGroup container,
@@ -38,8 +37,6 @@ public class HomepageFragment extends KJFragment {
         View view = View.inflate(getActivity(), R.layout.frag_homepage, null);
         return view;
     }
-    @BindView(id = R.id.main_group)
-    private KJSlidingMenu slidingMenu;
 
     @Override
     protected void initData(){
@@ -54,34 +51,11 @@ public class HomepageFragment extends KJFragment {
     public void widgetClick(View v){
         super.widgetClick(v);
         switch(v.getId()){
-            case R.id.titlebar_img_tool:
-                count=-count;
-                if(count==-1) {
-                    slidingMenu.openMenu();
-                }
-                else {
-                    slidingMenu.closeMenu();
-                }
+            case R.id.homepage_choice_left:
                 break;
-            case R.id.titlebar_img_search:
-                Intent intent1=new Intent(getActivity(),feedback.class);
-                startActivity(intent1);
+            case R.id.homepage_choice_right:
                 break;
-            case R.id.homepage_translate:
-                Intent intent2=new Intent(getActivity(),Translation.class);
-                startActivity(intent2);
-                break;
-            case R.id.homepage_newwords:
-                Intent intent3=new Intent(getActivity(),feedback.class);
-                startActivity(intent3);
-                break;
-            case R.id.homepage_dictionary:
-                Intent intent4=new Intent(getActivity(),feedback.class);
-                startActivity(intent4);
-                break;
-            case R.id.homepage_practice:
-                Intent intent5=new Intent(getActivity(),feedback.class);
-                startActivity(intent5);
+            case R.id.search:
                 break;
             default:
                 break;

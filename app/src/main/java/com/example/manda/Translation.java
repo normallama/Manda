@@ -44,7 +44,7 @@ public class Translation extends KJActivity {
         switch (v.getId()) {
             case R.id.button_tranlate:
                 break;
-            case R.id.translate_bar_back:                     //取消按钮的监听事件,由注册界面返回登录界面
+            case R.id.translate_bar_back:                     //取消按钮的监听事件，返回上个界面
                 finish();
                 break;
         }

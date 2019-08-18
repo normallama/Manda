@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/autoLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">  <!--不加vertical就会覆盖 -->
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/homepage_search"
+        style="@style/homepage_item_style"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            style="@style/titlebar_text_center"
+            android:layout_width="@dimen/homepage_title_width"
+            android:layout_height="match_parent"
+            android:text="@string/app_name" />
+
+        <EditText
+            android:id="@+id/search_word"
+            style="@style/titlebar_text_left"
+            android:layout_width="match_parent"
+            android:layout_height="80px"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/homepage_title_width"
+            android:background="@color/white"
+            android:hint="@string/homepage_search" />
+
+        <ImageView
+            android:id="@+id/search_button"
+            style="@style/titlebar_img"
+            android:layout_width="@dimen/icon_width"
+            android:layout_height="@dimen/icon_height"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="4dp"
+            android:background="@color/white"
+            android:contentDescription="@null"
+            android:focusable="false"
+            android:src="@drawable/search" />
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/homepage_choice"
+        style="@style/homepage_choice_style"
+        android:background="@color/colorPrimaryLight">
+
+        <TextView
+            android:id="@+id/homepage_choice_left"
+            style="@style/titlebar_text_center"
+            android:layout_width="@dimen/half"
+            android:layout_height="match_parent"
+            android:text="@string/toolbar_practice" />
+
+        <TextView
+            android:id="@+id/homepage_choice_right"
+            style="@style/titlebar_text_center"
+            android:layout_width="@dimen/half"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/half"
+            android:text="@string/toolbar_mynewwords" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

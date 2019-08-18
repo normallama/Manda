@@ -1,38 +1,27 @@
 <resources>
 
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!-- word -->
+    <dimen name="homepage_title_width">170px</dimen>
+    <dimen name="small_title_word">35px</dimen>
+    <dimen name="big_word">50px</dimen>
+    <dimen name="personal_big_word">45px</dimen>
+    <dimen name="mine_name">40px</dimen>
 
-    <dimen name="space_19">19dp</dimen>
-    <dimen name="space_35">35dp</dimen>
-    <dimen name="space_65">65dp</dimen>
-    <dimen name="space_16">16sp</dimen>
-    <dimen name="space_180">180dp</dimen>
-
-
-    <dimen name="size_16">12sp</dimen>
-    <dimen name="size_6">6sp</dimen>
-    <dimen name="size_1">1sp</dimen>
-
-
-
-    <!-- Splash -->
-    <dimen name="splash_head_width">65.0dp</dimen>
-    <dimen name="splash_head_height">65.0dp</dimen>
-    <dimen name="splash_btn_go_height">40dp</dimen>
-
-    <!-- Main -->
-    <dimen name="title_topmargin">60dp</dimen>
-    <dimen name="zero">0dp</dimen>
-    <dimen name="titlebar_height">60dp</dimen>
-    <dimen name="bottombar_height">60dp</dimen>
-
-    <!-- About -->
-    <dimen name="tv_size_big_large">18.0sp</dimen>
-    <dimen name="tv_size_large">16.0sp</dimen>
+    <!-- distance-->
+    <dimen name="half">384px</dimen>
+    <dimen name="sever_eight">672px</dimen>
+    <dimen name="titlebar_height">90px</dimen>
+    <dimen name="small_title">60px</dimen>
+    <dimen name="card_height">300px</dimen>
+    <dimen name="button_width">80px</dimen>
+    <dimen name="personal_height">200px</dimen>
+    <dimen name="half_personal_height">100px</dimen>
+    <dimen name="personal_text_height">70px</dimen>
+    <dimen name="title_height">140px</dimen>
 
     <!-- Title-->
-    <dimen name="icon_height">40dp</dimen>
-    <dimen name="icon_width">60dp</dimen>
+    <dimen name="icon_height">60px</dimen>
+    <dimen name="icon_width">80px</dimen>
+    <dimen name="personal_icon_height">80px</dimen>
+    <dimen name="personal_icon_width">80px</dimen>
 </resources>

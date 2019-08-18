@@ -1,14 +1,20 @@
 package com.example.manda;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.example.manda.Fragment.HomepageFragment;
+import com.example.manda.Fragment.MyNewWordFragment;
 import com.example.manda.Fragment.MycourseFragment;
 import com.example.manda.Fragment.PersonalFragment;
 
@@ -26,14 +32,34 @@ public class Manda extends KJActivity {
     @BindView(id = R.id.navigation_notifications, click = true)
     private RadioButton mRbtn3;
 
+
     @Override
     public void setRootView() {
+        try {
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+                Window window = Manda.this.getWindow();
+
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+
+                window.setStatusBarColor(Manda.this.getResources().getColor(R.color.colorPrimary));
+
+
+            }
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
         setContentView(R.layout.activity_manda);
     }
 
     private HomepageFragment home;
     private MycourseFragment course;
     private PersonalFragment personal;
+
 
 
     @Override

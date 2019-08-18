@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/back_titlebar"
+<com.zhy.autolayout.AutoRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mine_titlebar"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="300px"
     android:background="@color/colorPrimary">
 
     <org.kymjs.kjframe.widget.RoundImageView
-        android:id="@+id/find_img_head"
-        android:layout_width="@dimen/space_65"
-        android:layout_height="@dimen/space_65"
-        android:layout_below="@+id/find_tv_name"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="-23dp"
+        android:id="@+id/mine_image"
+        android:layout_width="165px"
+        android:layout_height="165px"
+        android:layout_marginLeft="@dimen/button_width"
+        android:layout_centerVertical="true"
         android:contentDescription="@string/app_name"
-        android:scaleType="fitXY"
         android:src="@drawable/accounter" />
 
     <TextView
-        android:id="@+id/find_tv_name"
+        android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="300px"
+        android:paddingBottom="5px"
         android:gravity="center"
+        android:text="昵称"
         android:textColor="@android:color/white"
-        android:textSize="22sp" />
+        android:textSize="@dimen/mine_name" />
 
 
-</RelativeLayout>
+</com.zhy.autolayout.AutoRelativeLayout>

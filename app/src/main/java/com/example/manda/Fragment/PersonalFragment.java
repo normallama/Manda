@@ -14,6 +14,7 @@ import com.example.manda.User;
 import com.example.manda.accounter;
 import com.example.manda.feedback;
 import com.example.manda.register;
+import com.zhy.autolayout.AutoRelativeLayout;
 
 import org.kymjs.kjframe.ui.BindView;
 import org.kymjs.kjframe.ui.KJFragment;
@@ -21,17 +22,17 @@ import org.kymjs.kjframe.widget.RoundImageView;
 
 public class PersonalFragment extends KJFragment {
     @BindView(id=R.id.personal_rl_favor, click = true)
-    private RelativeLayout p_favor;
+    private AutoRelativeLayout p_favor;
     @BindView(id=R.id.personal_rl_course, click = true)
-    private RelativeLayout p_course;
-    @BindView(id=R.id.personal_rl_feedback, click = true)
-    private RelativeLayout p_feedback;
+    private AutoRelativeLayout p_course;
     @BindView(id=R.id.personal_rl_question, click = true)
-    private RelativeLayout p_question;
+    private AutoRelativeLayout p_question;
     @BindView(id=R.id.personal_rl_setting, click = true)
-    private RelativeLayout p_setting;
-    @BindView(id = R.id.find_img_head, click = true)
-    private RoundImageView mImgHead;
+    private AutoRelativeLayout p_setting;
+    @BindView(id=R.id.personal_rl_wallet,click = true)
+    private AutoRelativeLayout p_wallet;
+    @BindView(id=R.id.personal_rl_invite,click = true)
+    private AutoRelativeLayout p_invite;
 
 
 
@@ -56,27 +57,27 @@ public class PersonalFragment extends KJFragment {
         super.widgetClick(v);
         switch(v.getId()){
             case R.id.personal_rl_favor:
-                Intent intent5=new Intent(getActivity(),feedback.class);
-                startActivity(intent5);
+                Intent intent1=new Intent(getActivity(),feedback.class);
+                startActivity(intent1);
                 break;
-            case R.id.personal_rl_course:
-                Intent intent=new Intent(getActivity(),feedback.class);
-                startActivity(intent);
-                break;
-            case R.id.personal_rl_feedback:
+            case R.id.personal_rl_wallet:
                 Intent intent2=new Intent(getActivity(),feedback.class);
                 startActivity(intent2);
                 break;
-            case R.id.personal_rl_question:
+            case R.id.personal_rl_course:
                 Intent intent3=new Intent(getActivity(),feedback.class);
                 startActivity(intent3);
                 break;
-            case R.id.personal_rl_setting:
+            case R.id.personal_rl_invite:
                 Intent intent4=new Intent(getActivity(),feedback.class);
                 startActivity(intent4);
                 break;
-            case R.id.find_img_head:
-                Intent intent6=new Intent(getActivity(),accounter.class);
+            case R.id.personal_rl_question:
+                Intent intent5=new Intent(getActivity(),feedback.class);
+                startActivity(intent5);
+                break;
+            case R.id.personal_rl_setting:
+                Intent intent6=new Intent(getActivity(),feedback.class);
                 startActivity(intent6);
                 break;
             default:

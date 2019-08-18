@@ -2,114 +2,239 @@
     <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">  <!--不加vertical就会覆盖 -->
 
 
 
         <include
             layout="@layout/mine"  />
-        <RelativeLayout
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/personal_height">
+            <TextView
+                android:layout_width="@dimen/half"
+                android:layout_height="@dimen/half_personal_height"
+                android:text="@string/learned_time"
+                android:gravity="center"/>
+            <TextView
+                android:layout_width="@dimen/half"
+                android:layout_height="@dimen/half_personal_height"
+                android:layout_marginTop="@dimen/half_personal_height"
+                android:text="100分钟"
+                android:textColor="@color/black"
+                android:textSize="@dimen/personal_big_word"
+                android:gravity="center|top"/>
+            <TextView
+                android:layout_width="@dimen/half"
+                android:layout_height="@dimen/half_personal_height"
+                android:layout_marginLeft="@dimen/half"
+                android:text="@string/learned_courses"
+                android:gravity="center"/>
+            <TextView
+                android:layout_width="@dimen/half"
+                android:layout_height="@dimen/half_personal_height"
+                android:layout_marginLeft="@dimen/half"
+                android:layout_marginTop="@dimen/half_personal_height"
+                android:text="3"
+                android:textColor="@color/black"
+                android:textSize="@dimen/personal_big_word"
+                android:gravity="center|top"/>
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+
+
+        <com.zhy.autolayout.AutoRelativeLayout
             android:id="@+id/personal_rl_favor"
             style="@style/mine_item_style">
             <ImageView
                 style="@style/titlebar_img"
                 android:layout_alignParentLeft="true"
-                android:layout_marginLeft="4dp"
+                android:layout_marginLeft="4px"
                 android:contentDescription="@null"
-                android:layout_height="@dimen/icon_height"
+                android:layout_height="@dimen/personal_icon_height"
                 android:layout_width="@dimen/icon_width"
                 android:focusable="false"
                 android:src="@drawable/favorite" />
             <TextView
                 style="@style/personal_item_text_style"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="@dimen/personal_text_height"
                 android:text="@string/personal_favor"
                 />
-        </RelativeLayout>
+            <TextView
+                style="@style/personal_item_intre_style"
+                android:layout_marginTop="@dimen/personal_text_height"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/personal_text_height"
+                android:text="@string/personal_setting_intre"
+                />
+        </com.zhy.autolayout.AutoRelativeLayout>
 
-        <RelativeLayout
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:id="@+id/personal_rl_wallet"
+            style="@style/mine_item_style">
+            <ImageView
+                style="@style/titlebar_img"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="4px"
+                android:contentDescription="@null"
+                android:layout_height="@dimen/personal_icon_height"
+                android:layout_width="@dimen/icon_width"
+                android:focusable="false"
+                android:src="@drawable/wallet" />
+            <TextView
+                style="@style/personal_item_text_style"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/personal_text_height"
+                android:text="@string/personal_wallet"
+                />
+            <TextView
+                style="@style/personal_item_intre_style"
+                android:layout_marginTop="@dimen/personal_text_height"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/personal_text_height"
+                android:text="@string/personal_wallet_intre"
+                />
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <com.zhy.autolayout.AutoRelativeLayout
             android:id="@+id/personal_rl_course"
             style="@style/mine_item_style">
             <ImageView
                 style="@style/titlebar_img"
                 android:layout_alignParentLeft="true"
-                android:layout_marginLeft="4dp"
+                android:layout_marginLeft="4px"
                 android:contentDescription="@null"
-                android:layout_height="@dimen/icon_height"
+                android:layout_height="@dimen/personal_icon_height"
                 android:layout_width="@dimen/icon_width"
                 android:focusable="false"
                 android:src="@drawable/buy" />
             <TextView
                 style="@style/personal_item_text_style"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="@dimen/personal_text_height"
                 android:text="@string/personal_course"
                 />
-        </RelativeLayout>
+            <TextView
+                style="@style/personal_item_intre_style"
+                android:layout_marginTop="@dimen/personal_text_height"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/personal_text_height"
+                android:text="@string/personal_course_intre"
+                />
+        </com.zhy.autolayout.AutoRelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/personal_rl_question"
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:id="@+id/personal_rl_invite"
             style="@style/mine_item_style">
             <ImageView
                 style="@style/titlebar_img"
                 android:layout_alignParentLeft="true"
-                android:layout_marginLeft="4dp"
+                android:layout_marginLeft="4px"
                 android:contentDescription="@null"
-                android:layout_height="@dimen/icon_height"
+                android:layout_height="@dimen/personal_icon_height"
                 android:layout_width="@dimen/icon_width"
                 android:focusable="false"
-                android:src="@drawable/help" />
+                android:src="@drawable/invite" />
             <TextView
                 style="@style/personal_item_text_style"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@string/personal_question"
+                android:layout_height="75px"
+                android:text="@string/personal_invite"
                 />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/personal_rl_feedback"
-            style="@style/mine_item_style">
-            <ImageView
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="4dp"
-                android:contentDescription="@null"
-                android:layout_height="@dimen/icon_height"
-                android:layout_width="@dimen/icon_width"
-                android:focusable="false"
-                android:src="@drawable/feedback" />
             <TextView
-                android:id="@+id/personal_tv_feedback"
-                style="@style/personal_item_text_style"
+                style="@style/personal_item_intre_style"
+                android:layout_marginTop="@dimen/personal_text_height"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@string/personal_feedback"
+                android:layout_height="@dimen/personal_text_height"
+                android:text="@string/personal_invite_intre"
                 />
-        </RelativeLayout>
+        </com.zhy.autolayout.AutoRelativeLayout>
 
-        <RelativeLayout
+        <com.zhy.autolayout.AutoRelativeLayout
             android:id="@+id/personal_rl_setting"
             style="@style/mine_item_style">
             <ImageView
+                style="@style/titlebar_img"
                 android:layout_alignParentLeft="true"
-                android:layout_marginLeft="4dp"
+                android:layout_marginLeft="4px"
                 android:contentDescription="@null"
-                android:layout_height="@dimen/icon_height"
+                android:layout_height="@dimen/personal_icon_height"
                 android:layout_width="@dimen/icon_width"
                 android:focusable="false"
                 android:src="@drawable/setting" />
             <TextView
                 style="@style/personal_item_text_style"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="@dimen/personal_text_height"
                 android:text="@string/personal_setting"
                 />
-        </RelativeLayout>
+            <TextView
+                style="@style/personal_item_intre_style"
+                android:layout_marginTop="@dimen/personal_text_height"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/personal_text_height"
+                android:text="@string/personal_setting_intre"
+                />
+        </com.zhy.autolayout.AutoRelativeLayout>
 
-    </LinearLayout>
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:id="@+id/personal_rl_question"
+            style="@style/mine_item_style">
+            <ImageView
+                style="@style/titlebar_img"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="4px"
+                android:contentDescription="@null"
+                android:layout_height="@dimen/personal_icon_height"
+                android:layout_width="@dimen/icon_width"
+                android:focusable="false"
+                android:src="@drawable/help" />
+            <TextView
+                style="@style/personal_item_text_style"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/personal_text_height"
+                android:text="@string/personal_question"
+                />
+            <TextView
+                style="@style/personal_item_intre_style"
+                android:layout_marginTop="@dimen/personal_text_height"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/personal_text_height"
+                android:text="@string/personal_question_intre"
+                />
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            style="@style/mine_item_style">
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            style="@style/mine_item_style">
+            <TextView
+                android:gravity="center_horizontal|bottom"
+                android:layout_marginTop="@dimen/personal_text_height"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/personal_text_height"
+                android:text="@string/personal_intre"
+                />
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            style="@style/mine_item_style">
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

@@ -11,8 +11,8 @@
         android:id="@+id/main_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/title_topmargin"
-        android:layout_marginTop="@dimen/zero" />
+        android:layout_marginBottom="0px"
+        android:layout_marginTop="0px" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
