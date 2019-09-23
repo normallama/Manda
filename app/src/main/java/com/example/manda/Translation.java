@@ -7,6 +7,8 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.manda.TransApi.TransApi;
+
 import org.kymjs.kjframe.KJActivity;
 import org.kymjs.kjframe.ui.BindView;
 
@@ -22,6 +24,8 @@ public class Translation extends KJActivity {
     @BindView(id=R.id.translate_bar_back , click=true)
     private RadioButton back;
 
+    private static final String APP_ID = "20190731000322884";
+    private static final String SECURITY_KEY = "jupaRv7jQyfljW7HZEs2";
 
     @Override
     public void setRootView() {
@@ -43,6 +47,8 @@ public class Translation extends KJActivity {
         super.widgetClick(v);
         switch (v.getId()) {
             case R.id.button_tranlate:
+                TransApi getTrans = new TransApi(APP_ID, SECURITY_KEY);
+                Tran_text.setText(getTrans.getTransResult(text_to_Tran.toString(), "auto", "en"));
                 break;
             case R.id.translate_bar_back:                     //取消按钮的监听事件，返回上个界面
                 finish();
