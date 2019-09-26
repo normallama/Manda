@@ -12,10 +12,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:paddingBottom="15dp"
-        android:paddingLeft="18dp"
-        android:paddingRight="18dp"
-        android:paddingTop="5dp"
+        android:paddingBottom="15px"
+        android:paddingLeft="35px"
+        android:paddingRight="35px"
+        android:paddingTop="10px"
         android:background="@drawable/transparent">
 
 
@@ -23,43 +23,31 @@
         <EditText
             android:id="@+id/register_et_uid"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="40dp"
+            android:layout_height="80px"
+            android:layout_marginTop="80px"
             android:background="@android:color/transparent"
             android:gravity="center_vertical"
             android:inputType="text"
             android:maxLines="1"
-            android:paddingLeft="75dp"
-            android:textSize="14sp"
+            android:paddingLeft="140px"
+            android:textSize="35px"
             android:hint="@string/account"/>
 
         <ImageView
-            android:layout_width="55dp"
-            android:layout_height="20dp"
+            android:layout_width="100px"
+            android:layout_height="40px"
             android:layout_alignLeft="@+id/register_et_uid"
             android:layout_alignTop="@+id/register_et_uid"
             android:layout_alignBottom="@+id/register_et_uid"
-            android:paddingLeft="25dp"
+            android:paddingLeft="15px"
             android:src="@drawable/account"/>
-
-        <ImageView
-            android:id="@+id/register_img_delete"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignRight="@+id/register_et_uid"
-            android:layout_alignTop="@+id/register_et_uid"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="10dp"
-            android:contentDescription="@null"
-            android:visibility="gone" />
 
 
 
         <EditText
             android:id="@+id/register_et_pwd"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="80px"
             android:layout_alignLeft="@+id/register_et_uid"
             android:layout_alignRight="@+id/register_et_uid"
             android:layout_below="@+id/register_et_uid"
@@ -69,23 +57,23 @@
             android:inputType="textPassword"
             android:maxLength="16"
             android:maxLines="1"
-            android:paddingLeft="65dp"
-            android:textSize="14sp"
+            android:paddingLeft="140px"
+            android:textSize="35px"
             android:hint="@string/hint_password"/>
 
         <ImageView
-            android:layout_width="55dp"
-            android:layout_height="20dp"
+            android:layout_width="100px"
+            android:layout_height="40px"
             android:layout_alignLeft="@+id/register_et_pwd"
             android:layout_alignTop="@+id/register_et_pwd"
             android:layout_alignBottom="@+id/register_et_pwd"
-            android:paddingLeft="25dp"
+            android:paddingLeft="15px"
             android:src="@drawable/password_aga"/>
 
 
         <EditText
             android:id="@+id/register_aga_pwd"
-            android:layout_height="40dp"
+            android:layout_height="80px"
             android:layout_width="match_parent"
             android:layout_alignLeft="@+id/register_et_pwd"
             android:layout_alignRight="@+id/register_et_pwd"
@@ -96,33 +84,33 @@
             android:inputType="textPassword"
             android:maxLength="16"
             android:maxLines="1"
-            android:paddingLeft="65dp"
-            android:textSize="14sp"
+            android:paddingLeft="140px"
+            android:textSize="35px"
             android:hint="@string/hint_password_again"/>
 
         <ImageView
-            android:layout_width="55dp"
-            android:layout_height="20dp"
+            android:layout_width="100px"
+            android:layout_height="40px"
             android:layout_alignLeft="@+id/register_aga_pwd"
             android:layout_alignTop="@+id/register_aga_pwd"
             android:layout_alignBottom="@+id/register_aga_pwd"
-            android:paddingLeft="25dp"
+            android:paddingLeft="15px"
             android:src="@drawable/password"/>
 
         <Button
             android:id="@+id/register_btn_login"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="100px"
             android:layout_alignLeft="@+id/register_aga_pwd"
             android:layout_alignRight="@+id/register_aga_pwd"
             android:layout_below="@+id/register_aga_pwd"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20px"
+            android:layout_marginTop="40px"
             android:background="@color/colorPrimary"
             android:gravity="center"
             android:text="@string/register"
             android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:textSize="35px" />
 
         <CheckBox
             android:id="@+id/check_read"
@@ -131,7 +119,7 @@
             android:layout_below="@+id/register_btn_login"
             android:text="@string/checkmessage"
             android:checked="false"
-            android:textSize="12sp"
+            android:textSize="26px"
             android:textColor="@color/gray"/>
 
     </com.zhy.autolayout.AutoRelativeLayout>

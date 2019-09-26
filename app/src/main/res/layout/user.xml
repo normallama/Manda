@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<com.zhy.autolayout.AutoLinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,26 +10,6 @@
     <include
         layout="@layout/mine" />
 
-    <RelativeLayout
-        android:id="@+id/personal_rl_favor"
-        style="@style/mine_item_style">
-        <ImageView
-            style="@style/titlebar_img"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="4dp"
-            android:contentDescription="@null"
-            android:layout_height="@dimen/icon_height"
-            android:layout_width="@dimen/icon_width"
-            android:focusable="false"
-            android:src="@drawable/favorite" />
-        <TextView
-            style="@style/personal_item_text_style"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/personal_favor"
-            />
-    </RelativeLayout>
-
 
     <TextView
         android:layout_width="wrap_content"
@@ -38,9 +18,9 @@
         android:text="TextView"
         android:id="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="6dp"
-        android:textSize="16dp" />
+        android:layout_marginLeft="280px"
+        android:layout_marginTop="26px"
+        android:textSize="40px" />
 
 
     <Button
@@ -53,8 +33,8 @@
         android:gravity="center"
         android:text="@string/user_cancel"
         android:textColor="@color/white"
-        android:textSize="16sp" />
+        android:textSize="35px" />
 
 
 
-</LinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

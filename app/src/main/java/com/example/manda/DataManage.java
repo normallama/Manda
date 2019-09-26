@@ -8,14 +8,16 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.example.manda.Data.userData;
+
 public class DataManage {             //用户数据管理类
     //一些宏定义和声明
     private static final String TAG = "UserDataManager";
     private static final String DB_NAME = "user_data";
     private static final String TABLE_NAME = "users";
-    public static final String ID = "_id";
-    public static final String USER_NAME = "user_name";
-    public static final String USER_PWD = "user_pwd";
+    private static final String ID = "_id";
+    private static final String USER_NAME = "user_name";
+    private static final String USER_PWD = "user_pwd";
     //    public static final String SILENT = "silent";
 //    public static final String VIBRATE = "vibrate";
     private static final int DB_VERSION = 2;
@@ -86,7 +88,7 @@ public class DataManage {             //用户数据管理类
         //return mSQLiteDatabase.update(TABLE_NAME, values, ID + "=" + id, null) > 0;
     }
     //
-    public Cursor fetchUserData(int id) throws SQLException {
+    private Cursor fetchUserData(int id) throws SQLException {
         Cursor mCursor = mSQLiteDatabase.query(false, TABLE_NAME, null, ID
                 + "=" + id, null, null, null, null, null);
         if (mCursor != null) {

@@ -42,7 +42,7 @@
                 android:layout_width="@dimen/icon_width"
                 android:layout_height="@dimen/icon_height"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="4dp"
+                android:layout_marginRight="4px"
                 android:background="@color/white"
                 android:contentDescription="@null"
                 android:focusable="false"

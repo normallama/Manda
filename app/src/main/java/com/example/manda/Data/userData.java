@@ -1,9 +1,14 @@
-package com.example.manda;
+package com.example.manda.Data;
 
 
-public class userData {
+import org.kymjs.kjframe.database.annotate.Id;
+
+import java.io.Serializable;
+
+public class userData implements Serializable {
     private String userName;                  //用户名
     private String userPwd;                   //用户密码
+    @Id
     private int userId;                       //用户ID号
     public int pwdresetFlag=0;
     //获取用户名

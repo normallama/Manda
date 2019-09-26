@@ -12,19 +12,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:paddingBottom="15dp"
-        android:paddingLeft="18dp"
-        android:paddingRight="18dp"
-        android:paddingTop="5dp"
+        android:paddingBottom="30px"
+        android:paddingLeft="25px"
+        android:paddingRight="25px"
+        android:paddingTop="5px"
         android:background="@drawable/transparent">
 
         <TextView
             android:id="@+id/login_text_uid"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="40dp"
+            android:layout_height="80px"
+            android:layout_marginTop="60px"
             android:gravity="center_vertical"
-            android:paddingLeft="15dp"
+            android:paddingLeft="30px"
             android:text="@string/account" />
 
         <EditText
@@ -39,30 +39,18 @@
             android:gravity="center_vertical"
             android:inputType="text"
             android:maxLines="1"
-            android:paddingLeft="65dp" />
-
-        <ImageView
-            android:id="@+id/login_img_delete"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignRight="@+id/login_text_uid"
-            android:layout_alignTop="@+id/login_text_uid"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="10dp"
-            android:contentDescription="@null"
-            android:visibility="gone" />
+            android:paddingLeft="65px" />
 
         <TextView
             android:id="@+id/login_text_pwd"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="80px"
             android:layout_alignLeft="@+id/login_text_uid"
             android:layout_alignRight="@+id/login_text_uid"
             android:layout_below="@+id/login_text_uid"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="10px"
             android:gravity="center_vertical"
-            android:paddingLeft="15dp"
+            android:paddingLeft="30px"
             android:text="@string/password" />
 
         <EditText
@@ -78,22 +66,22 @@
             android:inputType="textPassword"
             android:maxLength="16"
             android:maxLines="1"
-            android:paddingLeft="65dp" />
+            android:paddingLeft="65px" />
 
         <Button
             android:id="@+id/login_btn_login"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="100px"
             android:layout_alignLeft="@+id/login_text_uid"
             android:layout_alignRight="@+id/login_text_uid"
             android:layout_below="@+id/login_text_pwd"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginBottom="15px"
+            android:layout_marginTop="25px"
             android:background="@color/colorPrimary"
             android:gravity="center"
             android:text="@string/login"
             android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:textSize="35px" />
 
         <CheckBox
             android:id="@+id/login_remember"
@@ -102,35 +90,35 @@
             android:layout_below="@+id/login_btn_login"
             android:text="@string/remember_password"
             android:checked="false"
-            android:textSize="12sp"
+            android:textSize="25px"
             android:textColor="@color/gray"/>
 
         <Button
             android:id="@+id/register"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="80px"
             android:layout_below="@+id/login_remember"
             android:layout_alignLeft="@+id/login_btn_login"
             android:background="@color/white"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginTop="15px"
+            android:layout_marginBottom="10px"
             android:gravity="center"
             android:text="@string/register"
-            android:textSize="16sp"
+            android:textSize="35px"
             android:textColor="@color/gray"/>
 
         <Button
             android:id="@+id/forget"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="80px"
             android:layout_below="@+id/login_remember"
             android:layout_alignRight="@+id/login_btn_login"
             android:background="@color/white"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginTop="15px"
+            android:layout_marginBottom="10px"
             android:gravity="center"
             android:text="@string/forget"
-            android:textSize="16sp"
+            android:textSize="35px"
             android:textColor="@color/gray"/>
 
     </com.zhy.autolayout.AutoRelativeLayout>

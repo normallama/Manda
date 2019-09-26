@@ -3,9 +3,11 @@ package com.example.manda.Fragment;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.example.manda.Login;
@@ -33,6 +35,8 @@ public class PersonalFragment extends KJFragment {
     private AutoRelativeLayout p_wallet;
     @BindView(id=R.id.personal_rl_invite,click = true)
     private AutoRelativeLayout p_invite;
+    @BindView(id=R.id.mine_image,click = true)
+    private RoundImageView mine;
 
 
 
@@ -79,6 +83,10 @@ public class PersonalFragment extends KJFragment {
             case R.id.personal_rl_setting:
                 Intent intent6=new Intent(getActivity(),feedback.class);
                 startActivity(intent6);
+                break;
+            case R.id.mine_image:
+                Intent intent7=new Intent(getActivity(),accounter.class);
+                startActivity(intent7);
                 break;
             default:
                 break;
