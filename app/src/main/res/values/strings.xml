@@ -42,8 +42,8 @@
     <string name="login_success">登录成功</string>
     <string name="login_fail">密码错误</string>
     <string name="user_cancel">退出</string>
-    <string name="translation">请输入内容</string>
-    <string name="translate">翻译</string>
+    <string name="translation_hint">请输入内容</string>
+    <string name="translate_confirm">翻译</string>
     <string name="day_word">每日一句</string>
     <string name="current_test">当前训练</string>
     <string name="excellent_course">精品课程</string>
@@ -56,4 +56,7 @@
     <string name="hint">提示</string>
     <string name="yes">是</string>
     <string name="read_words">请确认已阅读完注册协议！</string>
+    <string name="translate_paste">粘贴到此处</string>
+    <string name="trans_selection_1">英语    ->    中文</string>
+    <string name="trans_selection_2">中文    ->    英语</string>
 </resources>

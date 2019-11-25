@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Manda</string>
+    <string name="w">不积硅步，无以至千里 ----《荀子》</string>
+    <string name="trans_selection_1">English    ->    Chinese</string>
+    <string name="trans_selection_2">Chinese  ->  English</string>
+</resources>
