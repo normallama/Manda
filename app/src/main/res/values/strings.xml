@@ -53,4 +53,7 @@
     <string name="history_course">历史课程</string>
     <string name="learned_time">学习时长</string>
     <string name="learned_courses">学习课程数</string>
+    <string name="hint">提示</string>
+    <string name="yes">是</string>
+    <string name="read_words">请确认已阅读完注册协议！</string>
 </resources>

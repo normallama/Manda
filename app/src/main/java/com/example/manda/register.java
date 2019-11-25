@@ -1,6 +1,7 @@
 package com.example.manda;
 
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -50,9 +51,7 @@ public class register extends KJActivity {
         super.widgetClick(v);
         switch (v.getId()) {
             case R.id.register_btn_login:                       //确认按钮的监听事件
-                if (mCheckRead.isChecked()) {
-                    register_check();
-                }
+                register_check();
                 break;
             case R.id.titlebar_back:                     //取消按钮的监听事件,由注册界面返回登录界面
                 finish();
@@ -78,20 +77,31 @@ public class register extends KJActivity {
             String userPwdCheck = mPwdCheck.getText().toString().trim();
             //检查用户是否存在
             int count=mUserDataManager.findUserByName(userName);
+            AlertDialog.Builder builder = new AlertDialog.Builder(register.this);
+            builder.setTitle(R.string.hint);
             //用户已经存在时返回，给出提示文字
             if(count>0){
-                Toast.makeText(this, getString(R.string.name_already_exist),Toast.LENGTH_SHORT).show();
+                builder.setMessage( getString(R.string.name_already_exist)).show();
+                builder.setPositiveButton(R.string.yes, null);
+                builder.show();
                 return ;
             }
-            if(userPwd.equals(userPwdCheck)==false){     //两次密码输入不一样
-                Toast.makeText(this, getString(R.string.pwd_not_the_same),Toast.LENGTH_SHORT).show();
-                return ;
+            if(!userPwd.equals(userPwdCheck)){     //两次密码输入不一样
+                builder.setMessage( getString(R.string.pwd_not_the_same));
+                builder.setPositiveButton(R.string.yes, null);
+                builder.show();
+            } else if(!mCheckRead.isChecked()) {
+                builder.setMessage(R.string.read_words);
+                builder.setPositiveButton(R.string.yes, null);
+                builder.show();
             } else {
                 userData mUser = new userData(userName, userPwd);
                 mUserDataManager.openDataBase();
                 long flag = mUserDataManager.insertUserData(mUser); //新建用户信息
                 if (flag == -1) {
-                    Toast.makeText(this, getString(R.string.register_fail),Toast.LENGTH_SHORT).show();
+                    builder.setMessage( getString(R.string.register_fail));
+                    builder.setPositiveButton(R.string.yes, null);
+                    builder.show();
                 }else{
                     Toast.makeText(this, getString(R.string.register_success),Toast.LENGTH_SHORT).show();
                     Intent intent_Register_to_Login = new Intent(register.this,Login.class) ;    //切换User Activity至Login Activity

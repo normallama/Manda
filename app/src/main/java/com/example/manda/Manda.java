@@ -1,27 +1,20 @@
 package com.example.manda;
 
+import android.content.Context;
 import android.os.Build;
-import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.EditText;
-import android.widget.ImageView;
+import android.widget.ArrayAdapter;
 import android.widget.RadioButton;
-import android.widget.TextView;
 
 import com.example.manda.Fragment.HomepageFragment;
-import com.example.manda.Fragment.MyNewWordFragment;
 import com.example.manda.Fragment.MycourseFragment;
 import com.example.manda.Fragment.PersonalFragment;
 
 import org.kymjs.kjframe.KJActivity;
-import org.kymjs.kjframe.SupportActivity;
 import org.kymjs.kjframe.ui.BindView;
-import org.kymjs.kjframe.ui.KJActivityStack;
 
 public class Manda extends KJActivity {
 
@@ -31,6 +24,8 @@ public class Manda extends KJActivity {
     private RadioButton mRbtn2;
     @BindView(id = R.id.navigation_notifications, click = true)
     private RadioButton mRbtn3;
+
+    private static Context context;
 
 
     @Override
@@ -68,6 +63,7 @@ public class Manda extends KJActivity {
         home=new HomepageFragment();
         course=new MycourseFragment();
         personal=new PersonalFragment();
+        context=getApplicationContext();
     }
 
     @Override
@@ -94,9 +90,14 @@ public class Manda extends KJActivity {
             case R.id.navigation_notifications:
                 changeFragment(R.id.main_content,personal);
                 navigation.setSelectedItemId(navigation.getMenu().getItem(2).getItemId());//默认选择
+                String data[] = {"aa","bb","cc","dd","aa","bb","cc","dd","aa","bb","cc","dd","aa","bb","cc","dd"};
                 break;
             default:
                 break;
         }
     }
+    public static Context getContext(){
+        return context;
+    }
+
 }

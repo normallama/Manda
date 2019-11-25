@@ -2,21 +2,39 @@ package com.example.manda.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.example.manda.Adapter.NewWordsAdapter;
+import com.example.manda.CountDaoUtils;
+import com.example.manda.Data.NewWordsData;
+import com.example.manda.Manda;
 import com.example.manda.R;
 import com.example.manda.Translation;
 import com.example.manda.feedback;
+import com.nhaarman.listviewanimations.appearance.AnimationAdapter;
+import com.nhaarman.listviewanimations.appearance.simple.AlphaInAnimationAdapter;
+import com.nhaarman.listviewanimations.appearance.simple.SwingRightInAnimationAdapter;
+import com.nhaarman.listviewanimations.itemmanipulation.DynamicListView;
+import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.OnDismissCallback;
+import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.undo.SimpleSwipeUndoAdapter;
 
 import org.kymjs.kjframe.ui.BindView;
 import org.kymjs.kjframe.ui.KJFragment;
 import org.kymjs.kjframe.widget.KJSlidingMenu;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomepageFragment extends KJFragment {
     @BindView(id=R.id.homepage_choice_left,click = true)
@@ -27,8 +45,12 @@ public class HomepageFragment extends KJFragment {
     private EditText searchword;
     @BindView(id=R.id.search,click = true)
     private ImageView search;
+    @BindView(id=R.id.exercise)
+    private ScrollView myexercise;
+    @BindView(id=R.id.wordlist)
+    private DynamicListView wordlistview;
 
-    private MyNewWordFragment newword;
+    private List<NewWordsData> words=new ArrayList<NewWordsData>();
 
 
     @Override
@@ -41,6 +63,11 @@ public class HomepageFragment extends KJFragment {
     @Override
     protected void initData(){
         super.initData();
+        //假数据
+        words.add(new NewWordsData((long)1,"22","111"));
+        words.add(new NewWordsData((long)2,"2","11431"));
+        words.add(new NewWordsData((long)3,"52","34111"));
+        CountDaoUtils.inserCountryList(words);
     }
 
     @Override
@@ -52,8 +79,13 @@ public class HomepageFragment extends KJFragment {
         super.widgetClick(v);
         switch(v.getId()){
             case R.id.homepage_choice_left:
+                myexercise.setVisibility(View.VISIBLE);
+                wordlistview.setVisibility(View.GONE);
                 break;
             case R.id.homepage_choice_right:
+                myexercise.setVisibility(View.GONE);
+                wordlistview.setVisibility(View.VISIBLE);
+                initWords();
                 break;
             case R.id.search:
                 break;
@@ -61,4 +93,25 @@ public class HomepageFragment extends KJFragment {
                 break;
         }
     }
+
+    private void initWords(){
+        //NewWordsData
+        List<NewWordsData> words2;
+        words2 = CountDaoUtils.queryAllCountry();
+        final NewWordsAdapter myAdapter = new NewWordsAdapter(Manda.getContext(),words2);
+        SimpleSwipeUndoAdapter swipeUndoAdapter = new SimpleSwipeUndoAdapter(myAdapter, Manda.getContext(),
+                new OnDismissCallback() {
+                    @Override
+                    public void onDismiss(@NonNull final ViewGroup listView, @NonNull final int[] reverseSortedPositions) {
+                        for (int position : reverseSortedPositions) {
+                            myAdapter.remove(position);
+                        }
+                    }
+                }
+        );
+        swipeUndoAdapter.setAbsListView(wordlistview);
+        wordlistview.setAdapter(swipeUndoAdapter);
+        wordlistview.enableSimpleSwipeUndo();
+    }
+
 }

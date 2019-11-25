@@ -98,7 +98,7 @@ public class Login extends KJActivity {                 //登录界面活动
             String userPwd = mPwd.getText().toString().trim();
             SharedPreferences.Editor editor =login_sp.edit();
             int result=mUserDataManager.findUserByNameAndPwd(userName, userPwd);
-            if(result==0){                                             //返回1说明用户名和密码均正确
+            if(result!=0){                                             //返回1说明用户名和密码均正确
                 //保存用户名和密码
                 editor.putString("USER_NAME", userName);
                 editor.putString("PASSWORD", userPwd);
@@ -116,7 +116,7 @@ public class Login extends KJActivity {                 //登录界面活动
                 startActivity(intent);
                 finish();
                 Toast.makeText(this, getString(R.string.login_success),Toast.LENGTH_SHORT).show();//登录成功提示
-            }else if(result==1){
+            }else {
                 Toast.makeText(this, getString(R.string.login_fail),Toast.LENGTH_SHORT).show();  //登录失败提示
             }
         }
