@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
 
 android {
     compileSdkVersion 28
@@ -18,6 +19,16 @@ android {
     }
 }
 
+greendao {
+    schemaVersion 1 //数据库版本号
+    daoPackage 'com.example.manda.greenDao.db'// 设置DaoMaster、DaoSession、Dao 包名
+    targetGenDir 'src/main/java'//设置DaoMaster、DaoSession、Dao目录,请注意，这里路径用.不要用/
+}
+
+repositories {
+    mavenCentral()
+}
+
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
@@ -30,4 +41,10 @@ dependencies {
     /*implementation files('libs/kjframe-2.5.5.jar')*/
     implementation'org.kymjs.kjframe:kjframe:2.6'
     implementation 'com.zhy:autolayout:1.4.5'
+    implementation 'com.nhaarman.listviewanimations:lib-core:3.1.0@aar'
+    implementation 'com.nhaarman.listviewanimations:lib-manipulation:3.1.0@aar'
+    implementation 'com.nhaarman.listviewanimations:lib-core-slh:3.1.0@aar'
+    implementation 'org.greenrobot:greendao:3.2.2' // 添加库
+    implementation 'com.nineoldandroids:library:2.4.0'
+
 }
