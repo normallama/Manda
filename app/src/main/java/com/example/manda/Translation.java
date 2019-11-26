@@ -40,9 +40,7 @@ public class Translation extends KJActivity {
     @Override
     public void initData() {
         super.initData();
-        String[] choice = getResources().getStringArray(R.array.translate);
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, choice);
-        tran_choice.setAdapter(adapter);
+
     }
 
     @Override
@@ -67,6 +65,9 @@ public class Translation extends KJActivity {
                 finish();
                 break;
             case R.id.spinner:
+                String[] choice = getResources().getStringArray(R.array.translate);
+                final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, choice);
+                tran_choice.setAdapter(adapter);
                 tran_choice.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

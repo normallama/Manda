@@ -6,9 +6,15 @@
     android:background="@color/background"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <include
+    <com.zhy.autolayout.AutoLinearLayout
         android:id="@+id/bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <include
         layout="@layout/translate_bar" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
 
     <LinearLayout
         android:id="@+id/spinner"
@@ -77,5 +83,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner"
         tools:visibility="invisible" />
+
 
 </android.support.constraint.ConstraintLayout>

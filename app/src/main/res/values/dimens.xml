@@ -12,7 +12,7 @@
     <dimen name="sever_eight">672px</dimen>
     <dimen name="titlebar_height">90px</dimen>
     <dimen name="small_title">60px</dimen>
-    <dimen name="card_height">300px</dimen>
+    <dimen name="card_height">360px</dimen>
     <dimen name="button_width">80px</dimen>
     <dimen name="personal_height">200px</dimen>
     <dimen name="half_personal_height">100px</dimen>
@@ -22,6 +22,6 @@
     <!-- Title-->
     <dimen name="icon_height">60px</dimen>
     <dimen name="icon_width">80px</dimen>
-    <dimen name="personal_icon_height">80px</dimen>
-    <dimen name="personal_icon_width">80px</dimen>
+    <dimen name="personal_icon_height">60px</dimen>
+    <dimen name="personal_icon_width">60px</dimen>
 </resources>

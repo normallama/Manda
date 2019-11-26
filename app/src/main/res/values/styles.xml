@@ -12,6 +12,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">140px</item>
         <item name="android:clickable">true</item>
+        <item name="android:layout_marginLeft">10px</item>
         <item name="android:padding">3px</item>
         <item name="android:gravity">center_vertical</item>
     </style>
@@ -37,15 +38,18 @@
     <style name="personal_item_text_style">
         <item name="android:gravity">bottom</item>
         <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">15sp</item>
-        <item name="android:layout_marginLeft">95px</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:layout_marginLeft">120px</item>
+        <item name="android:paddingLeft">10px</item>
     </style>
 
     <style name="personal_item_intre_style">
         <item name="android:gravity">top</item>
         <item name="android:textColor">@color/gray</item>
-        <item name="android:textSize">12sp</item>
-        <item name="android:layout_marginLeft">95px</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_marginLeft">120px</item>
+        <item name="android:paddingLeft">10px</item>
+        <item name="android:paddingTop">10px</item>
     </style>
 
     <style name="titlebar">
@@ -54,20 +58,25 @@
     </style>
 
     <style name="titlebar_text_left" parent="titlebar">
-        <item name="android:textSize">35px</item>
+        <item name="android:textSize">15sp</item>
         <item name="android:textColor">#ffffffff</item>
         <item name="android:gravity">center_vertical</item>
     </style>
 
     <style name="titlebar_text_center" parent="titlebar">
-        <item name="android:textSize">15sp</item>
-        <item name="android:textColor">#ffffffff</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#ffff</item>
         <item name="android:gravity">center</item>
     </style>
 
     <style name="titlebar_img" parent="titlebar">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">match_parent</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
+    <style name="personal_img" parent="titlebar">
+        <item name="android:layout_marginLeft">25px</item>
         <item name="android:scaleType">fitCenter</item>
     </style>
 

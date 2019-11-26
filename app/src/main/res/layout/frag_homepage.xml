@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#f0f0f0"
     android:orientation="vertical">
 
     <com.zhy.autolayout.AutoRelativeLayout
@@ -18,25 +19,25 @@
             android:text="@string/app_name"
             android:textSize="18sp"/>
 
-        <EditText
+        <TextView
             android:id="@+id/search_word"
             style="@style/titlebar_text_left"
             android:layout_width="match_parent"
             android:layout_height="70px"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/homepage_title_width"
+            android:layout_marginRight="10px"
             android:background="@color/white"
             android:hint="@string/homepage_search"
             android:textColor="@color/black"/>
 
-        <ImageView
+        <ImageButton
             android:id="@+id/search_button"
             style="@style/titlebar_img"
             android:layout_width="@dimen/icon_width"
             android:layout_height="@dimen/icon_height"
             android:layout_alignParentRight="true"
             android:layout_marginRight="4px"
-            android:background="@color/white"
             android:contentDescription="@null"
             android:focusable="false"
             android:src="@drawable/search" />
@@ -54,7 +55,8 @@
             style="@style/titlebar_text_center"
             android:layout_width="@dimen/half"
             android:layout_height="match_parent"
-            android:text="@string/toolbar_practice" />
+            android:text="@string/toolbar_practice"
+            android:textSize="15sp"/>
 
         <TextView
             android:id="@+id/homepage_choice_right"
@@ -63,7 +65,8 @@
             android:layout_height="match_parent"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/half"
-            android:text="@string/toolbar_mynewwords" />
+            android:text="@string/toolbar_mynewwords"
+            android:textSize="15sp"/>
 
 
     </com.zhy.autolayout.AutoRelativeLayout>
@@ -78,14 +81,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/small_title"
-                android:text="@string/day_word"
-                android:textSize="@dimen/small_title_word"
-                android:paddingLeft="20px"
-                android:paddingTop="12px"
-                android:background="@drawable/item_bg"/>
+
 
             <com.zhy.autolayout.AutoRelativeLayout
                 android:layout_width="match_parent"
@@ -93,11 +89,20 @@
                 android:background="@drawable/item_bg">
 
                 <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/small_title"
+                    android:text="@string/day_word"
+                    android:textSize="15sp"
+                    android:paddingLeft="20px"
+                    android:paddingTop="12px"
+                    android:background="@drawable/item_bg"/>
+
+                <TextView
                     android:id="@+id/everydayWord"
                     android:layout_width="284dp"
                     android:layout_height="85dp"
                     android:layout_marginLeft="40px"
-                    android:layout_marginTop="@dimen/small_title_word"
+                    android:layout_marginTop="95px"
                     android:text="@string/w"
                     android:textSize="@dimen/big_word" />
 
@@ -113,19 +118,21 @@
                     android:textColor="@color/white" />
             </com.zhy.autolayout.AutoRelativeLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/small_title"
-                android:text="@string/current_test"
-                android:textSize="@dimen/small_title_word"
-                android:paddingLeft="20px"
-                android:paddingTop="12px"
-                android:background="@drawable/item_bg"/>
+
 
             <com.zhy.autolayout.AutoRelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/card_height"
+                android:layout_marginTop="20px"
                 android:background="@drawable/item_bg">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/small_title"
+                    android:text="@string/current_test"
+                    android:textSize="15sp"
+                    android:paddingLeft="20px"
+                    android:paddingTop="12px"
+                    android:background="@drawable/item_bg"/>
 
                 <Button
                     android:layout_width="wrap_content"
@@ -140,20 +147,23 @@
 
             </com.zhy.autolayout.AutoRelativeLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/small_title"
-                android:text="@string/excellent_course"
-                android:textSize="@dimen/small_title_word"
-                android:paddingLeft="20px"
-                android:paddingTop="12px"
 
-                android:background="@drawable/item_bg"/>
 
             <com.zhy.autolayout.AutoRelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/card_height"
+                android:layout_marginTop="20px"
                 android:background="@drawable/item_bg">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/small_title"
+                    android:text="@string/excellent_course"
+                    android:textSize="15sp"
+                    android:paddingLeft="20px"
+                    android:paddingTop="12px"
+
+                    android:background="@drawable/item_bg"/>
 
                 <Button
                     android:layout_width="wrap_content"
@@ -171,7 +181,7 @@
             <com.zhy.autolayout.AutoRelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/card_height"
-                android:background="@drawable/item_bg">
+                android:background="#f0f0f0">
 
                 <TextView
                     android:layout_width="wrap_content"

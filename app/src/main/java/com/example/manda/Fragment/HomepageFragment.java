@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -43,8 +44,8 @@ public class HomepageFragment extends KJFragment {
     private TextView mynewwords;
     @BindView(id=R.id.search_word,click = true)
     private EditText searchword;
-    @BindView(id=R.id.search,click = true)
-    private ImageView search;
+    @BindView(id=R.id.search_button,click = true)
+    private Button search;
     @BindView(id=R.id.exercise)
     private ScrollView myexercise;
     @BindView(id=R.id.wordlist)
@@ -87,7 +88,9 @@ public class HomepageFragment extends KJFragment {
                 wordlistview.setVisibility(View.VISIBLE);
                 initWords();
                 break;
-            case R.id.search:
+            case R.id.search_word:
+                Intent search = new Intent(getActivity(), com.example.manda.Translation.class);
+                startActivity(search);
                 break;
             default:
                 break;
