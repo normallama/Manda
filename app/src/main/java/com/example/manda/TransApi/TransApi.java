@@ -1,5 +1,9 @@
 package com.example.manda.TransApi;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,9 +18,9 @@ public class TransApi {
         this.securityKey = securityKey;
     }
 
-    public String getTransResult(String query, String from, String to) {
+    public String getTransResult(String query, String from, String to) throws JSONException {
         Map<String, String> params = buildParams(query, from, to);
-        return HttpGet.get(TRANS_API_HOST, params);
+        return String.valueOf(HttpGet.get(TRANS_API_HOST, params).getJSONArray("trans_result").getJSONObject(0).get("dst"));
     }
 
     private Map<String, String> buildParams(String query, String from, String to) {

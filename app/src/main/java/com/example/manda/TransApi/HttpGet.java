@@ -1,5 +1,8 @@
 package com.example.manda.TransApi;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.Closeable;
 import java.io.IOException;
@@ -25,7 +28,7 @@ class HttpGet {
     protected static final int SOCKET_TIMEOUT = 10000; // 10S
     protected static final String GET = "GET";
 
-    public static String get(String host, Map<String, String> params) {
+    public static JSONObject get(String host, Map<String, String> params) {
         try {
             // 设置SSLContext
             SSLContext sslcontext = SSLContext.getInstance("TLS");
@@ -59,11 +62,13 @@ class HttpGet {
 
             String text = builder.toString();
 
+            JSONObject result = new JSONObject(text);
+
             close(br); // 关闭数据流
             close(is); // 关闭数据流
             conn.disconnect(); // 断开连接
 
-            return text;
+            return result;
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -71,6 +76,8 @@ class HttpGet {
         } catch (KeyManagementException e) {
             e.printStackTrace();
         } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
             e.printStackTrace();
         }
 

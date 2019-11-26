@@ -1,6 +1,8 @@
 package com.example.manda;
 
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -9,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.manda.TransApi.TransApi;
 
+import org.json.JSONException;
 import org.kymjs.kjframe.KJActivity;
 import org.kymjs.kjframe.ui.BindView;
 
@@ -26,6 +29,8 @@ public class Translation extends KJActivity {
 
     private static final String APP_ID = "20190731000322884";
     private static final String SECURITY_KEY = "jupaRv7jQyfljW7HZEs2";
+    private String lan_From = "zh";
+    private String lan_To = "en";
 
     @Override
     public void setRootView() {
@@ -35,6 +40,9 @@ public class Translation extends KJActivity {
     @Override
     public void initData() {
         super.initData();
+        String[] choice = getResources().getStringArray(R.array.translate);
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, choice);
+        tran_choice.setAdapter(adapter);
     }
 
     @Override
@@ -48,12 +56,29 @@ public class Translation extends KJActivity {
         switch (v.getId()) {
             case R.id.button_translate:
                 TransApi getTrans = new TransApi(APP_ID, SECURITY_KEY);
-                Tran_text.setText(getTrans.getTransResult(text_to_Tran.toString(), "auto", "en"));
+                try {
+                    Tran_text.setText(getTrans.getTransResult(text_to_Tran.toString(), lan_From, lan_To));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
                 Tran_text.setVisibility(View.VISIBLE);
                 break;
             case R.id.translate_bar_back:                     //取消按钮的监听事件，返回上个界面
                 finish();
                 break;
+            case R.id.spinner:
+                tran_choice.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        if (position == 0) {
+                            lan_From = "zh";
+                            lan_To = "en";
+                        } else {
+                            lan_From = "en";
+                            lan_To = "zh";
+                        }
+                    }
+                });
         }
     }
 
@@ -61,5 +86,4 @@ public class Translation extends KJActivity {
     protected void onDestroy() {
         super.onDestroy();
     }
-
 }
