@@ -43,6 +43,8 @@
                 android:layout_height="@dimen/small_title"
                 android:text="@string/current_test"
                 android:textSize="@dimen/small_title_word"
+                android:paddingLeft="20px"
+                android:paddingTop="12px"
                 android:background="@drawable/item_bg"/>
 
             <com.zhy.autolayout.AutoRelativeLayout
@@ -56,6 +58,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="@dimen/small_title_word"
+                    android:layout_marginRight="35px"
                     android:background="@color/colorPrimary"
                     android:text="@string/interpret"
                     android:textColor="@color/white" />
@@ -67,6 +70,8 @@
                 android:layout_height="@dimen/small_title"
                 android:text="@string/history_course"
                 android:textSize="@dimen/small_title_word"
+                android:paddingLeft="20px"
+                android:paddingTop="12px"
                 android:background="@drawable/item_bg"/>
 
             <com.zhy.autolayout.AutoRelativeLayout

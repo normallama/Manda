@@ -17,7 +17,7 @@
     <dimen name="personal_height">200px</dimen>
     <dimen name="half_personal_height">100px</dimen>
     <dimen name="personal_text_height">70px</dimen>
-    <dimen name="title_height">140px</dimen>
+    <dimen name="title_height">90px</dimen>
 
     <!-- Title-->
     <dimen name="icon_height">60px</dimen>
