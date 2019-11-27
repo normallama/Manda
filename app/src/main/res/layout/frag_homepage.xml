@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f0f0f0"
     android:orientation="vertical">
 
     <com.zhy.autolayout.AutoRelativeLayout
@@ -37,7 +36,8 @@
             android:layout_width="@dimen/icon_width"
             android:layout_height="@dimen/icon_height"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="4px"
+            android:layout_marginRight="10px"
+            android:background="@color/white"
             android:contentDescription="@null"
             android:focusable="false"
             android:src="@drawable/search" />
@@ -74,6 +74,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#f0f0f0"
         android:id="@+id/exercise">
 
         <com.zhy.autolayout.AutoLinearLayout
@@ -107,13 +108,14 @@
                     android:textSize="@dimen/big_word" />
 
                 <Button
+                    android:id="@+id/detail"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/button_width"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="@dimen/small_title_word"
                     android:layout_marginRight="35px"
-                    android:background="@color/colorPrimary"
+                    android:background="@drawable/button_bg"
                     android:text="@string/interpret"
                     android:textColor="@color/white" />
             </com.zhy.autolayout.AutoRelativeLayout>
@@ -135,13 +137,14 @@
                     android:background="@drawable/item_bg"/>
 
                 <Button
+                    android:id="@+id/continue_study"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/button_width"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="@dimen/small_title_word"
                     android:layout_marginRight="35px"
-                    android:background="@color/colorPrimary"
+                    android:background="@drawable/button_bg"
                     android:text="@string/keep_study"
                     android:textColor="@color/white" />
 
@@ -172,7 +175,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="@dimen/small_title_word"
                     android:layout_marginRight="35px"
-                    android:background="@color/colorPrimary"
+                    android:background="@drawable/button_bg"
                     android:text="@string/keep_study"
                     android:textColor="@color/white" />
 

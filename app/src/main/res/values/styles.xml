@@ -73,6 +73,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:scaleType">fitCenter</item>
+        <item name="android:layout_marginStart">15px</item>
     </style>
 
     <style name="personal_img" parent="titlebar">
@@ -95,11 +96,11 @@
     </style>
 
     <style name="trans_Text">
-        <item name="android:background">@drawable/button_bg</item>
+        <item name="android:background">@drawable/translate_bg</item>
     </style>
 
     <style name="trans_Button" parent="Widget.AppCompat.Button.Borderless">
-        <item name="android:background">@drawable/button_bg</item>
+        <item name="android:background">@drawable/translate_bg</item>
         <item name="android:textColor">@color/colorPrimary</item>
     </style>
 

@@ -1,6 +1,9 @@
 package com.example.manda;
 
+import android.os.Build;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -38,6 +41,24 @@ public class Login extends KJActivity {                 //登录界面活动
 
     @Override
     public void setRootView() {
+        try {
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+                Window window = Login.this.getWindow();
+
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+
+                window.setStatusBarColor(Login.this.getResources().getColor(R.color.colorPrimary));
+
+
+            }
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
         setContentView(R.layout.login);
     }
 
