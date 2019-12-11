@@ -55,25 +55,19 @@
             style="@style/mine_item_style">
             <ImageView
                 style="@style/personal_img"
-                android:layout_alignParentLeft="true"
-                android:contentDescription="@null"
                 android:layout_height="@dimen/personal_icon_height"
                 android:layout_width="@dimen/personal_icon_width"
-                android:focusable="false"
                 android:src="@drawable/favorite" />
             <TextView
                 style="@style/personal_item_text_style"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/personal_text_height"
-                android:text="@string/personal_favor"
-                />
+                android:text="@string/personal_favor" />
             <TextView
                 style="@style/personal_item_intre_style"
-                android:layout_marginTop="@dimen/personal_text_height"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/personal_text_height"
-                android:text="@string/personal_setting_intre"
-                />
+                android:text="@string/personal_setting_intre" />
         </com.zhy.autolayout.AutoRelativeLayout>
 
 
@@ -82,11 +76,8 @@
             style="@style/mine_item_style">
             <ImageView
                 style="@style/personal_img"
-                android:layout_alignParentLeft="true"
-                android:contentDescription="@null"
                 android:layout_height="@dimen/personal_icon_height"
                 android:layout_width="@dimen/personal_icon_width"
-                android:focusable="false"
                 android:src="@drawable/wallet" />
             <TextView
                 style="@style/personal_item_text_style"
@@ -96,11 +87,9 @@
                 />
             <TextView
                 style="@style/personal_item_intre_style"
-                android:layout_marginTop="@dimen/personal_text_height"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/personal_text_height"
-                android:text="@string/personal_wallet_intre"
-                />
+                android:text="@string/personal_wallet_intre" />
         </com.zhy.autolayout.AutoRelativeLayout>
 
         <com.zhy.autolayout.AutoRelativeLayout
@@ -108,11 +97,8 @@
             style="@style/mine_item_style">
             <ImageView
                 style="@style/personal_img"
-                android:layout_alignParentLeft="true"
-                android:contentDescription="@null"
                 android:layout_height="@dimen/personal_icon_height"
                 android:layout_width="@dimen/personal_icon_width"
-                android:focusable="false"
                 android:src="@drawable/buy" />
             <TextView
                 style="@style/personal_item_text_style"
@@ -122,11 +108,9 @@
                 />
             <TextView
                 style="@style/personal_item_intre_style"
-                android:layout_marginTop="@dimen/personal_text_height"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/personal_text_height"
-                android:text="@string/personal_course_intre"
-                />
+                android:text="@string/personal_course_intre" />
         </com.zhy.autolayout.AutoRelativeLayout>
 
         <com.zhy.autolayout.AutoRelativeLayout
@@ -134,11 +118,8 @@
             style="@style/mine_item_style">
             <ImageView
                 style="@style/personal_img"
-                android:layout_alignParentLeft="true"
-                android:contentDescription="@null"
                 android:layout_height="@dimen/personal_icon_height"
                 android:layout_width="@dimen/personal_icon_width"
-                android:focusable="false"
                 android:src="@drawable/invite" />
             <TextView
                 style="@style/personal_item_text_style"
@@ -148,11 +129,9 @@
                 />
             <TextView
                 style="@style/personal_item_intre_style"
-                android:layout_marginTop="@dimen/personal_text_height"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/personal_text_height"
-                android:text="@string/personal_invite_intre"
-                />
+                android:text="@string/personal_invite_intre" />
         </com.zhy.autolayout.AutoRelativeLayout>
 
         <com.zhy.autolayout.AutoRelativeLayout
@@ -160,11 +139,8 @@
             style="@style/mine_item_style">
             <ImageView
                 style="@style/personal_img"
-                android:layout_alignParentLeft="true"
-                android:contentDescription="@null"
                 android:layout_height="@dimen/personal_icon_height"
                 android:layout_width="@dimen/personal_icon_width"
-                android:focusable="false"
                 android:src="@drawable/setting" />
             <TextView
                 style="@style/personal_item_text_style"
@@ -174,11 +150,9 @@
                 />
             <TextView
                 style="@style/personal_item_intre_style"
-                android:layout_marginTop="@dimen/personal_text_height"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/personal_text_height"
-                android:text="@string/personal_setting_intre"
-                />
+                android:text="@string/personal_setting_intre" />
         </com.zhy.autolayout.AutoRelativeLayout>
 
         <com.zhy.autolayout.AutoRelativeLayout
@@ -186,11 +160,8 @@
             style="@style/mine_item_style">
             <ImageView
                 style="@style/personal_img"
-                android:layout_alignParentLeft="true"
-                android:contentDescription="@null"
                 android:layout_height="@dimen/personal_icon_height"
                 android:layout_width="@dimen/personal_icon_width"
-                android:focusable="false"
                 android:src="@drawable/help" />
             <TextView
                 style="@style/personal_item_text_style"
@@ -200,11 +171,9 @@
                 />
             <TextView
                 style="@style/personal_item_intre_style"
-                android:layout_marginTop="@dimen/personal_text_height"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/personal_text_height"
-                android:text="@string/personal_question_intre"
-                />
+                android:text="@string/personal_question_intre" />
         </com.zhy.autolayout.AutoRelativeLayout>
 
         <com.zhy.autolayout.AutoRelativeLayout

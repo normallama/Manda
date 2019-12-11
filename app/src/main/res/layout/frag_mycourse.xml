@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f0f0f0">
+    android:background="@color/background">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -28,13 +28,9 @@
 
                 <ImageView
                     android:id="@+id/search"
-                    style="@style/titlebar_img"
+                    style="@style/titlebar_img_right"
                     android:layout_width="@dimen/icon_width"
                     android:layout_height="@dimen/icon_height"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="4dp"
-                    android:contentDescription="@null"
-                    android:focusable="false"
                     android:src="@drawable/message" />
 
             </com.zhy.autolayout.AutoRelativeLayout>
@@ -48,21 +44,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/small_title"
                     android:text="@string/current_test"
-                    android:textSize="15sp"
-                    android:paddingLeft="20px"
-                    android:paddingTop="12px"
-                    android:background="@drawable/item_bg"/>
+                    style="@style/card_title"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/button_width"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="@dimen/small_title_word"
-                    android:layout_marginRight="35px"
-                    android:background="@drawable/button_bg"
-                    android:text="@string/interpret"
-                    android:textColor="@color/white" />
+                    style="@style/card_button"
+                    android:text="@string/interpret" />
 
             </com.zhy.autolayout.AutoRelativeLayout>
 
@@ -78,10 +66,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/small_title"
                     android:text="@string/history_course"
-                    android:textSize="15sp"
-                    android:paddingLeft="20px"
-                    android:paddingTop="12px"
-                    android:background="@drawable/item_bg"/>
+                    style="@style/card_title"/>
             </com.zhy.autolayout.AutoRelativeLayout>
 
         </com.zhy.autolayout.AutoLinearLayout>

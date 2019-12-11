@@ -8,14 +8,9 @@
 
     <ImageView
         android:id="@+id/titlebar_back"
-        style="@style/titlebar_img"
-        android:layout_alignParentLeft="true"
-        android:clickable="true"
+        style="@style/titlebar_img_left"
         android:layout_height="@dimen/icon_width"
         android:layout_width="@dimen/icon_width"
-        android:paddingLeft="15px"
-        android:contentDescription="@null"
-        android:focusable="false"
         android:src="@drawable/back" />
 
 </RelativeLayout>
