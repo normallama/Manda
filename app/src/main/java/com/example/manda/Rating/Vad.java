@@ -1,59 +1,59 @@
 package com.example.manda.Rating;
-//²ÉÑù
+//é‡‡æ ·
 public class Vad {
-	public static double PI1 = 3.1415926536;// ¶¨Òåpi
-	public static int FRM_LEN = 256;//%ÉèÖÃ¶ÌÊ±¸µÀïÒ¶±ä»»µÄ³¤¶È£¬Í¬Ê±Ò²ÊÇººÃ÷´°µÄ³¤¶È
-	public static int FRM_SFT = 80;// ¶¨ÒåÖ¡ÒÆ
+	public static double PI1 = 3.1415926536;// å®šä¹‰pi
+	public static int FRM_LEN = 256;//%è®¾ç½®çŸ­æ—¶å‚…é‡Œå¶å˜æ¢çš„é•¿åº¦ï¼ŒåŒæ—¶ä¹Ÿæ˜¯æ±‰æ˜çª—çš„é•¿åº¦
+	public static int FRM_SFT = 80;// å®šä¹‰å¸§ç§»
 	public static double CHANGE = Math.pow(2, 15);
-	public int FrmNum;// ×Ü¹²¶àÉÙÖ¡
-	public int dwSoundlen;// ²ÉÑùµã¸öÊı
-	public int predata[];// ³ıÒÔ15´Î·½£¬»¯¹éÒ»»¯Ç°²ÉÑùµã
-	public double data[];//³ıÒÔ15´Î·½£¬»¯¹éÒ»»¯ºó²ÉÑùµã
-	public double fpData[];// Ô¤¼ÓÖØºóµÄ²ÉÑùµã
-	public float fltHamm[];// Hamming´°ÏµÊı
-	public AudFrame audFrame[];// Ö¡Êı×é
-	public double fltZcrVadThresh;//¹ıÁãÂÊ ·§Öµ,0.02
-	double fltSteThresh[];     //Ë«ÃÅÏŞ¶ÌÊ±ÄÜÁ¿ãĞÖµ[0]¸ß[1]µÍ   
-	double	dwZcrThresh[];  //Ë«ÃÅÏŞ¹ıÁãÂÊãĞÖµ[0]¸ß[1]µÍ   
-	int   WavStart;//ÓïÒôÆğÊ¼µã
-	int   WavEnd;//ÓïÒô½áÊøµã
-	public static int  MIN_WORD_LEN=15;//×îĞ¡ÓïÒô³¤¶È
-	public static int  MAX_SLIENCE_LEN=8; 	//×î´ó¾²Òô³¤¶È
-	//public static int WORD_MAX_SLIENCE =10;  //ÓïÒô¼ä×î´ó¾²Òô¾àÀë
-	public double dwWordLen;//¶Ëµã¼ì²âºóÓïÒô¶Î³¤¶È
-	public double maxData;//×î´óµÄ²ÉÑùµã
+	public int FrmNum;// æ€»å…±å¤šå°‘å¸§
+	public int dwSoundlen;// é‡‡æ ·ç‚¹ä¸ªæ•°
+	public int predata[];// é™¤ä»¥15æ¬¡æ–¹ï¼ŒåŒ–å½’ä¸€åŒ–å‰é‡‡æ ·ç‚¹
+	public double data[];//é™¤ä»¥15æ¬¡æ–¹ï¼ŒåŒ–å½’ä¸€åŒ–åé‡‡æ ·ç‚¹
+	public double fpData[];// é¢„åŠ é‡åçš„é‡‡æ ·ç‚¹
+	public float fltHamm[];// Hammingçª—ç³»æ•°
+	public AudFrame audFrame[];// å¸§æ•°ç»„
+	public double fltZcrVadThresh;//è¿‡é›¶ç‡ é˜€å€¼,0.02
+	double fltSteThresh[];     //åŒé—¨é™çŸ­æ—¶èƒ½é‡é˜ˆå€¼[0]é«˜[1]ä½   
+	double	dwZcrThresh[];  //åŒé—¨é™è¿‡é›¶ç‡é˜ˆå€¼[0]é«˜[1]ä½   
+	int   WavStart;//è¯­éŸ³èµ·å§‹ç‚¹
+	int   WavEnd;//è¯­éŸ³ç»“æŸç‚¹
+	public static int  MIN_WORD_LEN=15;//æœ€å°è¯­éŸ³é•¿åº¦
+	public static int  MAX_SLIENCE_LEN=8; 	//æœ€å¤§é™éŸ³é•¿åº¦
+	//public static int WORD_MAX_SLIENCE =10;  //è¯­éŸ³é—´æœ€å¤§é™éŸ³è·ç¦»
+	public double dwWordLen;//ç«¯ç‚¹æ£€æµ‹åè¯­éŸ³æ®µé•¿åº¦
+	public double maxData;//æœ€å¤§çš„é‡‡æ ·ç‚¹
 	public Vad(String filename) {
 		 ReadWav(filename);
 	}
 	
 	/***************************
-	*MFCCÓÃµÄ¶Ëµã¼ì²â
-	*º¯ÊıÃû: WaveEndtest(void)
-	*¹¦ÄÜ£º¶Ëµã¼ì²â
+	*MFCCç”¨çš„ç«¯ç‚¹æ£€æµ‹
+	*å‡½æ•°å: WaveEndtest(void)
+	*åŠŸèƒ½ï¼šç«¯ç‚¹æ£€æµ‹
 	*************************/
 	public void WaveEndtest() 
 	{
-		AudEnframe();//·ÖÖ¡£¬ok
-		Hamming() ;//ÇóhammingÏµÊı
-		AudHamming();//¼Ó´°
-		AudSte();//Çó½â¶ÌÊ±ÄÜÁ¿
-		AudZcr();//Çó½â¹ıÁãÂÊ
-		AudNoiseEstimate();	//¹À¼ÆÔëÉùãĞÖµ
-		AudVadEstimate();//¶Ëµã¼ì²â
+		AudEnframe();//åˆ†å¸§ï¼Œok
+		Hamming() ;//æ±‚hammingç³»æ•°
+		AudHamming();//åŠ çª—
+		AudSte();//æ±‚è§£çŸ­æ—¶èƒ½é‡
+		AudZcr();//æ±‚è§£è¿‡é›¶ç‡
+		AudNoiseEstimate();	//ä¼°è®¡å™ªå£°é˜ˆå€¼
+		AudVadEstimate();//ç«¯ç‚¹æ£€æµ‹
 	}
 	
 	
 
 	/***********************************
-	 * ¶ÁÈ¡ÒôÆµ º¯ÊıÃû£ºReadWav() ¹¦ÄÜ£º¶ÁÈ¡ÒôÆµ
+	 * è¯»å–éŸ³é¢‘ å‡½æ•°åï¼šReadWav() åŠŸèƒ½ï¼šè¯»å–éŸ³é¢‘
 	 ************************************/
 	public void ReadWav(String filename) {
 		WaveFileReader reader = new WaveFileReader(filename);
 		if (reader.isSuccess()) {
-			predata = reader.getData()[0]; // »ñÈ¡µÚÒ»ÉùµÀ
-			dwSoundlen = predata.length;//ÉùµÀËùº¬Êı¾İ³¤¶È// ²ÉÑùµã¸öÊı
+			predata = reader.getData()[0]; // è·å–ç¬¬ä¸€å£°é“
+			dwSoundlen = predata.length;//å£°é“æ‰€å«æ•°æ®é•¿åº¦// é‡‡æ ·ç‚¹ä¸ªæ•°
 		} else {
-			System.err.println(filename + "²»ÊÇÒ»¸öÕı³£µÄwavÎÄ¼ş");
+			System.err.println(filename + "ä¸æ˜¯ä¸€ä¸ªæ­£å¸¸çš„wavæ–‡ä»¶");
 		}
 		data = new double[dwSoundlen];
 		for(int i=0;i<dwSoundlen;i++){
@@ -62,14 +62,14 @@ public class Vad {
 		/*for(int i = 0; i < data.length; i++){   
 			System.out.print(data[i]);  
         } */
-		vadCommon();//¹éÒ»»¯
+		vadCommon();//å½’ä¸€åŒ–
 	}
 
 	/***********************************
-	 * Ô¤¼ÓÖØ º¯ÊıÃû£ºAudPreEmphasize() ¹¦ÄÜ£º¶ÔËùÓĞ²ÉÑùµã½øĞĞÔ¤´¦Àí
-	 *  % Ô¤¼ÓÖØÂË²¨Æ÷ 
+	 * é¢„åŠ é‡ å‡½æ•°åï¼šAudPreEmphasize() åŠŸèƒ½ï¼šå¯¹æ‰€æœ‰é‡‡æ ·ç‚¹è¿›è¡Œé¢„å¤„ç†
+	 *  % é¢„åŠ é‡æ»¤æ³¢å™¨ 
   	 * xx=double(x); 
-     * xx=filter([1 -0.9375],1,xx); Ä¿µÄÊÇÎªÁË¶ÔÓïÒôµÄ¸ßÆµ²¿·Ö½øĞĞ¼ÓÖØ£¬È¥³ı¿Ú´½·øÉäµÄÓ°Ïì£¬Ôö¼ÓÓïÒôµÄ¸ßÆµ·Ö±æÂÊ¡£
+     * xx=filter([1 -0.9375],1,xx); ç›®çš„æ˜¯ä¸ºäº†å¯¹è¯­éŸ³çš„é«˜é¢‘éƒ¨åˆ†è¿›è¡ŒåŠ é‡ï¼Œå»é™¤å£å”‡è¾å°„çš„å½±å“ï¼Œå¢åŠ è¯­éŸ³çš„é«˜é¢‘åˆ†è¾¨ç‡ã€‚
 	 ************************************/
 
 	public void AudPreEmphasize() {
@@ -85,70 +85,70 @@ public class Vad {
 	}
 
 	/***********************************
-	 * ·ÖÖ¡ º¯ÊıÃû£ºAudEnframe() ¹¦ÄÜ£º¸øÃ¿Ò»Ö¡µÄfltFrame[FRM_LEN]¸³²ÉÑùµãµÄÖµ£¬¸öÊıÊÇÖ¡³¤
-	 * fpDataÊÇÔ¤¼ÓÖØºóµÄÊı¾İ
-	 * Ò»°ãÃ¿ÃëµÄÖ¡ÊıÔ¼Îª33~100Ö¡£¬ÊÓÇé¿ö¶ø¶¨¡£
-	 * Ò»°ãµÄ·ÖÖ¡·½·¨Îª½»µş·Ö¶ÎµÄ·½·¨£¬Ç°Ò»Ö¡ºÍºóÒ»Ö¡µÄ½»µş²¿·Ö³ÆÎªÖ¡ÒÆ£¬Ö¡ÒÆÓëÖ¡³¤µÄ±ÈÖµÒ»°ãÎª0~0.5
-	 * public static int FRM_LEN = 256;// ¶¨ÒåÖ¡³¤
-	 * public static int FRM_SFT = 80;// ¶¨ÒåÖ¡ÒÆ
-	 * FrmNum×Ü¹²Ö¡Êı£¬dwSoundlen²ÉÑùµã¸öÊı
+	 * åˆ†å¸§ å‡½æ•°åï¼šAudEnframe() åŠŸèƒ½ï¼šç»™æ¯ä¸€å¸§çš„fltFrame[FRM_LEN]èµ‹é‡‡æ ·ç‚¹çš„å€¼ï¼Œä¸ªæ•°æ˜¯å¸§é•¿
+	 * fpDataæ˜¯é¢„åŠ é‡åçš„æ•°æ®
+	 * ä¸€èˆ¬æ¯ç§’çš„å¸§æ•°çº¦ä¸º33~100å¸§ï¼Œè§†æƒ…å†µè€Œå®šã€‚
+	 * ä¸€èˆ¬çš„åˆ†å¸§æ–¹æ³•ä¸ºäº¤å åˆ†æ®µçš„æ–¹æ³•ï¼Œå‰ä¸€å¸§å’Œåä¸€å¸§çš„äº¤å éƒ¨åˆ†ç§°ä¸ºå¸§ç§»ï¼Œå¸§ç§»ä¸å¸§é•¿çš„æ¯”å€¼ä¸€èˆ¬ä¸º0~0.5
+	 * public static int FRM_LEN = 256;// å®šä¹‰å¸§é•¿
+	 * public static int FRM_SFT = 80;// å®šä¹‰å¸§ç§»
+	 * FrmNumæ€»å…±å¸§æ•°ï¼ŒdwSoundlené‡‡æ ·ç‚¹ä¸ªæ•°
 	 * http://www.ilovematlab.cn/forum.php?mod=viewthread&tid=162908
-	 * ¶ø¸ø¶¨Ò»¸öÊ±¿Ì£¬ÏëÇóµÃÆä¶ÔÓ¦µÄÖ¡µÄ´úÂëÈçÏÂ¡£
-	 * % fs ²ÉÑùÂÊ
-	 * % t0 ÌØ¶¨Ê±¿Ì
+	 * è€Œç»™å®šä¸€ä¸ªæ—¶åˆ»ï¼Œæƒ³æ±‚å¾—å…¶å¯¹åº”çš„å¸§çš„ä»£ç å¦‚ä¸‹ã€‚
+	 * % fs é‡‡æ ·ç‡
+	 * % t0 ç‰¹å®šæ—¶åˆ»
 	 * frame_idx=fix((t0*fs-wlen)/nstep +1);
 	 ************************************/
 	public void AudEnframe() {
-		FrmNum = (dwSoundlen - (FRM_LEN - FRM_SFT)) / FRM_SFT;//Nframe = floor( (length(x) - wlen) / nstep) + 1;£¿£¿£¿ÈôÖ¡¶¼ºÜ¶Ì£¬×îºóÒ»Ö¡£¬²»¹»wlen³¤¶ÈµÄ£¬¸É´à¾Í²»ÒªÁË¡£ÎŞÉË´óÑÅ¡£
-		audFrame = new AudFrame[FrmNum];//Ö¡µÄ½á¹¹
+		FrmNum = (dwSoundlen - (FRM_LEN - FRM_SFT)) / FRM_SFT;//Nframe = floor( (length(x) - wlen) / nstep) + 1;ï¼Ÿï¼Ÿï¼Ÿè‹¥å¸§éƒ½å¾ˆçŸ­ï¼Œæœ€åä¸€å¸§ï¼Œä¸å¤Ÿwlené•¿åº¦çš„ï¼Œå¹²è„†å°±ä¸è¦äº†ã€‚æ— ä¼¤å¤§é›…ã€‚
+		audFrame = new AudFrame[FrmNum];//å¸§çš„ç»“æ„
 		for(int i=0;i<FrmNum;i++){
 			audFrame[i] = new AudFrame();
 		}
-		int x = 0;// Ã¿Ò»Ö¡µÄÆğÊ¼µã
+		int x = 0;// æ¯ä¸€å¸§çš„èµ·å§‹ç‚¹
 		for (int i = 0; i < FrmNum; i++) {
-			audFrame[i].fltFrame = new double[FRM_LEN];//´æ·Å¸÷Ö¡ĞÅÏ¢
+			audFrame[i].fltFrame = new double[FRM_LEN];//å­˜æ”¾å„å¸§ä¿¡æ¯
 			
 			for (int j = 0; j < FRM_LEN; j++) {
-				audFrame[i].fltFrame[j] = data[x + j];//·Ö¿ªÒ»¸ö¸ö²ÉÑùµã
+				audFrame[i].fltFrame[j] = data[x + j];//åˆ†å¼€ä¸€ä¸ªä¸ªé‡‡æ ·ç‚¹
 			}
-			x+=FRM_SFT;//¼ÓÖ¡ÒÆµ½´ïÏÂÒ»Ö¡
+			x+=FRM_SFT;//åŠ å¸§ç§»åˆ°è¾¾ä¸‹ä¸€å¸§
 		}
 		
 		
 	}
 
 	/***********************************
-	 * ººÃ÷´°ÏµÊı º¯ÊıÃû£ºHamming()
-	 * ¹¦ÄÜ£ºÇóººÃ÷´°ÏµÊı£¬ÊäÈëµÄÊÇÃ¿Ò»Ö¡µÄÖ¡³¤£¬ÒªÓÃµ½PI¡£Õâ¸öÊı×éÊÇ¹Ì¶¨Öµ£¬Ö»ÓĞÖ¡³¤¾ö¶¨
-	 * µäĞÍµÄ´°¿Ú´óĞ¡ÊÇ25ms£¬Ö¡ÒÆÊÇ10ms¡£ººÃ÷´°º¯ÊıÎª
-	 * W(n,¦Á ) = (1 -¦Á ) - ¦Á cos(2*PI*n/(N-1))£¬0¨Qn¨QN-1
-	 * Ò»°ãÇé¿öÏÂ£¬¦ÁÈ¡0.46 ¡£
-	 * public static int FRM_LEN = 256;//%ÉèÖÃ¶ÌÊ±¸µÀïÒ¶±ä»»µÄ³¤¶È£¬Í¬Ê±Ò²ÊÇººÃ÷´°µÄ³¤¶È
+	 * æ±‰æ˜çª—ç³»æ•° å‡½æ•°åï¼šHamming()
+	 * åŠŸèƒ½ï¼šæ±‚æ±‰æ˜çª—ç³»æ•°ï¼Œè¾“å…¥çš„æ˜¯æ¯ä¸€å¸§çš„å¸§é•¿ï¼Œè¦ç”¨åˆ°PIã€‚è¿™ä¸ªæ•°ç»„æ˜¯å›ºå®šå€¼ï¼Œåªæœ‰å¸§é•¿å†³å®š
+	 * å…¸å‹çš„çª—å£å¤§å°æ˜¯25msï¼Œå¸§ç§»æ˜¯10msã€‚æ±‰æ˜çª—å‡½æ•°ä¸º
+	 * W(n,Î± ) = (1 -Î± ) - Î± cos(2*PI*n/(N-1))ï¼Œ0â‰¦nâ‰¦N-1
+	 * ä¸€èˆ¬æƒ…å†µä¸‹ï¼ŒÎ±å–0.46 ã€‚
+	 * public static int FRM_LEN = 256;//%è®¾ç½®çŸ­æ—¶å‚…é‡Œå¶å˜æ¢çš„é•¿åº¦ï¼ŒåŒæ—¶ä¹Ÿæ˜¯æ±‰æ˜çª—çš„é•¿åº¦
 	 * http://blog.chinaunix.net/uid-26715658-id-3187231.html
 	 ************************************/
 	public void Hamming() {
 		fltHamm = new float[FRM_LEN];//
 		for (int i = 0; i < FRM_LEN; i++) {
-			// ººÃ÷´°º¯ÊıÎªW(n,a) = (1-a) -¦Ácos(2*PI*n/(N-1))
-			// 0¨Qn¨QN-1,aÒ»°ãÈ¡0.46
-			// ´Ë´¦È¡0.46
-			// Ê¹ÒôÆµ²¨¶ÎÆ½»¬sin£¨£©
+			// æ±‰æ˜çª—å‡½æ•°ä¸ºW(n,a) = (1-a) -Î±cos(2*PI*n/(N-1))
+			// 0â‰¦nâ‰¦N-1,aä¸€èˆ¬å–0.46
+			// æ­¤å¤„å–0.46
+			// ä½¿éŸ³é¢‘æ³¢æ®µå¹³æ»‘sinï¼ˆï¼‰
 			fltHamm[i] = (float)(0.54 - 0.46*Math.cos((2*i*PI1) / (FRM_LEN-1)));
 		}
 	}
 
 	/***********************************
-	 * ¼Ó´° º¯ÊıÃû£ºAudHamming()
-	 * ¹¦ÄÜ£ºÊäÈëµÄÊÇÃ¿Ò»Ö¡µÄÖ¡³¤£¬ĞèÒªÀûÓÃµ½ÇóµÃµÄººÃ÷´°ÏµÊı£¬¾ßÌåÊÇÃ¿¸ö²ÉÑùµãµÄÖµ³ËÒÔººÃ÷´°ÏµÊı£¬ÔÙ°Ñ½á¹û¸³ÓèfltFrame[]
+	 * åŠ çª— å‡½æ•°åï¼šAudHamming()
+	 * åŠŸèƒ½ï¼šè¾“å…¥çš„æ˜¯æ¯ä¸€å¸§çš„å¸§é•¿ï¼Œéœ€è¦åˆ©ç”¨åˆ°æ±‚å¾—çš„æ±‰æ˜çª—ç³»æ•°ï¼Œå…·ä½“æ˜¯æ¯ä¸ªé‡‡æ ·ç‚¹çš„å€¼ä¹˜ä»¥æ±‰æ˜çª—ç³»æ•°ï¼Œå†æŠŠç»“æœèµ‹äºˆfltFrame[]
 	 * for m=1:N                       
-	 * %ÓÃººÃ÷´°½ØÈ¡ĞÅºÅ£¬³¤¶ÈÎªN£¬Ö÷ÒªÊÇÎªÁË¼õÉÙ½Ø¶ÏÒıÆğµÄÕ¤À¸Ğ§Ó¦µÈ
+	 * %ç”¨æ±‰æ˜çª—æˆªå–ä¿¡å·ï¼Œé•¿åº¦ä¸ºNï¼Œä¸»è¦æ˜¯ä¸ºäº†å‡å°‘æˆªæ–­å¼•èµ·çš„æ …æ æ•ˆåº”ç­‰
 	 * b(m)=a(m)*h(m)
 	 ************************************/
 	public void AudHamming() {
 		for (int i = 0; i < FrmNum; i++) {
-			// ¼Ó´°
-			for (int j = 0; j < FRM_LEN; j++) {//Ô­À´£ºi < FRM_LEN; i++
-				// ±£´æÓïÒôĞÅºÅÖĞ¸÷Ö¡¶ÔÓ¦µÄººÃ÷´°ÏµÊı
+			// åŠ çª—
+			for (int j = 0; j < FRM_LEN; j++) {//åŸæ¥ï¼ši < FRM_LEN; i++
+				// ä¿å­˜è¯­éŸ³ä¿¡å·ä¸­å„å¸§å¯¹åº”çš„æ±‰æ˜çª—ç³»æ•°
 				audFrame[i].fltFrame[j] *= fltHamm[j];
 			}
 		}
@@ -156,21 +156,21 @@ public class Vad {
 
 	//not ok
 	/***********************************
-	 * Ã¿Ò»Ö¡¶ÌÊ±ÄÜÁ¿ º¯ÊıÃû£ºAudSte()
-	 * ¹¦ÄÜ£ºÇóÃ¿Ò»Ö¡µÄ¶ÌÊ±ÄÜÁ¿£¬¼´½«ËùÓĞÕâÒ»Ö¡µÄËùÓĞÑùµãÖµÏà¼Ó£¬fpFrmSndÊÇÖ¡µÚÒ»¸öÑù
-	 * FrmNum×Ü¹²Ö¡Êı,FRM_LENÖ¡³¤£¬´°³¤
-	 * https://blog.csdn.net/rocketeerLi/article/details/83271399¶ÌÊ±Æ½¾ùÄÜÁ¿£¬Ó¦¸ÃÊÇËùÓĞĞÅºÅµÄÆ½·½ºÍ
-	 * https://blog.csdn.net/godloveyuxu/article/details/77456692¶ÌÊ±Æ½¾ùÄÜÁ¿
-	 * £¿£¿£¿
-	 * https://bbs.csdn.net/topics/390936836Ö¡³¤ºÍ²ÉÑùµã
-	 * https://blog.csdn.net/Barry_J/article/details/84177006¶ÌÊ±Æ½¾ùÄÜÁ¿python
+	 * æ¯ä¸€å¸§çŸ­æ—¶èƒ½é‡ å‡½æ•°åï¼šAudSte()
+	 * åŠŸèƒ½ï¼šæ±‚æ¯ä¸€å¸§çš„çŸ­æ—¶èƒ½é‡ï¼Œå³å°†æ‰€æœ‰è¿™ä¸€å¸§çš„æ‰€æœ‰æ ·ç‚¹å€¼ç›¸åŠ ï¼ŒfpFrmSndæ˜¯å¸§ç¬¬ä¸€ä¸ªæ ·
+	 * FrmNumæ€»å…±å¸§æ•°,FRM_LENå¸§é•¿ï¼Œçª—é•¿
+	 * https://blog.csdn.net/rocketeerLi/article/details/83271399çŸ­æ—¶å¹³å‡èƒ½é‡ï¼Œåº”è¯¥æ˜¯æ‰€æœ‰ä¿¡å·çš„å¹³æ–¹å’Œ
+	 * https://blog.csdn.net/godloveyuxu/article/details/77456692çŸ­æ—¶å¹³å‡èƒ½é‡
+	 * ï¼Ÿï¼Ÿï¼Ÿ
+	 * https://bbs.csdn.net/topics/390936836å¸§é•¿å’Œé‡‡æ ·ç‚¹
+	 * https://blog.csdn.net/Barry_J/article/details/84177006çŸ­æ—¶å¹³å‡èƒ½é‡python
 	 ************************************/
 
 	public void AudSte() {	
 		for (int i = 0; i < FrmNum; i++) {
 			double fltShortEnergy = 0;
 			for (int j = 0; j < FRM_LEN; j++) {
-				fltShortEnergy += (audFrame[i].fltFrame[j])*(audFrame[i].fltFrame[j]);//Math.abs(audFrame[i].fltFrame[j])Ó¦¸ÃÊÇÕâ¸öµÄÆ½·½ºÍ
+				fltShortEnergy += (audFrame[i].fltFrame[j])*(audFrame[i].fltFrame[j]);//Math.abs(audFrame[i].fltFrame[j])åº”è¯¥æ˜¯è¿™ä¸ªçš„å¹³æ–¹å’Œ
 			}
 			audFrame[i].fltSte = fltShortEnergy;
 		}
@@ -180,9 +180,9 @@ public class Vad {
 	}
 	
 	/***********************************
-	*Ò»Ö¡µÄ¹ıÁãÂÊ
-	*º¯ÊıÃû£ºAudZcr(fltSound *fpFrmSnd, DWORD FrmLen,fltSound ZcrThresh)
-	*¹¦ÄÜ£ºÇó½âÒ»Ö¡µÄ¹ıÁãÂÊ£¬fpFrmSndÖ¡µÚÒ»¸ö²ÉÑùµãµØÖ·£¬FrmLenÖ¡³¤£¬ZcrThresh¹ıÁãÂÊ·§Öµ
+	*ä¸€å¸§çš„è¿‡é›¶ç‡
+	*å‡½æ•°åï¼šAudZcr(fltSound *fpFrmSnd, DWORD FrmLen,fltSound ZcrThresh)
+	*åŠŸèƒ½ï¼šæ±‚è§£ä¸€å¸§çš„è¿‡é›¶ç‡ï¼ŒfpFrmSndå¸§ç¬¬ä¸€ä¸ªé‡‡æ ·ç‚¹åœ°å€ï¼ŒFrmLenå¸§é•¿ï¼ŒZcrThreshè¿‡é›¶ç‡é˜€å€¼
 	************************************/
 	public void AudZcr(){
 		
@@ -190,7 +190,7 @@ public class Vad {
 		for( int i = 0; i < FrmNum; i++)
 		{
 			int    dwZcrRate = 0;
-		for(int j =0 ; j < FRM_LEN - 1; j++)//ÖÇÃ÷Ê¦ĞÖºóÃæÓĞ´ø¾ø¶ÔÖµ£¬j-1
+		for(int j =0 ; j < FRM_LEN - 1; j++)//æ™ºæ˜å¸ˆå…„åé¢æœ‰å¸¦ç»å¯¹å€¼ï¼Œj-1
 			//if((audFrame[i].fltFrame[j]*audFrame[i].fltFrame[j + 1] < 0)&&((audFrame[i].fltFrame[j] - audFrame[i].fltFrame[j+1]) > fltZcrVadThresh))
 		{
 			if((audFrame[i].fltFrame[j]*audFrame[i].fltFrame[j + 1] < 0)&&((audFrame[i].fltFrame[j+1] - audFrame[i].fltFrame[j]) > fltZcrVadThresh))
@@ -204,11 +204,11 @@ public class Vad {
 	
 	
 	/**********************************
-	*¹À¼ÆÔëÉù·§Öµ
-	*º¯ÊıÃû£º AudNoiseEstimate£¨£©
-	*¹¦ÄÜ£º¼ÆËãË«ÃÅÏŞ·§Öµ
-	*zcr¹ıÁãÂÊ
-	*steÄÜÁ¿
+	*ä¼°è®¡å™ªå£°é˜€å€¼
+	*å‡½æ•°åï¼š AudNoiseEstimateï¼ˆï¼‰
+	*åŠŸèƒ½ï¼šè®¡ç®—åŒé—¨é™é˜€å€¼
+	*zcrè¿‡é›¶ç‡
+	*steèƒ½é‡
     ***********************************/
 	
 	public void AudNoiseEstimate(){
@@ -221,20 +221,20 @@ public class Vad {
 		double maxSte = 0;
 		for(int i = 0; i < FrmNum; i++)  {
 			if(maxSte<audFrame[i].fltSte)
-				maxSte = audFrame[i].fltSte;//µÃµ½×î´óµÄ¶ÌÊ±ÄÜÁ¿
+				maxSte = audFrame[i].fltSte;//å¾—åˆ°æœ€å¤§çš„çŸ­æ—¶èƒ½é‡
 		}
 		
-		fltSteThresh[0] = fltSteThresh[0]<(maxSte/4)?fltSteThresh[0]:(maxSte/4);//»ñµÃ½Ï¸ßµÄÄÜÁ¿ãĞÖµ
-		fltSteThresh[1] = fltSteThresh[1]<(maxSte/8)?fltSteThresh[1]:(maxSte/8);//»ñµÃ½ÏµÍµÄÄÜÁ¿ãĞÖµ
+		fltSteThresh[0] = fltSteThresh[0]<(maxSte/4)?fltSteThresh[0]:(maxSte/4);//è·å¾—è¾ƒé«˜çš„èƒ½é‡é˜ˆå€¼
+		fltSteThresh[1] = fltSteThresh[1]<(maxSte/8)?fltSteThresh[1]:(maxSte/8);//è·å¾—è¾ƒä½çš„èƒ½é‡é˜ˆå€¼
 		
 	}
 	
 	
 	public void AudVadEstimate(){
 		//Extract Threshold
-		double	ZcrLow=dwZcrThresh[1];//Ë«ÃÅÏŞ¹ıÁãÂÊãĞÖµ[0]¸ß[1]µÍ   
+		double	ZcrLow=dwZcrThresh[1];//åŒé—¨é™è¿‡é›¶ç‡é˜ˆå€¼[0]é«˜[1]ä½   
 		double	ZcrHigh=dwZcrThresh[0];
-		double	AmpLow=fltSteThresh[1];//Ë«ÃÅÏŞ¶ÌÊ±ÄÜÁ¿ãĞÖµ[0]¸ß[1]µÍ
+		double	AmpLow=fltSteThresh[1];//åŒé—¨é™çŸ­æ—¶èƒ½é‡é˜ˆå€¼[0]é«˜[1]ä½
 		double	AmpHigh=fltSteThresh[0];
 		WavStart=0;
 		WavEnd=0;
@@ -248,14 +248,14 @@ public class Vad {
 			{
 			case 0:
 			case 1:
-				if ((audFrame[i].fltSte)>AmpHigh)//Ê×ÏÈÏÈ¼ì²â³ö×ÇÒô²¿·Ö
+				if ((audFrame[i].fltSte)>AmpHigh)//é¦–å…ˆå…ˆæ£€æµ‹å‡ºæµŠéŸ³éƒ¨åˆ†
 				{
-					WavStart = (i-count-1)>1?(i-count-1):1;//»ñµÃ
+					WavStart = (i-count-1)>1?(i-count-1):1;//è·å¾—
 					status= 2;
 					silence = 0;
 					count = count + 1;
 				}
-				//£¿£¿£¿//¹ı×îµÍ¶ÌÊ±ÄÜÁ¿»òÕßµ½¹ıÁãÂÊãĞÖµ
+				//ï¼Ÿï¼Ÿï¼Ÿ//è¿‡æœ€ä½çŸ­æ—¶èƒ½é‡æˆ–è€…åˆ°è¿‡é›¶ç‡é˜ˆå€¼
 				else if((audFrame[i].fltSte)>AmpLow || (audFrame[i].dwZcr)>ZcrLow)
 				{
 					status =1;
@@ -269,7 +269,7 @@ public class Vad {
 				break;
 
 			case 2: //Speech Section
-				//£¿£¿£¿//¹ı×îµÍ¶ÌÊ±ÄÜÁ¿»òÕßµ½¹ıÁãÂÊãĞÖµ
+				//ï¼Ÿï¼Ÿï¼Ÿ//è¿‡æœ€ä½çŸ­æ—¶èƒ½é‡æˆ–è€…åˆ°è¿‡é›¶ç‡é˜ˆå€¼
 				if((audFrame[i].fltSte > AmpLow) || (audFrame[i].dwZcr > ZcrLow))
 				{
 					count = count +1;
@@ -278,11 +278,11 @@ public class Vad {
 				else
 				{
 					silence = silence+1;
-					if (silence < MAX_SLIENCE_LEN) //¾²ÒôĞ¡ÓÚ×î´ó¾²Òô³¤¶È
+					if (silence < MAX_SLIENCE_LEN) //é™éŸ³å°äºæœ€å¤§é™éŸ³é•¿åº¦
 					{	
 						count = count +1;
 					}
-					else if(count< MIN_WORD_LEN)   //×îĞ¡ÓïÒô³¤¶È
+					else if(count< MIN_WORD_LEN)   //æœ€å°è¯­éŸ³é•¿åº¦
 					{	
 						status  = 0;
 						silence = 0;
@@ -297,24 +297,24 @@ public class Vad {
 			default:
 				break;
 			}
-			//¸üĞÂÓïÒôÖ¡
+			//æ›´æ–°è¯­éŸ³å¸§
 		}
 		count = count-silence/2;
 		WavEnd = WavStart + count -1;
 
 	}
 	/***************************
-	*¹éÒ»»¯
-	*º¯ÊıÃû: vadCommon(void)
-	*¹¦ÄÜ£º¶ÔÓïÒô½øĞĞ¹éÒ»»¯
+	*å½’ä¸€åŒ–
+	*å‡½æ•°å: vadCommon(void)
+	*åŠŸèƒ½ï¼šå¯¹è¯­éŸ³è¿›è¡Œå½’ä¸€åŒ–
 	*************************/
 	public void vadCommon(){
-		for( int i = 0; i < dwSoundlen; i++)//Ñù±¾µãÊı
+		for( int i = 0; i < dwSoundlen; i++)//æ ·æœ¬ç‚¹æ•°
 		{
-		if(maxData<Math.abs(data[i]))//ÕÒ³ö¾ø¶ÔÖµ×î´óµÄÊı¾İ
+		if(maxData<Math.abs(data[i]))//æ‰¾å‡ºç»å¯¹å€¼æœ€å¤§çš„æ•°æ®
 			maxData=Math.abs(data[i]);
 		}
-		for( int i = 0; i < dwSoundlen; i++)//Êı¾İÍ³Ò»
+		for( int i = 0; i < dwSoundlen; i++)//æ•°æ®ç»Ÿä¸€
 		{
 			data[i] = data[i]/maxData;
 		}

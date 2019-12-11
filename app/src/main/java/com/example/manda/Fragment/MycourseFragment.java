@@ -15,4 +15,5 @@ public class MycourseFragment extends KJFragment {
         View view = View.inflate(getActivity(), R.layout.frag_mycourse, null);
         return view;
     }
+
 }

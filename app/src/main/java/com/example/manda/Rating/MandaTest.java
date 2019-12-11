@@ -5,8 +5,8 @@ public class MandaTest {
 	{
 		MFCC mfcc = new MFCC();
 		MFCC mfcc2 = new MFCC();
-		double[][] result = mfcc.getMfcc("f://4手机存储//2.wav");
-		double[][] result2= mfcc2.getMfcc("f://4手机存储/2.wav");
+		double[][] result = mfcc.getMfcc("f://4鎵嬫満瀛樺偍//2.wav");
+		double[][] result2= mfcc2.getMfcc("f://4鎵嬫満瀛樺偍/2.wav");
 		DTW d1=new DTW(result,result2);
 
 		d1.calscore();

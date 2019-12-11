@@ -6,6 +6,7 @@
     <dimen name="big_word">50px</dimen>
     <dimen name="personal_big_word">45px</dimen>
     <dimen name="mine_name">40px</dimen>
+    <dimen name="show_words">100px</dimen>
 
     <!-- distance-->
     <dimen name="half">384px</dimen>
