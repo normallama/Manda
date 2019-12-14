@@ -6,6 +6,7 @@
     <dimen name="big_word">50px</dimen>
     <dimen name="personal_big_word">45px</dimen>
     <dimen name="mine_name">40px</dimen>
+    <dimen name="show_words">100px</dimen>
 
     <!-- distance-->
     <dimen name="half">384px</dimen>
@@ -25,5 +26,6 @@
     <dimen name="personal_icon_height">60px</dimen>
     <dimen name="personal_icon_width">60px</dimen>
     <dimen name="title_text">18sp</dimen>
-    <dimen name="main_body_text">@dimen/main_body_text</dimen>
+    <dimen name="main_body_text">15sp</dimen>
+
 </resources>

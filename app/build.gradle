@@ -13,6 +13,10 @@ android {
     }
     buildTypes {
         release {
+            lintOptions {
+                checkReleaseBuilds false
+                abortOnError false
+            }
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -46,5 +50,5 @@ dependencies {
     implementation 'com.nhaarman.listviewanimations:lib-core-slh:3.1.0@aar'
     implementation 'org.greenrobot:greendao:3.2.2' // 添加库
     implementation 'com.nineoldandroids:library:2.4.0'
-
+    implementation 'com.belerweb:pinyin4j:2.5.0'
 }

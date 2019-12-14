@@ -9,6 +9,7 @@ import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.RadioButton;
 
+import com.example.manda.Data.GetSpelling;
 import com.example.manda.Fragment.HomepageFragment;
 import com.example.manda.Fragment.MycourseFragment;
 import com.example.manda.Fragment.PersonalFragment;
@@ -90,7 +91,6 @@ public class Manda extends KJActivity {
             case R.id.navigation_notifications:
                 changeFragment(R.id.main_content,personal);
                 navigation.setSelectedItemId(navigation.getMenu().getItem(2).getItemId());//默认选择
-                String data[] = {"aa","bb","cc","dd","aa","bb","cc","dd","aa","bb","cc","dd","aa","bb","cc","dd"};
                 break;
             default:
                 break;
