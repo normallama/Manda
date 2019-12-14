@@ -61,20 +61,32 @@ public class PersonalFragment extends KJFragment {
         super.widgetClick(v);
         switch(v.getId()){
             case R.id.personal_rl_favor:
-
-            case R.id.personal_rl_wallet:
-            case R.id.personal_rl_course:
-            case R.id.personal_rl_invite:
-            case R.id.personal_rl_question:
-            case R.id.personal_rl_setting:
-                Intent intent1 = new Intent(getActivity(),feedback.class);
+                Intent intent1=new Intent(getActivity(),feedback.class);
                 startActivity(intent1);
-                getActivity().overridePendingTransition(R.anim.activity_open, R.anim.activity_close);
+                break;
+            case R.id.personal_rl_wallet:
+                Intent intent2=new Intent(getActivity(),feedback.class);
+                startActivity(intent2);
+                break;
+            case R.id.personal_rl_course:
+                Intent intent3=new Intent(getActivity(),feedback.class);
+                startActivity(intent3);
+                break;
+            case R.id.personal_rl_invite:
+                Intent intent4=new Intent(getActivity(),feedback.class);
+                startActivity(intent4);
+                break;
+            case R.id.personal_rl_question:
+                Intent intent5=new Intent(getActivity(),feedback.class);
+                startActivity(intent5);
+                break;
+            case R.id.personal_rl_setting:
+                Intent intent6=new Intent(getActivity(),feedback.class);
+                startActivity(intent6);
                 break;
             case R.id.mine_image:
-                Intent intent2 = new Intent(getActivity(),accounter.class);
-                startActivity(intent2);
-                getActivity().overridePendingTransition(R.anim.activity_open, R.anim.activity_close);
+                Intent intent7=new Intent(getActivity(),accounter.class);
+                startActivity(intent7);
                 break;
             default:
                 break;

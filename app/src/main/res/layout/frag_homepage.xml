@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#f0f0f0"
     android:orientation="vertical">
 
     <com.zhy.autolayout.AutoRelativeLayout
@@ -35,8 +36,15 @@
             style="@style/titlebar_img_right"
             android:layout_width="@dimen/icon_width"
             android:layout_height="@dimen/icon_height"
+<<<<<<< HEAD
             android:background="@color/white"
 
+=======
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="4px"
+            android:contentDescription="@null"
+            android:focusable="false"
+>>>>>>> parent of dd81166... UI调整
             android:src="@drawable/search" />
 
     </com.zhy.autolayout.AutoRelativeLayout>
@@ -70,7 +78,10 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:background="@color/background"
+=======
+>>>>>>> parent of dd81166... UI调整
         android:id="@+id/exercise">
 
         <com.zhy.autolayout.AutoLinearLayout
@@ -101,11 +112,20 @@
                     android:textSize="@dimen/big_word" />
 
                 <Button
-                    android:id="@+id/detail"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/button_width"
+<<<<<<< HEAD
                     style="@style/card_button"
                     android:text="@string/interpret" />
+=======
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="@dimen/small_title_word"
+                    android:layout_marginRight="35px"
+                    android:background="@color/colorPrimary"
+                    android:text="@string/interpret"
+                    android:textColor="@color/white" />
+>>>>>>> parent of dd81166... UI调整
             </com.zhy.autolayout.AutoRelativeLayout>
 
 
@@ -122,11 +142,20 @@
                     style="@style/card_title"/>
 
                 <Button
-                    android:id="@+id/continue_study"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/button_width"
+<<<<<<< HEAD
                     style="@style/card_button"
                     android:text="@string/keep_study" />
+=======
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="@dimen/small_title_word"
+                    android:layout_marginRight="35px"
+                    android:background="@color/colorPrimary"
+                    android:text="@string/keep_study"
+                    android:textColor="@color/white" />
+>>>>>>> parent of dd81166... UI调整
 
             </com.zhy.autolayout.AutoRelativeLayout>
 
@@ -147,8 +176,18 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/button_width"
+<<<<<<< HEAD
                     style="@style/card_button"
                     android:text="@string/keep_study" />
+=======
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="@dimen/small_title_word"
+                    android:layout_marginRight="35px"
+                    android:background="@color/colorPrimary"
+                    android:text="@string/keep_study"
+                    android:textColor="@color/white" />
+>>>>>>> parent of dd81166... UI调整
 
             </com.zhy.autolayout.AutoRelativeLayout>
 
