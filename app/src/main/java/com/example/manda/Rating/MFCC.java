@@ -4,22 +4,22 @@ public class MFCC {
 	public static int LEN_PF_MFCC = 256;
 	public static int SIZE_X_X_MFCC = 32;
 	public static int SIZE_X_Y_MFCC = 140;
-	public static int FS_MFCC = 8000;//HZƵ��
-	public static int N_MFCC = 256;//FFT�ĳ���
-	public static int SIZE_DCT_X_MFCC = 13;//dctϵ����ά����x��С
-	public static int SIZE_DCT_Y_MFCC = 25;//dctϵ����ά����y��С
+	public static int FS_MFCC = 8000;//HZ???
+	public static int N_MFCC = 256;//FFT?????
+	public static int SIZE_DCT_X_MFCC = 13;//dct??????????x??С
+	public static int SIZE_DCT_Y_MFCC = 25;//dct??????????y??С
 	public static double FH_MFCC = 0.5;
 	public static double FL_MFCC = 0;
 	public double buf[][]; 
-	public double bank[][];//mel�˲�����ϵ��
+	public double bank[][];//mel??????????
 	public int Pos;
-	public static int P_MFCC = 24;//mel�˲��������
-	public static double pi = 3.1415926536;// ����pi
-	public double hamming[];//������
+	public static int P_MFCC = 24;//mel??????????
+	public static double pi = 3.1415926536;// ????pi
+	public double hamming[];//??????
 	public double working[];
 	public double workingi[];
-	public double dctcoef[][];//dctϵ��
-	public double stren_win[];//��һ��������������
+	public double dctcoef[][];//dct???
+	public double stren_win[];//?????????????????
 	public double result[];
 	public int index1;
 	public double m[][];
@@ -27,7 +27,7 @@ public class MFCC {
 		working = new double[257];//
 		workingi = new double[257];
 		melbank(); //
-		calcu_hamming(); //�Ӵ�
+		calcu_hamming(); //???
 		cal_stren_win(); 
 		dct(); 
 	}
@@ -44,10 +44,10 @@ public class MFCC {
 		 }
 	     for(i = 1;i <= 256;i++)
 		 {
-			 //�Ӵ�����//s=y'.*hamming(256); ͬʱ��һ��
+			 //???????//s=y'.*hamming(256); ???????
 			 working[i - 1] = working[i] * hamming[i]; 
 		 }
-		 //���ٸ���Ҷ�任����//t=abs(fft(s)); 
+		 //?????????任????//t=abs(fft(s)); 
 	     fft(); 
 	     for(i = 256;i >= 1;i--) 
 	     {
@@ -61,7 +61,7 @@ public class MFCC {
 	         { 
 	             sum = sum + bank[i][j] * working[j]; 
 	         } 
-	         if(sum != 0)//�����
+	         if(sum != 0)//?????
 			 {
 				 proc_buf1[i] = Math.log(sum); 
 			 }
@@ -75,7 +75,7 @@ public class MFCC {
 	         sum = 0; 
 	         for(j = 1;j <= 24;j++) 
 	         { 
-	             sum = sum + dctcoef[i][j] * proc_buf1[j]; //dctcoef��DCTϵ��
+	             sum = sum + dctcoef[i][j] * proc_buf1[j]; //dctcoef??DCT???
 	         } 
 	         buf[Pos][i] = sum * stren_win[i]; 
 	     }  
@@ -89,9 +89,9 @@ public class MFCC {
 	     }  
 	 } 
 	/***************************
-	*mel�˲�����ϵ�� ,ok
-	*������: melbank(void)
-	*���ܣ���mel�˲�����ϵ�������Ҷ�����й�һ��,��Ҫ����P_MFCC��LEN_PF_MFCC��FS_MFCC��FH_MFCC��FL_MFCC
+	*mel?????????? ,ok
+	*??????: melbank(void)
+	*???????mel?????????????????????й????,???????P_MFCC??LEN_PF_MFCC??FS_MFCC??FH_MFCC??FL_MFCC
 	*
 	*************************/
 	public void melbank()
@@ -172,9 +172,9 @@ public class MFCC {
 
 
 	/***************************
-	*���ٸ���Ҷ�任
-	*������: fft(void)
-	*���ܣ�
+	*?????????任
+	*??????: fft(void)
+	*?????
 	*************************/
 	public void fft(){
 		 int i,j = 0,k,n,l,le,le1,ip,sign = -1; 
@@ -188,7 +188,7 @@ public class MFCC {
 	             working[j] = working[i];
 	             working[i] = tr;
 	         } 
-	         k = n >> 1; //�൱��n/2
+	         k = n >> 1; //????n/2
 	         while(k <= j)
 			 { 
 	             j -= k; 
@@ -219,16 +219,16 @@ public class MFCC {
 	             tr = ur * wr - ui * wi; 
 	             ti = ur * wi + ui * wr; 
 	             ur = tr; 
-	             ui = ti; //���Լ�
+	             ui = ti; //?????
 	         } 
 	     } 
 	}
 
 
 	/***************************
-	*��ɢ���ұ任DCT,ok
-	*������: dct(void)
-	*���ܣ���DCTϵ��
+	*???????任DCT,ok
+	*??????: dct(void)
+	*???????DCT???
 	*************************/
 	public void dct(){
 		dctcoef = new double [SIZE_DCT_X_MFCC][SIZE_DCT_Y_MFCC];
@@ -245,9 +245,9 @@ public class MFCC {
 
 
 	/***************************
-	*��һ��������������,ok
-	*������: cal_stren_win(void)
-	*���ܣ�
+	*?????????????????,ok
+	*??????: cal_stren_win(void)
+	*?????
 	*************************/
 	public void cal_stren_win(){
 		stren_win = new double[13];
@@ -260,7 +260,7 @@ public class MFCC {
 				 b = stren_win[i]; 
 			 }
 	     } 
-	     for(int i = 1;i <= 12;i++) //��һ��
+	     for(int i = 1;i <= 12;i++) //?????
 		 { 
 	         stren_win[i] = stren_win[i] / b; 
 	     } 
@@ -268,9 +268,9 @@ public class MFCC {
 		
 	}
 	/***************************
-	*������
-	*������: calcu_hamming(void)
-	*���ܣ�
+	*??????
+	*??????: calcu_hamming(void)
+	*?????
 	*************************/
 	public void calcu_hamming() 
 	{ 
@@ -281,16 +281,16 @@ public class MFCC {
 	    } 
 	} 
 	/***************************
-	*int   WavStart;//������ʼ��
-	*int   WavEnd;//����������
-	*Ԥ���غ�Ĳ�����
+	*int   WavStart;//?????????
+	*int   WavEnd;//??????????
+	*????????????
 	*************************/
 	public double[][] getMfcc(String path)
 	{
 	
 		 Vad vad = new Vad(path);
-		 vad.AudPreEmphasize();//Ԥ����
-		 vad.WaveEndtest();//�˵���
+		 vad.AudPreEmphasize();//?????
+		 vad.WaveEndtest();//?????
 		 m = new double[vad.FrmNum][100];//24??????
 		 index1=0;
 		 for(int i= vad.WavStart;i<=vad.WavEnd;i++)

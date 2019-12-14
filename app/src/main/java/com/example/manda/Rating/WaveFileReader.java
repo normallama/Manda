@@ -6,44 +6,44 @@ import java.io.IOException;
 
 public class WaveFileReader {
 	private String filename = null;  
-    private int[][] data = null;  //¶şÎ¬Êı×é
+    private int[][] data = null;  //äºŒç»´æ•°ç»„
   
     private int len = 0;  
       
     private String chunkdescriptor = null; //RIFF WAVE Chunk
-    static private int lenchunkdescriptor = 4;//Ã¿ËÄ¸öËÄ¸ö¶ÁÈ¡
+    static private int lenchunkdescriptor = 4;//æ¯å››ä¸ªå››ä¸ªè¯»å–
   
-    private long chunksize = 0;  //Êı¾İ³¤¶È
+    private long chunksize = 0;  //æ•°æ®é•¿åº¦
     static private int lenchunksize = 4;  
   
-    private String waveflag = null;  //ÅĞ¶ÏÊÇ·ñÎªwaveÎÄ¼ş
-    static private int lenwaveflag = 4;  //¸¨ÖúRIFF WAVE ChunkµÄÊı¾İ¶ÁÈë,Õ¼4¸ö×Ö½Ú
+    private String waveflag = null;  //åˆ¤æ–­æ˜¯å¦ä¸ºwaveæ–‡ä»¶
+    static private int lenwaveflag = 4;  //è¾…åŠ©RIFF WAVE Chunkçš„æ•°æ®è¯»å…¥,å 4ä¸ªå­—èŠ‚
   
-    private String fmtubchunk = null;//Format Chunk£¬ÅĞ¶ÏIDÄÚÈİÊÇ·ñÎªfmt
-    static private int lenfmtubchunk = 4;  //¸¨Öú¶ÁÈëFormat ChunkµÄID,ÄÚÈİÓ¦¸ÃÊÇfmt£¬Õ¼4¸ö×Ö½Ú
+    private String fmtubchunk = null;//Format Chunkï¼Œåˆ¤æ–­IDå†…å®¹æ˜¯å¦ä¸ºfmt
+    static private int lenfmtubchunk = 4;  //è¾…åŠ©è¯»å…¥Format Chunkçš„ID,å†…å®¹åº”è¯¥æ˜¯fmtï¼Œå 4ä¸ªå­—èŠ‚
       
-    private long subchunk1size = 0;  //fmtChunkµÄsize
+    private long subchunk1size = 0;  //fmtChunkçš„size
     static private int lensubchunk1size = 4;  
       
-    private int audioformat = 0;  //±àÂë·½Ê½
+    private int audioformat = 0;  //ç¼–ç æ–¹å¼
     static private int lenaudioformat = 2;  
       
-    private int numchannels = 0;  //ÉùµÀÊı
+    private int numchannels = 0;  //å£°é“æ•°
     static private int lennumchannels = 2;  
       
-    private long samplerate = 0;  //²ÉÑùÂÊ
+    private long samplerate = 0;  //é‡‡æ ·ç‡
     static private int lensamplerate = 2;  
       
-    private long byterate = 0;  //ÒôÆµÊı¾İ´«ËÍËÙÂÊ
+    private long byterate = 0;  //éŸ³é¢‘æ•°æ®ä¼ é€é€Ÿç‡
     static private int lenbyterate = 4;  
       
-    private int blockalign = 0;  //Êı¾İ¿é¶ÔÆëµ¥Î»£¨Ã¿¸ö²ÉÑùĞèÒªµÄ×Ö½ÚÊı£©
+    private int blockalign = 0;  //æ•°æ®å—å¯¹é½å•ä½ï¼ˆæ¯ä¸ªé‡‡æ ·éœ€è¦çš„å­—èŠ‚æ•°ï¼‰
     static private int lenblockling = 2;  
       
-    private int bitspersample = 0;  //Ã¿¸ö²ÉÑùĞèÒªµÄbitÊı
+    private int bitspersample = 0;  //æ¯ä¸ªé‡‡æ ·éœ€è¦çš„bitæ•°
     static private int lenbitspersample = 2;  
       
-    private String datasubchunk = null;  //ÅĞ¶ÏÊÇ·ñÎªData
+    private String datasubchunk = null;  //åˆ¤æ–­æ˜¯å¦ä¸ºData
     static private int lendatasubchunk = 4;  
       
     private long subchunk2size = 0;
@@ -60,33 +60,33 @@ public class WaveFileReader {
         this.initReader(filename);  
     }  
       
-    // ÅĞ¶ÏÊÇ·ñ´´½¨wav¶ÁÈ¡Æ÷³É¹¦  
+    // åˆ¤æ–­æ˜¯å¦åˆ›å»ºwavè¯»å–å™¨æˆåŠŸ  
     public boolean isSuccess() {  
         return issuccess;  
     }  
       
-    // »ñÈ¡Ã¿¸ö²ÉÑùµÄ±àÂë³¤¶È£¬8bit»òÕß16bit  
+    // è·å–æ¯ä¸ªé‡‡æ ·çš„ç¼–ç é•¿åº¦ï¼Œ8bitæˆ–è€…16bit  
     public int getBitPerSample(){  
         return this.bitspersample;  
     }  
       
-    // »ñÈ¡²ÉÑùÂÊ  
+    // è·å–é‡‡æ ·ç‡  
     public long getSampleRate(){  
         return this.samplerate;  
     }  
       
-    // »ñÈ¡ÉùµÀ¸öÊı£¬1´ú±íµ¥ÉùµÀ 2´ú±íÁ¢ÌåÉù  
+    // è·å–å£°é“ä¸ªæ•°ï¼Œ1ä»£è¡¨å•å£°é“ 2ä»£è¡¨ç«‹ä½“å£°  
     public int getNumChannels(){  
         return this.numchannels;  
     }  
       
-    // »ñÈ¡Êı¾İ³¤¶È£¬Ò²¾ÍÊÇÒ»¹²²ÉÑù¶àÉÙ¸ö  
+    // è·å–æ•°æ®é•¿åº¦ï¼Œä¹Ÿå°±æ˜¯ä¸€å…±é‡‡æ ·å¤šå°‘ä¸ª  
     public int getDataLen(){  
         return this.len;  
     }  
       
-    // »ñÈ¡Êı¾İ  
-    // Êı¾İÊÇÒ»¸ö¶şÎ¬Êı×é£¬[n][m]´ú±íµÚn¸öÉùµÀµÄµÚm¸ö²ÉÑùÖµ  
+    // è·å–æ•°æ®  
+    // æ•°æ®æ˜¯ä¸€ä¸ªäºŒç»´æ•°ç»„ï¼Œ[n][m]ä»£è¡¨ç¬¬nä¸ªå£°é“çš„ç¬¬mä¸ªé‡‡æ ·å€¼  
     public int[][] getData(){  
         return this.data;  
     }  
@@ -95,44 +95,44 @@ public class WaveFileReader {
         this.filename = filename;  
   
         try {  
-            fis = new FileInputStream(this.filename); //¶ÁÈëÎÄ¼ş 
-            bis = new BufferedInputStream(fis);  //¼ÓÂí¼×
+            fis = new FileInputStream(this.filename); //è¯»å…¥æ–‡ä»¶ 
+            bis = new BufferedInputStream(fis);  //åŠ é©¬ç”²
   
-            this.chunkdescriptor = readString(lenchunkdescriptor);  //¶ÁÈëËÄ¸ö×Ö½ÚÄÚÈİ
-            if(!chunkdescriptor.endsWith("RIFF"))  //Í·ËÄ¸ö×Ö½ÚÎªRIFF
+            this.chunkdescriptor = readString(lenchunkdescriptor);  //è¯»å…¥å››ä¸ªå­—èŠ‚å†…å®¹
+            if(!chunkdescriptor.endsWith("RIFF"))  //å¤´å››ä¸ªå­—èŠ‚ä¸ºRIFF
                 throw new IllegalArgumentException("RIFF miss, " + filename + " is not a wave file.");  
               
-            this.chunksize = readLong();  //RIFF WAVE Chunk µÄsize
-            this.waveflag = readString(lenwaveflag);  //¶ÁÈëRIFF WAVE ChunkµÄtype£¬ÄÚÈİÓ¦¸ÃÊÇWAVE
+            this.chunksize = readLong();  //RIFF WAVE Chunk çš„size
+            this.waveflag = readString(lenwaveflag);  //è¯»å…¥RIFF WAVE Chunkçš„typeï¼Œå†…å®¹åº”è¯¥æ˜¯WAVE
             if(!waveflag.endsWith("WAVE"))  
                 throw new IllegalArgumentException("WAVE miss, " + filename + " is not a wave file.");  
             
-            this.fmtubchunk = readString(lenfmtubchunk);  //¶ÁÈëFormat ChunkµÄID,ÄÚÈİÓ¦¸ÃÊÇfmt
+            this.fmtubchunk = readString(lenfmtubchunk);  //è¯»å…¥Format Chunkçš„ID,å†…å®¹åº”è¯¥æ˜¯fmt
             if(!fmtubchunk.endsWith("fmt "))  
                 throw new IllegalArgumentException("fmt miss, " + filename + " is not a wave file.");  
               
-            this.subchunk1size = readLong();  //fmtChunkµÄsize£¬16/18£¬18ÔòÓĞ¸½¼ÓĞÅÏ¢4B
-            this.audioformat = readInt();  //±àÂë·½Ê½2B
-            this.numchannels = readInt();  //ÉùµÀÊıÄ¿2B
-            this.samplerate = readLong();  //²ÉÑùÆµÂÊ4B
-            this.byterate = readLong();  //ÒôÆµÊı¾İ´«ËÍËÙÂÊ4B
-            this.blockalign = readInt();  //Êı¾İ¿é¶ÔÆëµ¥Î»£¨Ã¿¸ö²ÉÑùĞèÒªµÄ×Ö½ÚÊı£©
-            this.bitspersample = readInt();  //Ã¿¸ö²ÉÑùĞèÒªµÄBitÊı
+            this.subchunk1size = readLong();  //fmtChunkçš„sizeï¼Œ16/18ï¼Œ18åˆ™æœ‰é™„åŠ ä¿¡æ¯4B
+            this.audioformat = readInt();  //ç¼–ç æ–¹å¼2B
+            this.numchannels = readInt();  //å£°é“æ•°ç›®2B
+            this.samplerate = readLong();  //é‡‡æ ·é¢‘ç‡4B
+            this.byterate = readLong();  //éŸ³é¢‘æ•°æ®ä¼ é€é€Ÿç‡4B
+            this.blockalign = readInt();  //æ•°æ®å—å¯¹é½å•ä½ï¼ˆæ¯ä¸ªé‡‡æ ·éœ€è¦çš„å­—èŠ‚æ•°ï¼‰
+            this.bitspersample = readInt();  //æ¯ä¸ªé‡‡æ ·éœ€è¦çš„Bitæ•°
               
             this.datasubchunk = readString(lendatasubchunk);  //DataChunk ID
             if(!datasubchunk.endsWith("data"))  
                 throw new IllegalArgumentException("data miss, " + filename + " is not a wave file.");  
-            this.subchunk2size = readLong(); //datachunkµÄsize £¬4B
+            this.subchunk2size = readLong(); //datachunkçš„size ï¼Œ4B
               
-            this.len = (int)(this.subchunk2size/(this.bitspersample/8)/this.numchannels);  //Ñù±¾Êı,(this.bitspersample/8)Ã¿¸ö²ÉÑùĞèÒªµÄbitÊı/8=Ã¿¸ö²ÉÑùĞèÒªµÄ×Ö½ÚÊı£¬
-            //this.subchunk2sizeÏÔÊ¾Êı¾İ´óĞ¡£¬subchunk2size/numchannels=Ã¿¸öÉùµÀ°üº¬µÄbitÊı
+            this.len = (int)(this.subchunk2size/(this.bitspersample/8)/this.numchannels);  //æ ·æœ¬æ•°,(this.bitspersample/8)æ¯ä¸ªé‡‡æ ·éœ€è¦çš„bitæ•°/8=æ¯ä¸ªé‡‡æ ·éœ€è¦çš„å­—èŠ‚æ•°ï¼Œ
+            //this.subchunk2sizeæ˜¾ç¤ºæ•°æ®å¤§å°ï¼Œsubchunk2size/numchannels=æ¯ä¸ªå£°é“åŒ…å«çš„bitæ•°
               
-            this.data = new int[this.numchannels][this.len];  //ÉùµÀÊı£¬Ñù±¾Êı
-              //8Î»´ú±í2µÄ8´Î·½--256£¬16Î»Ôò´ú±í2µÄ16´Î·½--64K¡£±È½ÏÒ»ÏÂ£¬Ò»¶ÎÏàÍ¬µÄÒôÀÖĞÅÏ¢£¬16Î»Éù¿¨ÄÜ°ÑËü·ÖÎª64K¸ö¾«¶Èµ¥Î»½øĞĞ´¦Àí£¬¶ø8Î»Éù¿¨Ö»ÄÜ´¦Àí256¸ö¾«¶Èµ¥Î»
+            this.data = new int[this.numchannels][this.len];  //å£°é“æ•°ï¼Œæ ·æœ¬æ•°
+              //8ä½ä»£è¡¨2çš„8æ¬¡æ–¹--256ï¼Œ16ä½åˆ™ä»£è¡¨2çš„16æ¬¡æ–¹--64Kã€‚æ¯”è¾ƒä¸€ä¸‹ï¼Œä¸€æ®µç›¸åŒçš„éŸ³ä¹ä¿¡æ¯ï¼Œ16ä½å£°å¡èƒ½æŠŠå®ƒåˆ†ä¸º64Kä¸ªç²¾åº¦å•ä½è¿›è¡Œå¤„ç†ï¼Œè€Œ8ä½å£°å¡åªèƒ½å¤„ç†256ä¸ªç²¾åº¦å•ä½
             for(int i=0; i<this.len; ++i){  
-                for(int n=0; n<this.numchannels; ++n){  //ÉùµÀ
+                for(int n=0; n<this.numchannels; ++n){  //å£°é“
                     if(this.bitspersample == 8){  
-                        this.data[n][i] = bis.read(); //»ñÈ¡Êı¾İµÄÏÂÒ»¸ö×Ö½Ú 
+                        this.data[n][i] = bis.read(); //è·å–æ•°æ®çš„ä¸‹ä¸€ä¸ªå­—èŠ‚ 
                     }
                     else if(this.bitspersample == 16){  
                         this.data[n][i] = this.readInt();  
@@ -155,7 +155,7 @@ public class WaveFileReader {
                 e1.printStackTrace();  
             }  
         }  
-        System.out.println("²ÉÑùÂÊ£º");
+        System.out.println("é‡‡æ ·ç‡ï¼š");
         System.out.println(this.getBitPerSample());
     }  
       
@@ -185,7 +185,7 @@ public class WaveFileReader {
       
     private long readLong(){  
         long res = 0;  
-        //×Ü¹²¶ÁÈëËÄ¸ö×Ö½Ú
+        //æ€»å…±è¯»å…¥å››ä¸ªå­—èŠ‚
         try {  
             long[] l = new long[4];  
             for(int i=0; i<4; ++i){  
@@ -194,7 +194,7 @@ public class WaveFileReader {
                     throw new IOException("no more data!!!");  
                 }  
             }  
-            res = l[0] | (l[1]<<8) | (l[2]<<16) | (l[3]<<24);  //µÃµ½RIFF WAVE Chunk size£¬¼´chunksize
+            res = l[0] | (l[1]<<8) | (l[2]<<16) | (l[3]<<24);  //å¾—åˆ°RIFF WAVE Chunk sizeï¼Œå³chunksize
         } catch (IOException e) {  
             e.printStackTrace();  
         }  

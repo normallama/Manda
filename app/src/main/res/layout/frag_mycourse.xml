@@ -2,12 +2,8 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-<<<<<<< HEAD
     android:layout_height="match_parent"
-    android:background="@color/background">
-=======
-    android:layout_height="match_parent">
->>>>>>> parent of dd81166... UI调整
+    android:background="#f0f0f0">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -32,40 +28,31 @@
 
                 <ImageView
                     android:id="@+id/search"
-                    style="@style/titlebar_img_right"
+                    style="@style/titlebar_img"
                     android:layout_width="@dimen/icon_width"
                     android:layout_height="@dimen/icon_height"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="4dp"
+                    android:contentDescription="@null"
+                    android:focusable="false"
                     android:src="@drawable/message" />
 
             </com.zhy.autolayout.AutoRelativeLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/small_title"
-                android:text="@string/current_test"
-                android:textSize="@dimen/small_title_word"
-                android:paddingLeft="20px"
-                android:paddingTop="12px"
-                android:background="@drawable/item_bg"/>
 
             <com.zhy.autolayout.AutoRelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/card_height"
                 android:background="@drawable/item_bg">
 
-<<<<<<< HEAD
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/small_title"
                     android:text="@string/current_test"
-                    style="@style/card_title"/>
+                    android:textSize="15sp"
+                    android:paddingLeft="20px"
+                    android:paddingTop="12px"
+                    android:background="@drawable/item_bg"/>
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/button_width"
-                    style="@style/card_button"
-                    android:text="@string/interpret" />
-=======
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/button_width"
@@ -73,35 +60,28 @@
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="@dimen/small_title_word"
                     android:layout_marginRight="35px"
-                    android:background="@color/colorPrimary"
+                    android:background="@drawable/button_bg"
                     android:text="@string/interpret"
                     android:textColor="@color/white" />
->>>>>>> parent of dd81166... UI调整
 
             </com.zhy.autolayout.AutoRelativeLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/small_title"
-                android:text="@string/history_course"
-                android:textSize="@dimen/small_title_word"
-                android:paddingLeft="20px"
-                android:paddingTop="12px"
-                android:background="@drawable/item_bg"/>
+
 
             <com.zhy.autolayout.AutoRelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/card_height"
+                android:layout_marginTop="20px"
                 android:background="@drawable/item_bg">
-<<<<<<< HEAD
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/small_title"
                     android:text="@string/history_course"
-                    style="@style/card_title"/>
-=======
->>>>>>> parent of dd81166... UI调整
+                    android:textSize="15sp"
+                    android:paddingLeft="20px"
+                    android:paddingTop="12px"
+                    android:background="@drawable/item_bg"/>
             </com.zhy.autolayout.AutoRelativeLayout>
 
         </com.zhy.autolayout.AutoLinearLayout>

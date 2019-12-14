@@ -21,7 +21,6 @@
     android:background="#88888888"
     android:gravity="center"
     android:orientation="horizontal"
-    android:paddingRight="8dp"
     tools:ignore="overdraw">
 
     <TextView
@@ -31,25 +30,22 @@
         android:layout_weight="1"
         android:padding="10dp"
         android:text="删除"
+        android:background="#ff0000"
+        android:textAlignment="center"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/main_body_text" />
+        android:textSize="16sp" />
 
-    <View
-        android:layout_width="1px"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp"
-        android:background="@android:color/white"
-        tools:ignore="PxUsage" />
-
-    <Button
+    <TextView
         android:id="@+id/undo_row_undobutton"
         android:layout_width="0dp"
         android:layout_height="40sp"
         android:layout_weight="1"
-        android:background="@drawable/undo"
+        android:text="撤回"
+        android:background="@color/gray"
+        android:textAlignment="center"
         android:padding="10dp"
         android:paddingRight="8dp"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/main_body_text" />
+        android:textSize="16sp" />
 
 </com.zhy.autolayout.AutoLinearLayout>

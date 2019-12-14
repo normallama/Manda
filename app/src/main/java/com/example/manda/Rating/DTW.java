@@ -33,8 +33,8 @@ public class DTW {
     
     private double calDistance() {
         
-        int n = test.length;//²âÊÔµÄ³¤¶È
-        int m = reference.length;//²Î¿¼µÄ³¤¶È
+        int n = test.length;//æµ‹è¯•çš„é•¿åº¦
+        int m = reference.length;//å‚è€ƒçš„é•¿åº¦
         
         // DP for calculating the minimum distance between two vector. 
         // DTW[i,j] = minimum distance between vector test[0..i] and reference[0..j]

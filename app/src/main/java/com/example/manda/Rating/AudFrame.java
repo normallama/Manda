@@ -1,9 +1,9 @@
 package com.example.manda.Rating;
 
 public class AudFrame {
-	double []fltFrame;//´æ·ÅÃ¿Ò»Ö¡Êı¾İ
-	double fltSte;	//´æ·ÅÃ¿Ò»Ö¡µÄ¶ÌÊ±ÄÜÁ¿
-	int  dwZcr;	//´æ·ÅÃ¿Ò»Ö¡µÄ¹ıÁãÂÊ
-	boolean	 blVad;//ÅĞ¶ÏÕâÖ¡ÊÇ·ñÓĞĞ§
-	int AudFrmNext;//ÏÂÒ»Ö¡µØÖ·
+	double []fltFrame;//å­˜æ”¾æ¯ä¸€å¸§æ•°æ®
+	double fltSte;	//å­˜æ”¾æ¯ä¸€å¸§çš„çŸ­æ—¶èƒ½é‡
+	int  dwZcr;	//å­˜æ”¾æ¯ä¸€å¸§çš„è¿‡é›¶ç‡
+	boolean	 blVad;//åˆ¤æ–­è¿™å¸§æ˜¯å¦æœ‰æ•ˆ
+	int AudFrmNext;//ä¸‹ä¸€å¸§åœ°å€
 }

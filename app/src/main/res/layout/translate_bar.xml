@@ -8,9 +8,14 @@
 
     <ImageView
         android:id="@+id/translate_bar_back"
-        style="@style/titlebar_img_left"
+        style="@style/titlebar_img"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="4dp"
+        android:clickable="true"
         android:layout_height="@dimen/icon_height"
         android:layout_width="@dimen/icon_width"
+        android:contentDescription="@null"
+        android:focusable="false"
         android:src="@drawable/back" />
 
     <TextView
@@ -19,6 +24,6 @@
         android:layout_centerInParent="true"
         android:text="翻译"
         android:textColor="@color/white"
-        android:textSize="@dimen/main_body_text"/>
+        android:textSize="15sp"/>
 
 </com.zhy.autolayout.AutoRelativeLayout>
