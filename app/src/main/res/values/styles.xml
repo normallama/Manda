@@ -90,11 +90,11 @@
     </style>
 
     <style name="trans_Text">
-        <item name="android:background">@drawable/button_bg</item>
+        <item name="android:background">@drawable/trans_button_bg</item>
     </style>
 
     <style name="trans_Button" parent="Widget.AppCompat.Button.Borderless">
-        <item name="android:background">@drawable/button_bg</item>
+        <item name="android:background">@drawable/trans_button_bg</item>
         <item name="android:textColor">@color/colorPrimary</item>
     </style>
 
