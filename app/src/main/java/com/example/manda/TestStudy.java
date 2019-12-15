@@ -4,19 +4,24 @@ import android.content.res.AssetFileDescriptor;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
+import android.view.MotionEvent;
 import android.view.View;
 
 import com.example.manda.Fragment.CircleProgressView;
+import com.example.manda.Fragment.CircleRecordSurfaceView;
 import com.example.manda.Fragment.SpellingTexiView;
 
 import org.kymjs.kjframe.KJActivity;
 import org.kymjs.kjframe.ui.BindView;
 
 public class TestStudy extends KJActivity {
-    @BindView(id=R.id.showSpelling)
+    @BindView(id=R.id.showSpelling,click = true)
     private SpellingTexiView spelling;
-    @BindView(id=R.id.play)
+    @BindView(id=R.id.play,click = true)
     private CircleProgressView play;
+    @BindView(id=R.id.record,click = true)
+    private CircleRecordSurfaceView record;
     private boolean isPlay;
     private MediaPlayer mediaPlayer;
     private boolean isComplete = true;
@@ -36,6 +41,29 @@ public class TestStudy extends KJActivity {
         super.initWidget();
         mediaPlayer = new MediaPlayer();
         mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+        record.setDuration(6);
+        record.setStartBitmap(R.drawable.audiorecord_star);
+        record.setStopBitmap(R.drawable.audiorecord_in);
+        record.setArcColor(ContextCompat.getColor(this, R.color.colorPrimary));
+        record.setSmallCircleColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+        record.setDefaultRadius(50);
+        record.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        record.startDraw();
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        record.reset();
+                        record.stopDraw();
+                        break;
+                    default:
+                        break;
+                }
+                return true;
+            }
+        });
     }
 
     @Override
@@ -69,7 +97,7 @@ public class TestStudy extends KJActivity {
             if (isComplete) {
                 mediaPlayer.reset();
                 //从asset文件夹下读取MP3文件
-                AssetFileDescriptor fileDescriptor = getAssets().openFd("lalalademaxiya.mp3");
+                AssetFileDescriptor fileDescriptor = getAssets().openFd("test1.mp3");
                 mediaPlayer.setDataSource(fileDescriptor.getFileDescriptor(),
                         fileDescriptor.getStartOffset(), fileDescriptor.getLength());
                 mediaPlayer.prepare();

@@ -10,20 +10,53 @@
 
     <include layout="@layout/back_title"/>
 
-    <com.example.manda.Fragment.SpellingTexiView
-        android:id="@+id/showSpelling"
+    <com.zhy.autolayout.AutoRelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="@dimen/show_words" />
+        android:layout_height="700px"
+        android:background="@drawable/item_bg">
 
-    <com.example.manda.Fragment.CircleProgressView
-        android:id="@+id/play"
-        android:layout_width="120px"
-        android:layout_height="120px"
-        android:layout_centerInParent="true"
-        circle:play_image="@drawable/play_button"
-        circle:stop_image="@drawable/stop_button"
-        />
+        <com.example.manda.Fragment.SpellingTexiView
+            android:id="@+id/showSpelling"
+            android:layout_width="match_parent"
+            android:layout_height="520px"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:textSize="@dimen/show_words" />
+
+
+        <com.example.manda.Fragment.CircleProgressView
+            android:id="@+id/pl"
+            android:layout_width="150px"
+            android:layout_height="150px"
+            android:layout_marginLeft="35px"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:scaleType="fitXY"
+            />
+
+        <com.example.manda.Fragment.CircleRecordSurfaceView
+            android:id="@+id/record"
+            android:layout_width="180px"
+            android:layout_height="180px"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:scaleType="fitXY" />
+
+        <com.example.manda.Fragment.CircleProgressView
+            android:id="@+id/play"
+            android:layout_width="150px"
+            android:layout_height="150px"
+            android:layout_marginRight="35px"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:scaleType="fitXY"
+            />
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+
 
 </com.zhy.autolayout.AutoLinearLayout>

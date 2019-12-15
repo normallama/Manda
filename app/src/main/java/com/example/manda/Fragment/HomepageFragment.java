@@ -21,6 +21,7 @@ import com.example.manda.CountDaoUtils;
 import com.example.manda.Data.NewWordsData;
 import com.example.manda.Manda;
 import com.example.manda.R;
+import com.example.manda.TestStudy;
 import com.example.manda.Translation;
 import com.example.manda.feedback;
 import com.nhaarman.listviewanimations.appearance.AnimationAdapter;
@@ -80,6 +81,8 @@ public class HomepageFragment extends KJFragment {
         super.widgetClick(v);
         switch(v.getId()){
             case R.id.homepage_choice_left:
+                Intent a = new Intent(getActivity(), TestStudy.class);
+                startActivity(a);
                 myexercise.setVisibility(View.VISIBLE);
                 wordlistview.setVisibility(View.GONE);
                 break;
