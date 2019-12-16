@@ -12,13 +12,13 @@
 
     <com.zhy.autolayout.AutoRelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="700px"
+        android:layout_height="750px"
         android:background="@drawable/item_bg">
 
         <com.example.manda.Fragment.SpellingTexiView
             android:id="@+id/showSpelling"
             android:layout_width="match_parent"
-            android:layout_height="520px"
+            android:layout_height="570px"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:gravity="center"
@@ -26,7 +26,7 @@
 
 
         <com.example.manda.Fragment.CircleProgressView
-            android:id="@+id/pl"
+            android:id="@+id/Standard_play"
             android:layout_width="150px"
             android:layout_height="150px"
             android:layout_marginLeft="35px"
@@ -42,10 +42,10 @@
             android:layout_height="180px"
             android:layout_alignParentBottom="true"
             android:layout_centerInParent="true"
-            android:scaleType="fitXY" />
+            />
 
         <com.example.manda.Fragment.CircleProgressView
-            android:id="@+id/play"
+            android:id="@+id/myRecord"
             android:layout_width="150px"
             android:layout_height="150px"
             android:layout_marginRight="35px"
@@ -54,6 +54,29 @@
             android:layout_centerInParent="true"
             android:scaleType="fitXY"
             />
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+    
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/score"
+            android:textSize="@dimen/big_word"
+            android:layout_marginLeft="80px"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/test_score"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/big_word"
+            android:layout_marginRight="80px"
+            android:layout_alignParentEnd="true"
+            android:gravity="center"/>
 
     </com.zhy.autolayout.AutoRelativeLayout>
 

@@ -201,7 +201,7 @@ public class CircleRecordSurfaceView extends SurfaceView implements SurfaceHolde
             angle = 0;
         }
         sweepAngle = sweepAngle + speed;
-        if (sweepAngle > 360) {
+       if (sweepAngle > 360) {
             reset();
             if (completeTimeCallBack != null) {
                 completeTimeCallBack.stop();

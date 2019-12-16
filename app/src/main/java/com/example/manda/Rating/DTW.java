@@ -103,7 +103,7 @@ public class DTW {
 		
 		
 		score=100/(1+a_for_score*dis_for_dtw);
-		System.out.println(score);
+		//System.out.println(score);
     	return score;
     }
     

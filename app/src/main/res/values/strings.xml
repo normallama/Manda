@@ -60,4 +60,5 @@
     <string name="trans_selection_1">英语    ->    中文</string>
     <string name="trans_selection_2">中文    ->    英语</string>
     <string name="w_detail">不积累一步半步，就没有办法到达千里的地方;比喻积累的作用，可以充实、丰富、完善自己。可用来论说学习工作贵在不断积累。</string>
+    <string name="score">评分: </string>
 </resources>

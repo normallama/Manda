@@ -60,8 +60,8 @@ public class CircleProgressView extends View {
     private void init(Context context, AttributeSet attrs, int defStyleAttr) {
         this.context = context;
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.circle_progress_image_attrs);
-        bitmapPlay = a.getResourceId(R.styleable.circle_progress_image_attrs_play_image, R.drawable.play_button);
-        bitmapStop = a.getResourceId(R.styleable.circle_progress_image_attrs_stop_image, R.drawable.stop_button);
+        bitmapPlay = a.getResourceId(R.styleable.circle_progress_image_attrs_play_image, R.drawable.play);
+        bitmapStop = a.getResourceId(R.styleable.circle_progress_image_attrs_stop_image, R.drawable.stop);
         a.recycle();
         drawBitmapPlay = BitmapFactory.decodeResource(context.getResources(), bitmapPlay);
         drawBitmapStop = BitmapFactory.decodeResource(context.getResources(), bitmapStop);

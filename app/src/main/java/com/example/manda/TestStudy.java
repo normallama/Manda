@@ -1,55 +1,56 @@
 package com.example.manda;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.content.res.AssetFileDescriptor;
 import android.media.AudioManager;
-import android.media.Image;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
+import android.widget.TextView;
 
+import com.example.manda.Adapter.RecordingUtil;
 import com.example.manda.Fragment.CircleProgressView;
 import com.example.manda.Fragment.CircleRecordSurfaceView;
 import com.example.manda.Fragment.SpellingTexiView;
+import com.example.manda.Rating.DTW;
+import com.example.manda.Rating.MFCC;
 
 import org.kymjs.kjframe.KJActivity;
 import org.kymjs.kjframe.ui.BindView;
 
 public class TestStudy extends KJActivity {
-    @BindView(id=R.id.showSpelling,click = true)
+    @BindView(id=R.id.showSpelling)
     private SpellingTexiView spelling;
-    @BindView(id=R.id.play,click = true)
+    @BindView(id=R.id.Standard_play,click = true)
     private CircleProgressView play;
     @BindView(id=R.id.record,click = true)
     private CircleRecordSurfaceView record;
-    @BindView(id=R.id.titlebar_back,click = true)
-    private Image back;
-
+    @BindView(id=R.id.test_score)
+    private TextView score;
     private boolean isPlay;
-    private MediaPlayer mediaPlayer;
+    private MediaPlayer mediaPlayer;   //播放器
     private boolean isComplete = true;
+    String filename;
+    private RecordingUtil mSoundRecorder;  //录音器
+    private double calscore;
 
 
     @Override
     public void setRootView() {
-        try {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                Window window = getWindow();
-                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                window.setStatusBarColor(getResources().getColor(R.color.colorPrimary));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         setContentView(R.layout.test);
     }
     @Override
     public void initData() {
         super.initData();
+        filename="1";
+        mSoundRecorder = new RecordingUtil(filename);
+        spelling.setStringResource("  那是力争上游的一种树，笔直的干，笔直的枝。它的干通常是丈把高，像是加过人工似的，一丈以内绝无旁枝。它所有的丫枝一律向上，而且紧紧靠拢，也像是加过人工似的，成为一束，绝不旁逸斜出。");
     }
 
     @Override
@@ -57,7 +58,7 @@ public class TestStudy extends KJActivity {
         super.initWidget();
         mediaPlayer = new MediaPlayer();
         mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-        record.setDuration(6);
+        record.setDuration(180);
         record.setStartBitmap(R.drawable.audiorecord_star);
         record.setStopBitmap(R.drawable.audiorecord_in);
         record.setArcColor(ContextCompat.getColor(this, R.color.colorPrimary));
@@ -69,10 +70,14 @@ public class TestStudy extends KJActivity {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         record.startDraw();
+                        mSoundRecorder.startRecord();
                         break;
                     case MotionEvent.ACTION_UP:
                         record.reset();
                         record.stopDraw();
+                        mSoundRecorder.stopRecord();
+                        mSoundRecorder.convertWaveFile();
+                        cal();
                         break;
                     default:
                         break;
@@ -86,15 +91,12 @@ public class TestStudy extends KJActivity {
     public void widgetClick(View v) {
         super.widgetClick(v);
         switch (v.getId()) {
-            case R.id.play:
+            case R.id.Standard_play:
                 if (!isPlay) {
                     playAudio();
                 } else {
                     pauseAudio();
                 }
-                break;
-            case R.id.titlebar_back:
-                finish();
                 break;
         }
     }
@@ -116,7 +118,8 @@ public class TestStudy extends KJActivity {
             if (isComplete) {
                 mediaPlayer.reset();
                 //从asset文件夹下读取MP3文件
-                AssetFileDescriptor fileDescriptor = getAssets().openFd("test1.mp3");
+                //String basePath = "aseets/";//Environment.getExternalStorageDirectory().getAbsolutePath()+"/Recording/";
+                AssetFileDescriptor fileDescriptor = getAssets().openFd(filename+".wav");//"test1.mp3");
                 mediaPlayer.setDataSource(fileDescriptor.getFileDescriptor(),
                         fileDescriptor.getStartOffset(), fileDescriptor.getLength());
                 mediaPlayer.prepare();
@@ -154,5 +157,18 @@ public class TestStudy extends KJActivity {
         play.stop();
         isPlay = false;
         isComplete = true;
+    }
+
+    private void cal(){  //测分
+        MFCC mfcc = new MFCC();
+        MFCC mfcc2 = new MFCC();
+        String basePath = "./assets/";///Environment.getExternalStorageDirectory().getAbsolutePath()+"/Recording/";
+        double[][] result = mfcc.getMfcc(basePath+"/"+filename+".wav");
+        double[][] result2= mfcc2.getMfcc(basePath+"/"+filename+".wav");
+        DTW d1=new DTW(result,result2); //测试数据，参考数据
+
+        calscore=d1.calscore();
+        score.setText(String.valueOf(calscore));
+
     }
 }
