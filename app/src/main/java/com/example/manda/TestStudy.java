@@ -2,11 +2,15 @@ package com.example.manda;
 
 import android.content.res.AssetFileDescriptor;
 import android.media.AudioManager;
+import android.media.Image;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.example.manda.Fragment.CircleProgressView;
 import com.example.manda.Fragment.CircleRecordSurfaceView;
@@ -22,6 +26,9 @@ public class TestStudy extends KJActivity {
     private CircleProgressView play;
     @BindView(id=R.id.record,click = true)
     private CircleRecordSurfaceView record;
+    @BindView(id=R.id.titlebar_back,click = true)
+    private Image back;
+
     private boolean isPlay;
     private MediaPlayer mediaPlayer;
     private boolean isComplete = true;
@@ -29,6 +36,15 @@ public class TestStudy extends KJActivity {
 
     @Override
     public void setRootView() {
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                Window window = getWindow();
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                window.setStatusBarColor(getResources().getColor(R.color.colorPrimary));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         setContentView(R.layout.test);
     }
     @Override
@@ -76,6 +92,9 @@ public class TestStudy extends KJActivity {
                 } else {
                     pauseAudio();
                 }
+                break;
+            case R.id.titlebar_back:
+                finish();
                 break;
         }
     }

@@ -100,8 +100,8 @@
 
                 <TextView
                     android:id="@+id/everydayWord"
-                    android:layout_width="284dp"
-                    android:layout_height="85dp"
+                    android:layout_width="900px"
+                    android:layout_height="220px"
                     android:layout_marginLeft="40px"
                     android:layout_marginTop="95px"
                     android:text="@string/w"
@@ -136,6 +136,27 @@
                     android:paddingTop="12px"
                     android:background="@drawable/item_bg"/>
 
+                <TextView
+                    android:layout_width="200px"
+                    android:layout_height="200px"
+                    android:layout_marginLeft="50px"
+                    android:layout_marginTop="110px"
+                    android:text="78%"
+                    android:textColor="@color/white"
+                    android:textSize="25sp"
+                    android:gravity="center"
+                    android:background="@drawable/circle_progress"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="300px"
+                    android:layout_marginTop="120px"
+                    android:text="第一章\n正在学习：第5节"
+                    android:textSize="18sp"
+                    />
+
+
                 <Button
                     android:id="@+id/continue_study"
                     android:layout_width="wrap_content"
@@ -154,7 +175,7 @@
 
             <com.zhy.autolayout.AutoRelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/card_height"
+                android:layout_height="600px"
                 android:layout_marginTop="20px"
                 android:background="@drawable/item_bg">
 

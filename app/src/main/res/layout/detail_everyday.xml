@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/back_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_height"
+        android:background="@color/colorPrimary">
+
+
+        <ImageView
+            android:id="@+id/titlebar_back"
+            style="@style/titlebar_img"
+            android:layout_alignParentLeft="true"
+            android:clickable="true"
+            android:layout_height="@dimen/icon_width"
+            android:layout_width="@dimen/icon_width"
+            android:paddingLeft="15px"
+            android:contentDescription="@null"
+            android:focusable="false"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/day_word"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/word"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/w"
+                android:textSize="30sp"
+                android:paddingVertical="50px"
+                android:paddingHorizontal="50px"
+                style="@style/trans_Text"/>
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:layout_below="@+id/word"
+                android:background="@drawable/item_bg">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/small_title"
+                    android:text="解释"
+                    android:textSize="15sp"
+                    android:paddingLeft="20px"
+                    android:paddingTop="12px"
+                    android:background="@drawable/item_bg"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="60px"
+                    android:text="@string/w_detail"
+                    android:textSize="18sp"
+                    android:paddingHorizontal="50px"
+                    android:paddingVertical="30px" />
+
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+    </ScrollView>
+
+</com.zhy.autolayout.AutoLinearLayout>

@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.example.manda.Adapter.NewWordsAdapter;
 import com.example.manda.CountDaoUtils;
 import com.example.manda.Data.NewWordsData;
+import com.example.manda.DetailEveryday;
 import com.example.manda.Manda;
 import com.example.manda.R;
 import com.example.manda.TestStudy;
@@ -51,6 +52,10 @@ public class HomepageFragment extends KJFragment {
     private ScrollView myexercise;
     @BindView(id=R.id.wordlist)
     private DynamicListView wordlistview;
+    @BindView(id=R.id.detail,click=true)
+    private Button detail;
+    @BindView(id=R.id.continue_study,click=true)
+    private Button learning;
 
     private List<NewWordsData> words=new ArrayList<NewWordsData>();
 
@@ -81,8 +86,6 @@ public class HomepageFragment extends KJFragment {
         super.widgetClick(v);
         switch(v.getId()){
             case R.id.homepage_choice_left:
-                Intent a = new Intent(getActivity(), TestStudy.class);
-                startActivity(a);
                 myexercise.setVisibility(View.VISIBLE);
                 wordlistview.setVisibility(View.GONE);
                 break;
@@ -92,8 +95,16 @@ public class HomepageFragment extends KJFragment {
                 initWords();
                 break;
             case R.id.search_word:
-                Intent search = new Intent(getActivity(), com.example.manda.Translation.class);
+                Intent search = new Intent(getActivity(), Translation.class);
                 startActivity(search);
+                break;
+            case R.id.detail:
+                Intent detail = new Intent(getActivity(), DetailEveryday.class);
+                startActivity(detail);
+                break;
+            case R.id.continue_study:
+                Intent a = new Intent(getActivity(), TestStudy.class);
+                startActivity(a);
                 break;
             default:
                 break;

@@ -32,22 +32,13 @@ public class Manda extends KJActivity {
     @Override
     public void setRootView() {
         try {
-
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-
                 Window window = Manda.this.getWindow();
-
                 window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-
                 window.setStatusBarColor(Manda.this.getResources().getColor(R.color.colorPrimary));
-
-
             }
-
         } catch (Exception e) {
-
             e.printStackTrace();
-
         }
         setContentView(R.layout.activity_manda);
     }

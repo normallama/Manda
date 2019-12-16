@@ -1,19 +1,21 @@
 package com.example.manda;
 
 import android.os.Build;
-import android.support.design.widget.BottomNavigationView;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.RadioButton;
+import android.widget.Button;
 
 import org.kymjs.kjframe.KJActivity;
 import org.kymjs.kjframe.ui.BindView;
 
-public class feedback extends KJActivity {
-    @BindView(id = R.id.titlebar_back, click = true)
-    private RadioButton mRbtn1;
+public class DetailEveryday extends KJActivity {
+    @BindView(id=R.id.titlebar_back,click = true)
+    private Button back;
 
+    @Override
     public void setRootView() {
         try {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -24,7 +26,7 @@ public class feedback extends KJActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        setContentView(R.layout.setting);
+        setContentView(R.layout.detail_everyday);
     }
 
     @Override
@@ -35,11 +37,6 @@ public class feedback extends KJActivity {
     @Override
     public void initWidget() {
         super.initWidget();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
     }
 
     @Override
