@@ -12,11 +12,18 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.manda.TransApi.MD5;
 import com.example.manda.TransApi.TransApi;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 import org.kymjs.kjframe.KJActivity;
+import org.kymjs.kjframe.KJHttp;
+import org.kymjs.kjframe.http.HttpCallBack;
+import org.kymjs.kjframe.http.HttpParams;
 import org.kymjs.kjframe.ui.BindView;
+import org.kymjs.kjframe.ui.ViewInject;
+import org.kymjs.kjframe.utils.KJLoger;
 
 public class Translation extends KJActivity {
     @BindView(id=R.id.to_translate , click = true)
@@ -30,6 +37,7 @@ public class Translation extends KJActivity {
     @BindView(id=R.id.translate_bar_back , click=true)
     private RadioButton back;
 
+    private static final String TRANS_API_HOST = "http://api.fanyi.baidu.com/api/trans/vip/translate";
     private static final String APP_ID = "20190731000322884";
     private static final String SECURITY_KEY = "jupaRv7jQyfljW7HZEs2";
     private String lan_From = "zh";
@@ -64,12 +72,29 @@ public class Translation extends KJActivity {
         super.widgetClick(v);
         switch (v.getId()) {
             case R.id.button_translate:
-                TransApi getTrans = new TransApi(APP_ID, SECURITY_KEY);
-                try {
-                    Tran_text.setText(getTrans.getTransResult(text_to_Tran.toString(), lan_From, lan_To));
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                if (text_to_Tran.getText().toString().equals("")) {
+                    Tran_text.setVisibility(View.INVISIBLE);
+                    break;
                 }
+                TransApi getTrans = new TransApi(APP_ID, SECURITY_KEY);
+                HttpParams params = buildParams(text_to_Tran.getText().toString(), lan_From, lan_To);
+                KJHttp kjh = new KJHttp();
+                kjh.get(TRANS_API_HOST, params, new HttpCallBack() {
+                    @Override
+                    public void onSuccess(String t) {
+                        super.onSuccess(t);
+                        ViewInject.longToast("请求成功");
+                        try {
+                            JSONObject tmp = new JSONObject(t);
+                            String a = tmp.getJSONArray("trans_result").getJSONObject(0).getString("dst");
+                            Tran_text.setText(a);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        KJLoger.debug("log:" + t.toString());
+                    }
+                });
+//                getTrans.getTransResult(Tran_text, text_to_Tran.getText().toString(), lan_From, lan_To);
                 Tran_text.setVisibility(View.VISIBLE);
                 break;
             case R.id.translate_bar_back:                     //取消按钮的监听事件，返回上个界面
@@ -92,6 +117,25 @@ public class Translation extends KJActivity {
                     }
                 });
         }
+    }
+
+    private HttpParams buildParams(String query, String from, String to) {
+        HttpParams params = new HttpParams();
+        params.put("q", query);
+        params.put("from", from);
+        params.put("to", to);
+
+        params.put("appid", APP_ID);
+
+        // 随机数
+        String salt = String.valueOf(System.currentTimeMillis());
+        params.put("salt", salt);
+
+        // 签名
+        String src = APP_ID + query + salt + SECURITY_KEY; // 加密前的原文
+        params.put("sign", MD5.md5(src));
+
+        return params;
     }
 
     @Override

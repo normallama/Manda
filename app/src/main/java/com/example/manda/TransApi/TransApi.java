@@ -1,8 +1,15 @@
 package com.example.manda.TransApi;
 
+import android.widget.TextView;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.kymjs.kjframe.KJHttp;
+import org.kymjs.kjframe.http.HttpCallBack;
+import org.kymjs.kjframe.http.HttpParams;
+import org.kymjs.kjframe.ui.ViewInject;
+import org.kymjs.kjframe.utils.KJLoger;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,13 +25,29 @@ public class TransApi {
         this.securityKey = securityKey;
     }
 
-    public String getTransResult(String query, String from, String to) throws JSONException {
-        Map<String, String> params = buildParams(query, from, to);
-        return String.valueOf(HttpGet.get(TRANS_API_HOST, params).getJSONArray("trans_result").getJSONObject(0).get("dst"));
+    public void getTransResult(final TextView trans, String query, String from, String to) {
+        HttpParams params = buildParams(query, from, to);
+        KJHttp getTrans = new KJHttp();
+        getTrans.get(TRANS_API_HOST, params, new HttpCallBack() {
+                    @Override
+                    public void onSuccess(String t) {
+                        super.onSuccess(t);
+                        ViewInject.longToast("请求成功");
+                        try {
+                            JSONObject tmp = new JSONObject(t);
+                            String a = tmp.getJSONArray("trans_result").getJSONObject(0).getString("dst");
+                            trans.setText(a);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        KJLoger.debug("log:" + t.toString());
+                    }
+                });
+//        return String.valueOf(HttpGet.get(TRANS_API_HOST, params).getJSONArray("trans_result").getJSONObject(0).get("dst"));
     }
 
-    private Map<String, String> buildParams(String query, String from, String to) {
-        Map<String, String> params = new HashMap<String, String>();
+    private HttpParams buildParams(String query, String from, String to) {
+        HttpParams params = new HttpParams();
         params.put("q", query);
         params.put("from", from);
         params.put("to", to);
