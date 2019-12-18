@@ -40,7 +40,7 @@ public class RecordingUtil {
     //文件输出流
     private OutputStream os;
     //文件根目录
-    private String basePath = "./assets/";//Environment.getExternalStorageDirectory().getAbsolutePath()+"/Recording/";
+    private String basePath = Environment.getExternalStorageDirectory().getAbsolutePath()+"/assets/";
     //wav文件目录
     private String outFileName;
     //pcm文件目录
@@ -48,8 +48,8 @@ public class RecordingUtil {
 
     public RecordingUtil(String filename){
         createFile(filename);//创建文件
-        outFileName = basePath+"/"+filename+".wav";
-        inFileName = basePath+"/"+filename+".pcm";
+        outFileName = basePath+filename+".wav";
+        inFileName = basePath+filename+".pcm";
         recorder = new AudioRecord(recordSource,recordRate,recordChannel,recordFormat,bufferSize);
     }
 
@@ -65,12 +65,94 @@ public class RecordingUtil {
     public void startRecord(){
         isRecording = true;
         recorder.startRecording();
+
+        //buffer, 用来从AudioRecord中获取录制的音频
+
+        final byte[] data = new byte[bufferSize];
+
+        //不阻塞主线程
+
+        new Thread(new Runnable() {
+
+            @Override public void run() {
+
+                //新建文件输出流, 把录制音频存储
+
+                FileOutputStream fileOutputStream = null;
+
+                try {
+
+                    fileOutputStream = new FileOutputStream(inFileName);
+
+                } catch (FileNotFoundException e) {
+
+                    e.printStackTrace();
+
+                }
+
+
+
+                if (fileOutputStream != null) {
+
+                    while (isRecording) {
+
+                        //将录制音频传到buffer里
+
+                        int read = recorder.read(data, 0, bufferSize);
+
+                        if (read != AudioRecord.ERROR_INVALID_OPERATION) {
+
+                            try {
+
+                                //buffer数据没问题写入到文件中
+
+                                fileOutputStream.write(data);
+
+                            } catch (IOException e) {
+
+                                e.printStackTrace();
+
+                            }
+
+                        }
+
+                    }
+
+
+
+                    try {
+
+                        //不要忘记关文件输出流
+
+                        fileOutputStream.close();
+
+                    } catch (IOException e) {
+
+                        e.printStackTrace();
+
+                    }
+
+                }
+
+            }
+
+        }).start();
+
     }
 
     //停止录音
     public void stopRecord(){
         isRecording = false;
-        recorder.stop();
+        if (recorder != null) {
+
+            recorder.stop();
+
+            recorder.release();
+
+            recorder = null;
+            recorder = new AudioRecord(recordSource,recordRate,recordChannel,recordFormat,bufferSize);
+
+        }
     }
 
     //将数据写入文件夹,文件的写入没有做优化
@@ -195,11 +277,14 @@ public class RecordingUtil {
         File baseFile = new File(basePath);
         if(!baseFile.exists())
             baseFile.mkdirs();
-        pcmFile = new File(basePath+"/"+filename+".pcm");
-        wavFile = new File(basePath+"/"+filename+".wav");
+        pcmFile = new File(basePath+filename+".pcm");
+        wavFile = new File(basePath+filename+".wav");
         if(pcmFile.exists()){
             pcmFile.delete();
         }
+
+
+
         if(wavFile.exists()){
             wavFile.delete();
         }

@@ -37,6 +37,10 @@ public class NewWordsAdapter extends ArrayAdapter<String> implements UndoAdapter
         return getItem(position).hashCode();
     }
 
+    public long getWordId(final int position){
+        return wordsData.get(Integer.parseInt((getItem(position)))).getWordId();
+    }
+
     @Override
     public boolean hasStableIds() {
         return true;

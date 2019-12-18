@@ -71,9 +71,9 @@ public class HomepageFragment extends KJFragment {
     protected void initData(){
         super.initData();
         //假数据
-        words.add(new NewWordsData((long)1,"22","111"));
+        /*words.add(new NewWordsData((long)1,"22","111"));
         words.add(new NewWordsData((long)2,"2","11431"));
-        words.add(new NewWordsData((long)3,"52","34111"));
+        words.add(new NewWordsData((long)3,"52","34111"));*/
         CountDaoUtils.inserCountryList(words);
     }
 
@@ -121,6 +121,7 @@ public class HomepageFragment extends KJFragment {
                     @Override
                     public void onDismiss(@NonNull final ViewGroup listView, @NonNull final int[] reverseSortedPositions) {
                         for (int position : reverseSortedPositions) {
+                            CountDaoUtils.deleteCountry(myAdapter.getWordId(position));
                             myAdapter.remove(position);
                         }
                     }

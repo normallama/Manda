@@ -24,6 +24,10 @@ import com.example.manda.Rating.MFCC;
 import org.kymjs.kjframe.KJActivity;
 import org.kymjs.kjframe.ui.BindView;
 
+import java.io.File;
+import java.io.FileDescriptor;
+import java.io.FileInputStream;
+
 public class TestStudy extends KJActivity {
     @BindView(id=R.id.showSpelling)
     private SpellingTexiView spelling;
@@ -118,10 +122,13 @@ public class TestStudy extends KJActivity {
             if (isComplete) {
                 mediaPlayer.reset();
                 //从asset文件夹下读取MP3文件
-                //String basePath = "aseets/";//Environment.getExternalStorageDirectory().getAbsolutePath()+"/Recording/";
-                AssetFileDescriptor fileDescriptor = getAssets().openFd(filename+".wav");//"test1.mp3");
-                mediaPlayer.setDataSource(fileDescriptor.getFileDescriptor(),
-                        fileDescriptor.getStartOffset(), fileDescriptor.getLength());
+                String basePath = Environment.getExternalStorageDirectory().getAbsolutePath()+"/assets/";
+                //AssetFileDescriptor fileDescriptor = getAssets().openFd(basePath+filename+".wav");//"test1.mp3");
+                //mediaPlayer.setDataSource(fileDescriptor.getFileDescriptor(),
+                //        fileDescriptor.getStartOffset(), fileDescriptor.getLength());
+                File file=new File(basePath+filename+".wav");
+                FileInputStream fis=new FileInputStream(file);
+                mediaPlayer.setDataSource(fis.getFD());
                 mediaPlayer.prepare();
                 mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                     @Override
@@ -162,9 +169,9 @@ public class TestStudy extends KJActivity {
     private void cal(){  //测分
         MFCC mfcc = new MFCC();
         MFCC mfcc2 = new MFCC();
-        String basePath = "./assets/";///Environment.getExternalStorageDirectory().getAbsolutePath()+"/Recording/";
-        double[][] result = mfcc.getMfcc(basePath+"/"+filename+".wav");
-        double[][] result2= mfcc2.getMfcc(basePath+"/"+filename+".wav");
+        String basePath = Environment.getExternalStorageDirectory().getAbsolutePath()+"/assets/";
+        double[][] result = mfcc.getMfcc(basePath+filename+".wav");
+        double[][] result2= mfcc2.getMfcc(basePath+filename+".wav");
         DTW d1=new DTW(result,result2); //测试数据，参考数据
 
         calscore=d1.calscore();
