@@ -28,6 +28,7 @@ import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.text.DecimalFormat;
 
 public class TestStudy extends KJActivity {
     @BindView(id=R.id.showSpelling)
@@ -55,7 +56,7 @@ public class TestStudy extends KJActivity {
         super.initData();
         filename="1";
         mSoundRecorder = new RecordingUtil(filename);
-        spelling.setStringResource("  那是力争上游的一种树，笔直的干，笔直的枝。它的干通常是丈把高，像是加过人工似的，一丈以内绝无旁枝。");
+        spelling.setStringResource("     知识");
     }
 
     @Override
@@ -173,11 +174,13 @@ public class TestStudy extends KJActivity {
         MFCC mfcc2 = new MFCC();
         String basePath = Environment.getExternalStorageDirectory().getAbsolutePath();
         double[][] result = mfcc.getMfcc(basePath+"/assets/"+filename+".wav");
-        double[][] result2= mfcc2.getMfcc(basePath+"/mandatest/test1.wav");
+        double[][] result2= mfcc2.getMfcc(basePath+"/mandatest/test2.wav");
         DTW d1=new DTW(result,result2); //测试数据，参考数据
 
         calscore=d1.calscore();
-        score.setText(String.valueOf(calscore));
+        DecimalFormat df = new DecimalFormat("#.##");
+        String str = df.format(calscore);
+        score.setText(str);
 
     }
 

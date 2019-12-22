@@ -44,7 +44,7 @@
             android:layout_centerInParent="true"
             />
 
-        <com.example.manda.Fragment.CircleProgressView
+        <!--<com.example.manda.Fragment.CircleProgressView
             android:id="@+id/myRecord"
             android:layout_width="150px"
             android:layout_height="150px"
@@ -53,7 +53,7 @@
             android:layout_alignParentBottom="true"
             android:layout_centerInParent="true"
             android:scaleType="fitXY"
-            />
+            />-->
 
     </com.zhy.autolayout.AutoRelativeLayout>
     

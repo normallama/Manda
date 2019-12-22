@@ -31,8 +31,8 @@ public class SpellingTexiView extends TextView
     private TextPaint textPaintSpell = new TextPaint(Paint.ANTI_ALIAS_FLAG);
     private TextPaint textPaintChinese = new TextPaint(Paint.ANTI_ALIAS_FLAG);
 
-    private int fontSizeSpell = 40;
-    private int fontSizeChinese = 45;
+    private int fontSizeSpell = 100;//40;
+    private int fontSizeChinese = 110;//45;
 
     private int colorSpell = Color.parseColor("#996699");
     private int colorChinese = Color.parseColor("#000000");
