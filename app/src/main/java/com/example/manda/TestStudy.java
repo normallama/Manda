@@ -27,6 +27,7 @@ import org.kymjs.kjframe.ui.BindView;
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileInputStream;
+import java.io.InputStream;
 
 public class TestStudy extends KJActivity {
     @BindView(id=R.id.showSpelling)
@@ -54,7 +55,7 @@ public class TestStudy extends KJActivity {
         super.initData();
         filename="1";
         mSoundRecorder = new RecordingUtil(filename);
-        spelling.setStringResource("  那是力争上游的一种树，笔直的干，笔直的枝。它的干通常是丈把高，像是加过人工似的，一丈以内绝无旁枝。它所有的丫枝一律向上，而且紧紧靠拢，也像是加过人工似的，成为一束，绝不旁逸斜出。");
+        spelling.setStringResource("  那是力争上游的一种树，笔直的干，笔直的枝。它的干通常是丈把高，像是加过人工似的，一丈以内绝无旁枝。");
     }
 
     @Override
@@ -122,13 +123,14 @@ public class TestStudy extends KJActivity {
             if (isComplete) {
                 mediaPlayer.reset();
                 //从asset文件夹下读取MP3文件
-                String basePath = Environment.getExternalStorageDirectory().getAbsolutePath()+"/assets/";
-                //AssetFileDescriptor fileDescriptor = getAssets().openFd(basePath+filename+".wav");//"test1.mp3");
-                //mediaPlayer.setDataSource(fileDescriptor.getFileDescriptor(),
-                //        fileDescriptor.getStartOffset(), fileDescriptor.getLength());
+                AssetFileDescriptor fileDescriptor = getAssets().openFd("test1.wav");//"test1.mp3");
+                mediaPlayer.setDataSource(fileDescriptor.getFileDescriptor(),
+                        fileDescriptor.getStartOffset(), fileDescriptor.getLength());
+                /*String basePath = Environment.getExternalStorageDirectory().getAbsolutePath()+"/assets/";
+
                 File file=new File(basePath+filename+".wav");
                 FileInputStream fis=new FileInputStream(file);
-                mediaPlayer.setDataSource(fis.getFD());
+                mediaPlayer.setDataSource(fis.getFD());*/
                 mediaPlayer.prepare();
                 mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                     @Override
@@ -169,13 +171,15 @@ public class TestStudy extends KJActivity {
     private void cal(){  //测分
         MFCC mfcc = new MFCC();
         MFCC mfcc2 = new MFCC();
-        String basePath = Environment.getExternalStorageDirectory().getAbsolutePath()+"/assets/";
-        double[][] result = mfcc.getMfcc(basePath+filename+".wav");
-        double[][] result2= mfcc2.getMfcc(basePath+filename+".wav");
+        String basePath = Environment.getExternalStorageDirectory().getAbsolutePath();
+        double[][] result = mfcc.getMfcc(basePath+"/assets/"+filename+".wav");
+        double[][] result2= mfcc2.getMfcc(basePath+"/mandatest/test1.wav");
         DTW d1=new DTW(result,result2); //测试数据，参考数据
 
         calscore=d1.calscore();
         score.setText(String.valueOf(calscore));
 
     }
+
+
 }

@@ -13,6 +13,7 @@ import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.RadioButton;
 
+import com.example.manda.Adapter.FileUtils;
 import com.example.manda.Data.GetSpelling;
 import com.example.manda.Fragment.HomepageFragment;
 import com.example.manda.Fragment.MycourseFragment;
@@ -60,6 +61,7 @@ public class Manda extends KJActivity {
         course=new MycourseFragment();
         personal=new PersonalFragment();
         context=getApplicationContext();
+        FileUtils.getInstance(context).copyAssetsToSD("","mandatest");
     }
 
     @Override
