@@ -100,11 +100,10 @@
 
                 <TextView
                     android:id="@+id/everydayWord"
-                    android:layout_width="900px"
-                    android:layout_height="220px"
+                    android:layout_width="680px"
+                    android:layout_height="150px"
                     android:layout_marginLeft="40px"
                     android:layout_marginTop="95px"
-                    android:text="@string/w"
                     android:textSize="@dimen/big_word" />
 
                 <Button
