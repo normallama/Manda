@@ -47,7 +47,6 @@
                 android:id="@+id/word"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/w"
                 android:textSize="30sp"
                 android:paddingVertical="50px"
                 android:paddingHorizontal="50px"
@@ -70,10 +69,10 @@
                     android:background="@drawable/item_bg"/>
 
                 <TextView
+                    android:id="@+id/everyday_en"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="60px"
-                    android:text="@string/w_detail"
                     android:textSize="18sp"
                     android:paddingHorizontal="50px"
                     android:paddingVertical="30px" />

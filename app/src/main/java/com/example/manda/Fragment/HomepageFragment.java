@@ -23,6 +23,7 @@ import com.example.manda.DetailEveryday;
 import com.example.manda.Manda;
 import com.example.manda.R;
 import com.example.manda.TestStudy;
+import com.example.manda.TransApi.TransApi;
 import com.example.manda.Translation;
 import com.example.manda.feedback;
 import com.nhaarman.listviewanimations.appearance.AnimationAdapter;
@@ -32,8 +33,15 @@ import com.nhaarman.listviewanimations.itemmanipulation.DynamicListView;
 import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.OnDismissCallback;
 import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.undo.SimpleSwipeUndoAdapter;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.kymjs.kjframe.KJHttp;
+import org.kymjs.kjframe.http.HttpCallBack;
+import org.kymjs.kjframe.http.HttpParams;
 import org.kymjs.kjframe.ui.BindView;
 import org.kymjs.kjframe.ui.KJFragment;
+import org.kymjs.kjframe.ui.ViewInject;
+import org.kymjs.kjframe.utils.KJLoger;
 import org.kymjs.kjframe.widget.KJSlidingMenu;
 
 import java.util.ArrayList;
@@ -56,8 +64,11 @@ public class HomepageFragment extends KJFragment {
     private Button detail;
     @BindView(id=R.id.continue_study,click=true)
     private Button learning;
+    @BindView(id=R.id.everydayWord)
+    private TextView everydayword;
 
     private List<NewWordsData> words=new ArrayList<NewWordsData>();
+    private static final String EVERY_DAY_WORD_API = "https://api.ooopn.com/ciba/api.php";
 
 
     @Override
@@ -75,6 +86,21 @@ public class HomepageFragment extends KJFragment {
         words.add(new NewWordsData((long)2,"2","11431"));
         words.add(new NewWordsData((long)3,"52","34111"));*/
         CountDaoUtils.inserCountryList(words);
+        KJHttp kjh = new KJHttp();
+        kjh.get(EVERY_DAY_WORD_API, new HttpCallBack() {
+            @Override
+            public void onSuccess(String t) {
+                super.onSuccess(t);
+                try {
+                    JSONObject tmp = new JSONObject(t);
+                    String a = tmp.getString("ciba");
+                    everydayword.setText(a);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                KJLoger.debug("log:" + t.toString());
+            }
+        });
     }
 
     @Override

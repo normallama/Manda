@@ -48,7 +48,6 @@
     <string name="current_test">当前训练</string>
     <string name="excellent_course">精品课程</string>
     <string name="interpret">查看解释</string>
-    <string name="w">不积跬步，无以至千里            ————《荀子》</string>
     <string name="keep_study">继续学习</string>
     <string name="history_course">历史课程</string>
     <string name="learned_time">学习时长</string>
@@ -59,6 +58,5 @@
     <string name="translate_paste">粘贴到此处</string>
     <string name="trans_selection_1">英语    ->    中文</string>
     <string name="trans_selection_2">中文    ->    英语</string>
-    <string name="w_detail">不积累一步半步，就没有办法到达千里的地方;比喻积累的作用，可以充实、丰富、完善自己。可用来论说学习工作贵在不断积累。</string>
     <string name="score">评分: </string>
 </resources>
