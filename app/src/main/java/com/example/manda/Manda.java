@@ -10,11 +10,9 @@ import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ArrayAdapter;
 import android.widget.RadioButton;
 
-import com.example.manda.Adapter.FileUtils;
-import com.example.manda.Data.GetSpelling;
+import com.example.manda.DesignPattern.FileUtils;
 import com.example.manda.Fragment.HomepageFragment;
 import com.example.manda.Fragment.MycourseFragment;
 import com.example.manda.Fragment.PersonalFragment;
@@ -76,6 +74,7 @@ public class Manda extends KJActivity {
                         Manifest.permission.INTERNET},1);
             }
         }
+
     }
 
 

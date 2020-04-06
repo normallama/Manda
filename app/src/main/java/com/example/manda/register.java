@@ -3,7 +3,6 @@ package com.example.manda;
 import android.content.Intent;
 import android.os.Build;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -32,7 +31,7 @@ public class register extends KJActivity {
     private ImageView mCancelButton;                     //取消按钮
     @BindView(id=R.id.check_read)
     private CheckBox mCheckRead;                      //确认按钮
-    private DataManage mUserDataManager;         //用户数据管理类
+    private UserDao mUserDataManager;         //用户数据管理类
 
     @Override
     public void setRootView() {
@@ -48,7 +47,7 @@ public class register extends KJActivity {
         setContentView(R.layout.register);
     }
 
-    @Override
+   @Override
     public void initData() {
         super.initData();
     }
@@ -63,7 +62,7 @@ public class register extends KJActivity {
         super.widgetClick(v);
         switch (v.getId()) {
             case R.id.register_btn_login:                       //确认按钮的监听事件
-                register_check();
+                //register_check();
                 break;
             case R.id.titlebar_back:                     //取消按钮的监听事件,由注册界面返回登录界面
                 finish();
@@ -77,11 +76,11 @@ public class register extends KJActivity {
 
 
         if (mUserDataManager == null) {
-            mUserDataManager = new DataManage(this);
+            mUserDataManager = new UserDao(this);
             mUserDataManager.openDataBase();                              //建立本地数据库
         }
     }
-
+/*
     public void register_check() {                                //确认按钮的监听事件
         if (isUserNameAndPwdValid()) {
             String userName = mAccount.getText().toString().trim();
@@ -123,6 +122,7 @@ public class register extends KJActivity {
             }
         }
     }
+    */
     public boolean isUserNameAndPwdValid() {
         if (mAccount.getText().toString().trim().equals("")) {
             Toast.makeText(this, getString(R.string.account_empty),

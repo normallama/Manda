@@ -6,29 +6,19 @@ import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.example.manda.Adapter.NewWordsAdapter;
+import com.example.manda.DesignPattern.NewWordsAdapter;
 import com.example.manda.CountDaoUtils;
 import com.example.manda.Data.NewWordsData;
 import com.example.manda.DetailEveryday;
 import com.example.manda.Manda;
 import com.example.manda.R;
 import com.example.manda.TestStudy;
-import com.example.manda.TransApi.TransApi;
 import com.example.manda.Translation;
-import com.example.manda.feedback;
-import com.nhaarman.listviewanimations.appearance.AnimationAdapter;
-import com.nhaarman.listviewanimations.appearance.simple.AlphaInAnimationAdapter;
-import com.nhaarman.listviewanimations.appearance.simple.SwingRightInAnimationAdapter;
 import com.nhaarman.listviewanimations.itemmanipulation.DynamicListView;
 import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.OnDismissCallback;
 import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.undo.SimpleSwipeUndoAdapter;
@@ -37,12 +27,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.kymjs.kjframe.KJHttp;
 import org.kymjs.kjframe.http.HttpCallBack;
-import org.kymjs.kjframe.http.HttpParams;
 import org.kymjs.kjframe.ui.BindView;
 import org.kymjs.kjframe.ui.KJFragment;
-import org.kymjs.kjframe.ui.ViewInject;
 import org.kymjs.kjframe.utils.KJLoger;
-import org.kymjs.kjframe.widget.KJSlidingMenu;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,6 +58,7 @@ public class HomepageFragment extends KJFragment {
     private static final String EVERY_DAY_WORD_API = "https://api.ooopn.com/ciba/api.php";
 
 
+
     @Override
     protected View inflaterView(LayoutInflater inflater, ViewGroup container,
                                 Bundle bundle) {
@@ -84,8 +72,27 @@ public class HomepageFragment extends KJFragment {
         //假数据
         /*words.add(new NewWordsData((long)1,"22","111"));
         words.add(new NewWordsData((long)2,"2","11431"));
-        words.add(new NewWordsData((long)3,"52","34111"));*/
-        CountDaoUtils.inserCountryList(words);
+        words.add(new NewWordsData((long)3,"522","34111"));
+        words.add(new NewWordsData((long)34,"542","34111"));
+        words.add(new NewWordsData((long)35,"552","34111"));
+        words.add(new NewWordsData((long)33,"562","34111"));
+        words.add(new NewWordsData((long)32,"572","34111"));
+        words.add(new NewWordsData((long)31,"582","34111"));
+        words.add(new NewWordsData((long)36,"592","34111"));
+        words.add(new NewWordsData((long)37,"502","34111"));
+        words.add(new NewWordsData((long)38,"502","34111"));
+        words.add(new NewWordsData((long)39,"5s2","34111"));
+        words.add(new NewWordsData((long)30,"5qs2","34111"));
+        words.add(new NewWordsData((long)39,"5a2","34111"));
+        words.add(new NewWordsData((long)23,"5z2","34111"));
+        words.add(new NewWordsData((long)323,"c52","34111"));
+        words.add(new NewWordsData((long)213,"5bg2","34111"));
+        words.add(new NewWordsData((long)3321,"5ju2","34111"));
+        words.add(new NewWordsData((long)33321,"5m2","34111"));
+        words.add(new NewWordsData((long)321,"52nb","34111"));
+        words.add(new NewWordsData((long)3212,"152","34111"));
+
+        CountDaoUtils.inserCountryList(words);*/
         KJHttp kjh = new KJHttp();
         kjh.get(EVERY_DAY_WORD_API, new HttpCallBack() {
             @Override

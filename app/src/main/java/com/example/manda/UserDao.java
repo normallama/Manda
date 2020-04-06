@@ -10,7 +10,7 @@ import android.util.Log;
 
 import com.example.manda.Data.userData;
 
-public class DataManage {             //用户数据管理类
+public class UserDao {             //用户数据管理类
     //一些宏定义和声明
     private static final String TAG = "UserDataManager";
     private static final String DB_NAME = "user_data";
@@ -54,7 +54,7 @@ public class DataManage {             //用户数据管理类
         }
     }
 
-    public DataManage(Context context) {
+    public UserDao(Context context) {
         mContext = context;
         Log.i(TAG, "UserDataManager construction!");
     }

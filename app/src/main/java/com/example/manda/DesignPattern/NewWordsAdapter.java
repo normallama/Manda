@@ -1,4 +1,4 @@
-package com.example.manda.Adapter;
+package com.example.manda.DesignPattern;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -10,11 +10,8 @@ import android.widget.TextView;
 import com.example.manda.Data.NewWordsData;
 import com.example.manda.R;
 import com.nhaarman.listviewanimations.ArrayAdapter;
-import com.nhaarman.listviewanimations.appearance.StickyListHeadersAdapterDecorator;
-import com.nhaarman.listviewanimations.itemmanipulation.dragdrop.GripView;
 import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.undo.UndoAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -52,27 +49,17 @@ public class NewWordsAdapter extends ArrayAdapter<String> implements UndoAdapter
         //如果view未被实例化过，缓存池中没有对应的缓存
         if (convertView == null) {
             viewHolder = new ViewHolder();
-            // 由于我们只需要将XML转化为View，并不涉及到具体的布局，所以第二个参数通常设置为null
             convertView = LayoutInflater.from(mContext).inflate(R.layout.mynewwords, parent, false);
-
-            //对viewHolder的属性进行赋值
             viewHolder.name = (TextView) convertView.findViewById(R.id.newword_show);
             viewHolder.type = (TextView) convertView.findViewById(R.id.word_interpre);
-
-            //通过setTag将convertView与viewHolder关联
-            convertView.setTag(viewHolder);
+            convertView.setTag(viewHolder);//通过setTag将convertView与viewHolder关联
         } else {//如果缓存池中有对应的view缓存，则直接通过getTag取出viewHolder
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        // 取出word对象
         NewWordsData word = wordsData.get(Integer.parseInt((getItem(position))));
-
-        // 设置控件的数据
         viewHolder.name.setText(word.getWord());
         viewHolder.type.setText(word.getInterpre());
-
         return convertView;
-
     }
 
     @NonNull

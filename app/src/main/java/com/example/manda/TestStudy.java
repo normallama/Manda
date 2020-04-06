@@ -1,20 +1,15 @@
 package com.example.manda;
 
-import android.Manifest;
-import android.content.pm.PackageManager;
 import android.content.res.AssetFileDescriptor;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.os.Build;
-import android.os.Bundle;
 import android.os.Environment;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.manda.Adapter.RecordingUtil;
+import com.example.manda.DesignPattern.RecordingUtil;
 import com.example.manda.Fragment.CircleProgressView;
 import com.example.manda.Fragment.CircleRecordSurfaceView;
 import com.example.manda.Fragment.SpellingTexiView;
@@ -24,10 +19,6 @@ import com.example.manda.Rating.MFCC;
 import org.kymjs.kjframe.KJActivity;
 import org.kymjs.kjframe.ui.BindView;
 
-import java.io.File;
-import java.io.FileDescriptor;
-import java.io.FileInputStream;
-import java.io.InputStream;
 import java.text.DecimalFormat;
 
 public class TestStudy extends KJActivity {

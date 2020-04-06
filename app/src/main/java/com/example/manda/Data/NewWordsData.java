@@ -6,6 +6,7 @@ import org.greenrobot.greendao.annotation.Index;
 
 import java.io.Serializable;
 import org.greenrobot.greendao.annotation.Generated;
+import org.greenrobot.greendao.annotation.NotNull;
 
 @Entity
 public class NewWordsData {
@@ -15,18 +16,19 @@ public class NewWordsData {
     @Index(unique = true)
     private String word;  //单词
     private String interpre;   //解释
-
-    @Generated(hash = 1619944378)
-    public NewWordsData(Long wordId, String word, String interpre) {
+    @NotNull
+    private Long mywordId;//在USerdata引用
+    @Generated(hash = 182521305)
+    public NewWordsData(Long wordId, String word, String interpre,
+            @NotNull Long mywordId) {
         this.wordId = wordId;
         this.word = word;
         this.interpre = interpre;
+        this.mywordId = mywordId;
     }
     @Generated(hash = 660094573)
     public NewWordsData() {
     }
-
-    public void setInterpre(String i){interpre=i;}
     public Long getWordId() {
         return this.wordId;
     }
@@ -42,4 +44,15 @@ public class NewWordsData {
     public String getInterpre() {
         return this.interpre;
     }
+    public void setInterpre(String interpre) {
+        this.interpre = interpre;
+    }
+    public Long getMywordId() {
+        return this.mywordId;
+    }
+    public void setMywordId(Long mywordId) {
+        this.mywordId = mywordId;
+    }
+
+
 }

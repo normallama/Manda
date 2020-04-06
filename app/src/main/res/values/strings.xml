@@ -4,6 +4,7 @@
     <string name="title_dashboard">我的课程</string>
     <string name="title_notifications">个人中心</string>
     <string name="personal_favor">我的收藏</string>
+    <string name="personal_favor_intre">收藏的课程</string>
     <string name="personal_course">已购课程</string>
     <string name="personal_course_intre">查询购买的课程</string>
     <string name="personal_question">问题与反馈</string>

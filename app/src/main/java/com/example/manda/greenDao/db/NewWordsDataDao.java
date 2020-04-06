@@ -27,6 +27,7 @@ public class NewWordsDataDao extends AbstractDao<NewWordsData, Long> {
         public final static Property WordId = new Property(0, Long.class, "wordId", true, "_id");
         public final static Property Word = new Property(1, String.class, "word", false, "WORD");
         public final static Property Interpre = new Property(2, String.class, "interpre", false, "INTERPRE");
+        public final static Property MywordId = new Property(3, Long.class, "mywordId", false, "MYWORD_ID");
     }
 
 
@@ -44,7 +45,8 @@ public class NewWordsDataDao extends AbstractDao<NewWordsData, Long> {
         db.execSQL("CREATE TABLE " + constraint + "\"NEW_WORDS_DATA\" (" + //
                 "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: wordId
                 "\"WORD\" TEXT," + // 1: word
-                "\"INTERPRE\" TEXT);"); // 2: interpre
+                "\"INTERPRE\" TEXT," + // 2: interpre
+                "\"MYWORD_ID\" INTEGER NOT NULL );"); // 3: mywordId
         // Add Indexes
         db.execSQL("CREATE UNIQUE INDEX " + constraint + "IDX_NEW_WORDS_DATA_WORD ON \"NEW_WORDS_DATA\"" +
                 " (\"WORD\" ASC);");
@@ -74,6 +76,7 @@ public class NewWordsDataDao extends AbstractDao<NewWordsData, Long> {
         if (interpre != null) {
             stmt.bindString(3, interpre);
         }
+        stmt.bindLong(4, entity.getMywordId());
     }
 
     @Override
@@ -94,6 +97,7 @@ public class NewWordsDataDao extends AbstractDao<NewWordsData, Long> {
         if (interpre != null) {
             stmt.bindString(3, interpre);
         }
+        stmt.bindLong(4, entity.getMywordId());
     }
 
     @Override
@@ -106,7 +110,8 @@ public class NewWordsDataDao extends AbstractDao<NewWordsData, Long> {
         NewWordsData entity = new NewWordsData( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // wordId
             cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // word
-            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2) // interpre
+            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // interpre
+            cursor.getLong(offset + 3) // mywordId
         );
         return entity;
     }
@@ -116,6 +121,7 @@ public class NewWordsDataDao extends AbstractDao<NewWordsData, Long> {
         entity.setWordId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setWord(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
         entity.setInterpre(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
+        entity.setMywordId(cursor.getLong(offset + 3));
      }
     
     @Override

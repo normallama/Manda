@@ -1,4 +1,4 @@
-package com.example.manda.Adapter;
+package com.example.manda.DesignPattern;
 
 
 import android.media.AudioFormat;

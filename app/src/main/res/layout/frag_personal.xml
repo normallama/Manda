@@ -71,7 +71,7 @@
                 android:layout_marginTop="@dimen/personal_text_height"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/personal_text_height"
-                android:text="@string/personal_setting_intre" />
+                android:text="@string/personal_favor_intre" />
         </com.zhy.autolayout.AutoRelativeLayout>
 
 

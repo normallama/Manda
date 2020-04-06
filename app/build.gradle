@@ -51,4 +51,6 @@ dependencies {
     implementation 'org.greenrobot:greendao:3.2.2' // 添加库
     implementation 'com.nineoldandroids:library:2.4.0'
     implementation 'com.belerweb:pinyin4j:2.5.0'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.3'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.3'
 }
